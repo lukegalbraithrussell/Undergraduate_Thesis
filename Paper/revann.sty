@@ -1,0 +1,139 @@
+%================================================%
+% Revision and Annotation package for LaTeX
+% Created by Jed Rembold
+%
+% Inspired by revdiff by Pedro Mateo and
+% trackchanges
+%================================================%
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{revann}[2018/03/20 revann Package]
+
+\RequirePackage{letltxmacro}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\RequirePackage[normalem]{ulem}
+\RequirePackage{ifthen}
+\RequirePackage{varwidth}
+\RequirePackage[textsize=scriptsize, textwidth=4cm]{todonotes}
+\RequirePackage{tikzsymbols}
+\setlength{\marginparwidth}{4cm}
+
+\colorlet{nccolor}{violet!80!black}
+\colorlet{pccolor}{green!80!black}
+\colorlet{bccolor}{red!80!black}
+\colorlet{ccolor}{orange}
+\colorlet{newcolor}{cyan}
+\colorlet{oldcolor}{red!60!orange}
+
+\newcommand{\radd}[1]{#1}
+\newcommand{\rdel}[1]{#1}
+\newcommand{\rchange}[2]{#2}
+\newcommand{\rcom}[2][neutral]{#1}
+\newcommand{\rcominline}[1]{#1}
+\newcommand{\recom}[2]{#2}
+
+\newcommand{\rlegend}{}
+
+\newcommand{\movemargins}{
+	\setlength{\oddsidemargin}{-1in}
+	\addtolength{\oddsidemargin}{0.5in}
+}
+\newcommand{\adjmargins}{
+	\setlength{\textwidth}{0.70\paperwidth}
+}
+\newcommand{\setccolor}[1]{
+	\ifthenelse{\equal{#1}{g}}{\colorlet{ccolor}{pccolor}}{%
+		\ifthenelse{\equal{#1}{b}}{\colorlet{ccolor}{bccolor}}{\colorlet{ccolor}{nccolor}}%
+	}%
+}
+
+% Cites have to be inserted into mbox to allow strikethrough
+\LetLtxMacro\origcite\cite
+
+
+%================================================%
+% Declare options - revision mode
+%================================================%
+
+\DeclareOption{revision}{
+	\movemargins{}
+	\adjmargins{}
+  
+	\renewcommand{\radd}[1]{\textcolor{newcolor}{\underline{#1}}}
+	\renewcommand{\rdel}[1]{\textcolor{oldcolor}{{\sout{#1}}}} 
+	\renewcommand{\rchange}[2]{\rdel{#1}\radd{#2}}
+  
+	\renewcommand{\rcom}[2][]{%
+		\setccolor{#1}%
+		\todo[color=ccolor, backgroundcolor=ccolor!30, ]{#2}
+	}
+
+	\renewcommand{\rcominline}[2][]{%
+		\setccolor{#1}%
+		\todo[color=ccolor, backgroundcolor=ccolor!30,inline]{#2}
+	}
+  
+	\renewcommand{\recom}[3][]{%
+		\setccolor{#1}%
+		\raisebox{-0.8ex}{%
+			\tikz{%
+				\node[text height=1.25ex, scale=0.9, draw=ccolor, fill=ccolor!30, thick, rounded corners] {#2};
+			}
+		}
+		\todo[color=ccolor, backgroundcolor=ccolor!30]{#3}
+	}
+ 
+
+  % cite needs to be redefined to avoid compilation errors
+	\renewcommand{\cite}[1]{\mbox{\origcite{#1}}}
+  
+  % this command prints a legend 
+	\renewcommand{\rlegend}{
+		\textbf{Warning:}
+			This is a revised version including diff statements. 
+			Changes in the text are marked as follows:
+			%
+			\radd{Blue color is used to denote new text.} 
+			\rdel{Removed text is turn into red.}
+			Changes can also be inline: \rchange{This is an}{ inline change.}
+			Comments are shown in the margin\rcom{like this!} of the text.
+			Comments can be \recom{linked to}{a specific part of the text.}
+			Comments can be positive\rcom[g]{This is good} or negative\rcom[b]{This is less good}.
+		}
+}
+
+
+%================================================%
+% Declare options - clean mode
+%================================================%
+
+\DeclareOption{clean}{
+
+	\renewcommand{\radd}[1]{#1}
+	\renewcommand{\rdel}[1]{}
+	\renewcommand{\rchange}[2]{#2}
+	\renewcommand{\rcom}[2][]{}
+	\renewcommand{\recom}[3][]{#2}
+	\renewcommand{\rcominline}[2][]{}
+  
+  % cite needs to be redefined to avoid compilation errors
+  \renewcommand{\cite}[1]{\origcite{#1}}
+  
+  % this command prints a legend 
+  \renewcommand{\rlegend}{}
+}
+
+
+%================================================%
+% 
+%================================================%
+
+% default option
+\ExecuteOptions{clean}
+
+
+\ProcessOptions\relax
+
+
+\endinput

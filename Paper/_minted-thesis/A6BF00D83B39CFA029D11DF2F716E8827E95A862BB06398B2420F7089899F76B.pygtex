@@ -1,0 +1,348 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} Identifying Objects \PYGZam{} Their Magnitudes}
+\PYG{c+c1}{\PYGZsh{} }
+\PYG{c+c1}{\PYGZsh{} Luke Galbraith Russell}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} Willamette University}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+
+\PYG{k+kn}{import} \PYG{n+nn}{seaborn} \PYG{k+kn}{as} \PYG{n+nn}{sns}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{cv2}
+\PYG{k+kn}{import} \PYG{n+nn}{argparse}
+\PYG{k+kn}{import} \PYG{n+nn}{math}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k+kn}{as} \PYG{n+nn}{plt}
+\PYG{k+kn}{from} \PYG{n+nn}{scipy.optimize} \PYG{k+kn}{import} \PYG{n}{curve\PYGZus{}fit}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.gridspec} \PYG{k+kn}{as} \PYG{n+nn}{gridspec}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}
+
+\PYG{k}{global} \PYG{n}{REFERENCESTARLOC}
+\PYG{k}{global} \PYG{n}{OBJECTLOC}
+\PYG{k}{global} \PYG{n}{REFERENCESTARAVGRADIUS}
+\PYG{k}{global} \PYG{n}{OBJECTBACKAVGRADIUS}
+\PYG{k}{global} \PYG{n}{OBJECTBACKGROUNDRADIUS}
+\PYG{k}{global} \PYG{n}{REFERENCEBACKGROUNDRADIUS}
+
+\PYG{n}{REFERENCESTARLOC} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{n}{OBJECTLOC} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{n}{OBJECTBACKAVGRADIUS} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{OBJECTBACKGROUNDRADIUS} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{REFERENCESTARAVGRADIUS} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{REFERENCEBACKGROUNDRADIUS} \PYG{o}{=} \PYG{l+m+mi}{0}
+
+\PYG{n}{matplotlib}\PYG{o}{.}\PYG{n}{rcParams}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}figure.figsize\PYGZsq{}}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,}\PYG{l+m+mi}{10}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} Creating function for mouse click}
+\PYG{c+c1}{\PYGZsh{} Left Click is for Reference Star}
+\PYG{c+c1}{\PYGZsh{} Right Click is for the Object}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+
+\PYG{k}{def} \PYG{n+nf}{click}\PYG{p}{(}\PYG{n}{event}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{flags}\PYG{p}{,} \PYG{n}{param}\PYG{p}{):}
+    \PYG{k}{global} \PYG{n}{REFERENCESTARLOC}
+    \PYG{k}{global} \PYG{n}{OBJECTLOC}
+    \PYG{k}{if} \PYG{n}{event} \PYG{o}{==} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{EVENT\PYGZus{}LBUTTONDOWN}\PYG{p}{:}
+        \PYG{n}{REFERENCESTARLOC} \PYG{o}{=} \PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{)}
+    \PYG{k}{elif} \PYG{n}{event} \PYG{o}{==} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{EVENT\PYGZus{}RBUTTONDOWN}\PYG{p}{:}
+        \PYG{n}{OBJECTLOC} \PYG{o}{=} \PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{MaxFinder}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{img}\PYG{p}{):}
+    \PYG{n}{r} \PYG{o}{=} \PYG{l+m+mi}{10}
+    \PYG{c+c1}{\PYGZsh{} Accessing array so Y values first}
+    \PYG{n}{subimg} \PYG{o}{=} \PYG{n}{img}\PYG{p}{[}\PYG{n}{Y}\PYG{o}{\PYGZhy{}}\PYG{n}{r}\PYG{p}{:}\PYG{n}{Y}\PYG{o}{+}\PYG{n}{r}\PYG{p}{,} \PYG{n}{X}\PYG{o}{\PYGZhy{}}\PYG{n}{r}\PYG{p}{:}\PYG{n}{X}\PYG{o}{+}\PYG{n}{r}\PYG{p}{]}
+    \PYG{n}{blur} \PYG{o}{=} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{GaussianBlur}\PYG{p}{(}\PYG{n}{subimg}\PYG{p}{,} \PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{),} \PYG{l+m+mi}{0}\PYG{p}{)}
+    \PYG{n}{thresh} \PYG{o}{=} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{threshold}\PYG{p}{(}\PYG{n}{blur}\PYG{p}{,} \PYG{l+m+mi}{60}\PYG{p}{,} \PYG{l+m+mi}{255}\PYG{p}{,} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{THRESH\PYGZus{}BINARY}\PYG{p}{)[}\PYG{l+m+mi}{1}\PYG{p}{]}
+    \PYG{n}{im2}\PYG{p}{,} \PYG{n}{contours}\PYG{p}{,} \PYG{n}{heir} \PYG{o}{=} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{findContours}\PYG{p}{(}\PYG{n}{thresh}\PYG{p}{,} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{RETR\PYGZus{}TREE}\PYG{p}{,}
+	\PYG{n}{cv2}\PYG{o}{.}\PYG{n}{CHAIN\PYGZus{}APPROX\PYGZus{}SIMPLE}\PYG{p}{)}
+
+    \PYG{n}{areas} \PYG{o}{=} \PYG{p}{[}\PYG{n}{cv2}\PYG{o}{.}\PYG{n}{contourArea}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)} \PYG{k}{for} \PYG{n}{c} \PYG{o+ow}{in} \PYG{n}{contours}\PYG{p}{]}
+    \PYG{n}{max\PYGZus{}idx} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{argmax}\PYG{p}{(}\PYG{n}{areas}\PYG{p}{)}
+    \PYG{n}{cnt} \PYG{o}{=} \PYG{n}{contours}\PYG{p}{[}\PYG{n}{max\PYGZus{}idx}\PYG{p}{]}
+
+    \PYG{n}{M} \PYG{o}{=} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{moments}\PYG{p}{(}\PYG{n}{cnt}\PYG{p}{)}
+    \PYG{n}{M}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}m00\PYGZdq{}}\PYG{p}{]} \PYG{o}{!=} \PYG{l+m+mi}{0}
+    \PYG{n}{cX} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{M}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}m10\PYGZdq{}}\PYG{p}{]} \PYG{o}{/} \PYG{n}{M}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}m00\PYGZdq{}}\PYG{p}{])}
+    \PYG{n}{cY} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{M}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}m01\PYGZdq{}}\PYG{p}{]} \PYG{o}{/} \PYG{n}{M}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}m00\PYGZdq{}}\PYG{p}{])}
+    \PYG{n}{MaxLocShifted} \PYG{o}{=} \PYG{p}{(}\PYG{n}{X}\PYG{o}{\PYGZhy{}}\PYG{n}{r}\PYG{o}{+}\PYG{n}{cX}\PYG{p}{,} \PYG{n}{Y}\PYG{o}{\PYGZhy{}}\PYG{n}{r}\PYG{o}{+}\PYG{n}{cY}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} else:}
+        \PYG{c+c1}{\PYGZsh{} MaxLocShifted = (X\PYGZhy{}r,Y\PYGZhy{}r)}
+    \PYG{k}{return} \PYG{n}{MaxLocShifted} 
+
+\PYG{k}{def} \PYG{n+nf}{Gaussian}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{x0}\PYG{p}{,} \PYG{n}{Sigma}\PYG{p}{):}
+    \PYG{k}{return} \PYG{n}{a}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}}\PYG{n}{x0}\PYG{p}{)}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{o}{/}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{Sigma}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{))}
+
+\PYG{k}{def} \PYG{n+nf}{GaussianFinder}\PYG{p}{(}\PYG{n}{MaxLoc}\PYG{p}{):}
+
+    \PYG{n}{CoordinatesX} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{n}{CoordinatesY} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{n}{Range} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{MaxLoc}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{10}\PYG{p}{,}\PYG{n}{MaxLoc}\PYG{o}{+}\PYG{l+m+mi}{10}\PYG{p}{)}
+
+    \PYG{k}{if} \PYG{n}{MaxLoc} \PYG{o}{==} \PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]:}
+        \PYG{n}{Coordinates} \PYG{o}{=} \PYG{n}{img}\PYG{p}{[}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{MaxLoc}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{10}\PYG{p}{:}\PYG{n}{MaxLoc}\PYG{o}{+}\PYG{l+m+mi}{10}\PYG{p}{]}
+    \PYG{k}{if} \PYG{n}{MaxLoc} \PYG{o}{==} \PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]:}
+        \PYG{n}{Coordinates} \PYG{o}{=} \PYG{n}{img}\PYG{p}{[}\PYG{n}{MaxLoc}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{10}\PYG{p}{:}\PYG{n}{MaxLoc}\PYG{o}{+}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]]}
+    \PYG{k}{if} \PYG{n}{MaxLoc} \PYG{o}{==} \PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]:}
+        \PYG{n}{Coordinates} \PYG{o}{=} \PYG{n}{img}\PYG{p}{[}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{MaxLoc}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{10}\PYG{p}{:}\PYG{n}{MaxLoc}\PYG{o}{+}\PYG{l+m+mi}{10}\PYG{p}{]}
+    \PYG{k}{if} \PYG{n}{MaxLoc} \PYG{o}{==} \PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]:}
+        \PYG{n}{Coordinates} \PYG{o}{=} \PYG{n}{img}\PYG{p}{[}\PYG{n}{MaxLoc}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{10}\PYG{p}{:}\PYG{n}{MaxLoc}\PYG{o}{+}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]]}
+
+    \PYG{n}{Mean} \PYG{o}{=} \PYG{n}{MaxLoc}
+    \PYG{n}{Sigma} \PYG{o}{=} \PYG{l+m+mi}{3}
+    \PYG{k}{try}\PYG{p}{:}
+        \PYG{n}{FitParameters}\PYG{p}{,} \PYG{n}{pcov} \PYG{o}{=} \PYG{n}{curve\PYGZus{}fit}\PYG{p}{(}\PYG{n}{Gaussian}\PYG{p}{,} \PYG{n}{Range}\PYG{p}{,} \PYG{n}{Coordinates}\PYG{p}{,} 
+                \PYG{n}{p0} \PYG{o}{=} \PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{n}{Coordinates}\PYG{p}{),} \PYG{n}{Mean}\PYG{p}{,} \PYG{n}{Sigma}\PYG{p}{])}
+    \PYG{k}{except} \PYG{n+ne}{RuntimeError}\PYG{p}{:} 
+        \PYG{n}{FitParameters} \PYG{o}{=} \PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{n}{Coordinates}\PYG{p}{),}\PYG{n}{Mean}\PYG{p}{,} \PYG{n}{Sigma}\PYG{p}{]}
+
+    \PYG{k}{return}\PYG{p}{(}\PYG{n}{FitParameters}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{MagnitudeFinder}\PYG{p}{(}\PYG{n}{Loc}\PYG{p}{,} \PYG{n}{XFitParameters}\PYG{p}{,} \PYG{n}{YFitParameters}\PYG{p}{):}
+    \PYG{n}{YRadius} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{ceil}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{XFitParameters}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]))} 
+    \PYG{n}{XRadius} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{ceil}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{YFitParameters}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]))}
+    \PYG{n}{Radius} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{XRadius}\PYG{p}{,}\PYG{n}{YRadius}\PYG{p}{)}
+
+    \PYG{n}{Range}\PYG{o}{=}\PYG{p}{[]}
+    \PYG{k}{if} \PYG{n}{Radius} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{100}\PYG{p}{:}
+        \PYG{n}{Radius} \PYG{o}{=} \PYG{l+m+mi}{100}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{Radius}\PYG{p}{,}\PYG{n}{Radius}\PYG{p}{):}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{Radius}\PYG{p}{,}\PYG{n}{Radius}\PYG{p}{):}
+            \PYG{k}{if} \PYG{n}{i}\PYG{o}{**}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n}{j}\PYG{o}{**}\PYG{l+m+mi}{2}  \PYG{o}{\PYGZlt{}}  \PYG{n}{Radius}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{:}
+                \PYG{n}{Range}\PYG{o}{.}\PYG{n}{append}\PYG{p}{((}\PYG{n}{i} \PYG{o}{+} \PYG{n}{Loc}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{j} \PYG{o}{+} \PYG{n}{Loc}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])[::}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{])}
+
+    \PYG{n}{BackgroundRadius} \PYG{o}{=} \PYG{n}{Radius}\PYG{o}{+}\PYG{l+m+mi}{5}
+    \PYG{n}{BackgroundRange}\PYG{o}{=}\PYG{p}{[]}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{BackgroundRadius}\PYG{p}{,}\PYG{n}{BackgroundRadius}\PYG{p}{):}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{BackgroundRadius}\PYG{p}{,}\PYG{n}{BackgroundRadius}\PYG{p}{):}
+            \PYG{k}{if} \PYG{n}{i}\PYG{o}{**}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n}{j}\PYG{o}{**}\PYG{l+m+mi}{2}  \PYG{o}{\PYGZlt{}}  \PYG{n}{BackgroundRadius}\PYG{o}{**}\PYG{l+m+mi}{2} \PYG{o+ow}{and} \PYGZbs{}
+                \PYG{n}{i}\PYG{o}{**}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n}{j}\PYG{o}{**}\PYG{l+m+mi}{2} \PYG{o}{\PYGZgt{}} \PYG{n}{Radius}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{:}
+                \PYG{n}{BackgroundRange}\PYG{o}{.}\PYG{n}{append}\PYG{p}{((}\PYG{n}{i} \PYG{o}{+} \PYG{n}{Loc}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{j} \PYG{o}{+} \PYG{n}{Loc}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]))}\PYG{c+c1}{\PYGZsh{}[::\PYGZhy{}1])}
+
+    \PYG{c+c1}{\PYGZsh{} BackgroundRange = np.array(BackgroundRange)}
+    \PYG{c+c1}{\PYGZsh{} for i in BackgroundRange[:,0]:}
+        \PYG{c+c1}{\PYGZsh{} if i \PYGZgt{} 479:}
+            \PYG{c+c1}{\PYGZsh{} BackgroundRange[:,0] = 479}
+    \PYG{c+c1}{\PYGZsh{} print(BackgroundRange)}
+    \PYG{c+c1}{\PYGZsh{} BackgroundRange.tolist()}
+    \PYG{c+c1}{\PYGZsh{} \PYGZsh{}print(BackgroundRange)}
+
+
+    \PYG{n}{BackgroundValues} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{BackgroundRange}\PYG{p}{:}
+        \PYG{n}{BackgroundValues}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{img}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+    \PYG{n}{AvgBackgroundMag} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{BackgroundValues}\PYG{p}{)}\PYG{o}{/}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{BackgroundValues}\PYG{p}{)}
+    \PYG{n}{MagValue} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{n}{RawMagValue}\PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{Range}\PYG{p}{:}
+        \PYG{n}{MagValue} \PYG{o}{=} \PYG{n}{MagValue} \PYG{o}{+} \PYG{p}{(}\PYG{n}{img}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{AvgBackgroundMag}\PYG{p}{)}
+        \PYG{n}{RawMagValue} \PYG{o}{=} \PYG{n}{RawMagValue} \PYG{o}{+} \PYG{n}{img}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}
+    \PYG{k}{if} \PYG{n}{Loc} \PYG{o}{==} \PYG{n}{REFERENCESTARLOC}\PYG{p}{:}
+        \PYG{n}{REFERENCESTARAVGRADIUS} \PYG{o}{=} \PYG{n}{Radius}
+        \PYG{n}{REFERENCEBACKGROUNDRADIUS} \PYG{o}{=} \PYG{n}{Radius}\PYG{o}{+}\PYG{l+m+mi}{5}
+    \PYG{k}{if} \PYG{n}{Loc} \PYG{o}{==} \PYG{n}{OBJECTLOC}\PYG{p}{:}
+        \PYG{n}{OBJECTBACKAVGRADIUS} \PYG{o}{=} \PYG{n}{Radius}
+        \PYG{n}{OBJECTBACKGROUNDRADIUS} \PYG{o}{=} \PYG{n}{Radius}\PYG{o}{+}\PYG{l+m+mi}{5}
+    \PYG{k}{return}\PYG{p}{(}\PYG{n}{MagValue}\PYG{p}{)}
+
+
+\PYG{k}{def} \PYG{n+nf}{PlottingCurve}\PYG{p}{(}\PYG{n}{XFitParameters}\PYG{p}{,} \PYG{n}{YFitParameters}\PYG{p}{,} \PYG{n}{Radius}\PYG{p}{):}
+
+    \PYG{k}{def} \PYG{n+nf}{getPlotSlice}\PYG{p}{(}\PYG{n}{XCent}\PYG{p}{,} \PYG{n}{YCent}\PYG{p}{,} \PYG{n}{Dir}\PYG{p}{,} \PYG{n}{PlotRange}\PYG{p}{):}
+        \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Function to return a single column or row sliced at }
+\PYG{l+s+sd}{        the desired location}
+\PYG{l+s+sd}{        and in the desired direction.}
+\PYG{l+s+sd}{        XCent and YCent are integers and Dir is a stringof either \PYGZdq{}x\PYGZdq{} or \PYGZdq{}y\PYGZdq{}}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{c+c1}{\PYGZsh{} Gaussian positions are not integers so converting to integers}
+        \PYG{c+c1}{\PYGZsh{} Extracting desired slice}
+        \PYG{k}{if} \PYG{n}{Dir} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}x\PYGZsq{}}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{img}\PYG{p}{[}\PYG{n}{YCent}\PYG{p}{,}\PYG{n}{XCent}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{p}{:}\PYG{n}{XCent}\PYG{o}{+}\PYG{n}{PlotRange}\PYG{p}{]}
+        \PYG{k}{else}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{img}\PYG{p}{[}\PYG{n}{YCent}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{p}{:}\PYG{n}{YCent}\PYG{o}{+}\PYG{n}{PlotRange}\PYG{p}{,} \PYG{n}{XCent}\PYG{p}{]}
+
+    \PYG{n}{XMaxLoc} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{XFitParameters}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+    \PYG{n}{YMaxLoc} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{YFitParameters}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+
+    \PYG{n}{sns}\PYG{o}{.}\PYG{n}{set}\PYG{p}{()}
+    \PYG{n}{sns}\PYG{o}{.}\PYG{n}{set\PYGZus{}style}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}dark\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{sns}\PYG{o}{.}\PYG{n}{set\PYGZus{}context}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}poster\PYGZdq{}}\PYG{p}{)} 
+    \PYG{n}{gs} \PYG{o}{=} \PYG{n}{gridspec}\PYG{o}{.}\PYG{n}{GridSpec}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{width\PYGZus{}ratios}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{height\PYGZus{}ratios}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{])}
+    \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplot}\PYG{p}{(}\PYG{n}{gs}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{])} 
+
+    \PYG{n}{ax1} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplot}\PYG{p}{(}\PYG{n}{gs}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}
+    \PYG{n}{ax2} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplot}\PYG{p}{(}\PYG{n}{gs}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+    \PYG{n}{ax3} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplot}\PYG{p}{(}\PYG{n}{gs}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{])}
+    \PYG{n}{ax4} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplot}\PYG{p}{(}\PYG{n}{gs}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{])}
+    
+    \PYG{n}{PlotRange} \PYG{o}{=} \PYG{l+m+mi}{20}
+
+    \PYG{c+c1}{\PYGZsh{}Top Left}
+    \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{imshow}\PYG{p}{(}\PYG{n}{img}\PYG{p}{,}\PYG{n}{cmap}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}gray\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlim}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}
+    \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylim}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+    \PYG{k}{if} \PYG{n}{XMaxLoc} \PYG{o}{==} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{XFitParametersObj}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]):}
+        \PYG{c+c1}{\PYGZsh{}ax1.set\PYGZus{}title(\PYGZsq{}Magnitude of \PYGZpc{}s\PYGZsq{}\PYGZpc{}(round(ObjectCatalogValue,3)))}
+        \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{add\PYGZus{}artist}\PYG{p}{(}\PYG{n}{plt}\PYG{o}{.}\PYG{n}{Circle}\PYG{p}{((}\PYG{n}{OBJECTLOC}\PYG{p}{),}\PYG{n}{OBJECTBACKGROUNDRADIUS}\PYG{p}{,} 
+            \PYG{n}{color} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}yellow\PYGZsq{}}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=.}\PYG{l+m+mi}{2}\PYG{p}{))}
+        \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{add\PYGZus{}artist}\PYG{p}{(}\PYG{n}{plt}\PYG{o}{.}\PYG{n}{Circle}\PYG{p}{((}\PYG{n}{OBJECTLOC}\PYG{p}{),}\PYG{n}{Radius}\PYG{p}{,}\PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}red\PYGZsq{}}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.2}\PYG{p}{))}
+        \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{add\PYGZus{}artist}\PYG{p}{(}\PYG{n}{plt}\PYG{o}{.}\PYG{n}{Circle}\PYG{p}{((}\PYG{n}{OBJECTLOC}\PYG{p}{),}\PYG{o}{.}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{color} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}black\PYGZsq{}}\PYG{p}{,))}
+    \PYG{k}{if} \PYG{n}{XMaxLoc} \PYG{o}{==} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{XFitParametersRef}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]):}
+        \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Magnitude of }\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}}\PYG{p}{(}\PYG{n}{CatalogMagnitude}\PYG{p}{))}
+        \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{add\PYGZus{}artist}\PYG{p}{(}\PYG{n}{plt}\PYG{o}{.}\PYG{n}{Circle}\PYG{p}{((}\PYG{n}{REFERENCESTARLOC}\PYG{p}{),}\PYG{n}{Radius}\PYG{p}{,}
+            \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}blue\PYGZsq{}}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.2}\PYG{p}{))}
+        \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{add\PYGZus{}artist}\PYG{p}{(}\PYG{n}{plt}\PYG{o}{.}\PYG{n}{Circle}\PYG{p}{((}\PYG{n}{REFERENCESTARLOC}\PYG{p}{),}\PYG{n}{REFERENCEBACKGROUNDRADIUS}\PYG{p}{,} 
+            \PYG{n}{color} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}yellow\PYGZsq{}}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=.}\PYG{l+m+mi}{2}\PYG{p}{))}
+    \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{axis}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}off\PYGZsq{}}\PYG{p}{)}
+    
+    \PYG{c+c1}{\PYGZsh{}Top Right}
+    \PYG{k}{if} \PYG{n}{YMaxLoc} \PYG{o}{==} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{YFitParametersObj}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]):}
+        \PYG{n}{ax2}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{getPlotSlice}\PYG{p}{(}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{l+s+s1}{\PYGZsq{}y\PYGZsq{}}\PYG{p}{,}\PYG{n}{PlotRange}\PYG{p}{),}
+                \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{l+m+mi}{1}\PYG{p}{),}
+                \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Data\PYGZsq{}}\PYG{p}{,}\PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}orange\PYGZsq{}}\PYG{p}{)}
+        \PYG{n}{ax2}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{((}\PYG{n}{Gaussian}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}
+            \PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{o}{*}\PYG{n}{YFitParameters}\PYG{p}{)),}
+                \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{l+m+mi}{1}\PYG{p}{),}
+                \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Gaussian Fit\PYGZsq{}}\PYG{p}{,}\PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}red\PYGZsq{}}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{YMaxLoc} \PYG{o}{==} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{YFitParametersRef}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]):}
+        \PYG{n}{ax2}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{getPlotSlice}\PYG{p}{(}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}
+            \PYG{l+s+s1}{\PYGZsq{}y\PYGZsq{}}\PYG{p}{,} \PYG{n}{PlotRange}\PYG{p}{),}
+                \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}
+                    \PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{l+m+mi}{1}\PYG{p}{),}
+                \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Data\PYGZsq{}}\PYG{p}{)}
+        \PYG{n}{ax2}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{((}\PYG{n}{Gaussian}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}
+            \PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{o}{*}\PYG{n}{YFitParameters}\PYG{p}{)),}
+                \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}
+                    \PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{l+m+mi}{1}\PYG{p}{),}
+                \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Gaussian Fit\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax2}\PYG{o}{.}\PYG{n}{yaxis}\PYG{o}{.}\PYG{n}{set\PYGZus{}visible}\PYG{p}{(}\PYG{n+nb+bp}{False}\PYG{p}{)}
+    \PYG{n}{ax2}\PYG{o}{.}\PYG{n}{xaxis}\PYG{o}{.}\PYG{n}{tick\PYGZus{}top}\PYG{p}{()}
+    
+    \PYG{c+c1}{\PYGZsh{}Bottom Left}
+    \PYG{k}{if} \PYG{n}{XMaxLoc} \PYG{o}{==} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{XFitParametersObj}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]):}
+        \PYG{n}{ax3}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]),}
+                \PYG{n}{getPlotSlice}\PYG{p}{(}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{l+s+s1}{\PYGZsq{}x\PYGZsq{}}\PYG{p}{,}\PYG{n}{PlotRange}\PYG{p}{),}
+                \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Data\PYGZsq{}}\PYG{p}{,}\PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}orange\PYGZsq{}}\PYG{p}{)}
+        \PYG{n}{ax3}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]),}
+                \PYG{n}{Gaussian}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],}
+                    \PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]),}\PYG{o}{*}\PYG{n}{XFitParameters}\PYG{p}{),}
+                \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Gaussian Fit\PYGZsq{}}\PYG{p}{,}\PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}red\PYGZsq{}}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{XMaxLoc} \PYG{o}{==} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{XFitParametersRef}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]):}
+        \PYG{n}{YMaxLoc} \PYG{o}{=} \PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
+        \PYG{n}{XMaxLoc} \PYG{o}{=} \PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+        \PYG{n}{ax3}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{XMaxLoc}\PYG{p}{,}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{XMaxLoc}\PYG{p}{),}
+                \PYG{n}{getPlotSlice}\PYG{p}{(}\PYG{n}{XMaxLoc}\PYG{p}{,} \PYG{n}{YMaxLoc}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}x\PYGZsq{}}\PYG{p}{,} \PYG{n}{PlotRange}\PYG{p}{),}
+                \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Data\PYGZsq{}}\PYG{p}{)}
+        \PYG{n}{ax3}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{XMaxLoc}\PYG{p}{,}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{XMaxLoc}\PYG{p}{),} 
+                \PYG{n}{Gaussian}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{XMaxLoc}\PYG{p}{,}\PYG{n}{PlotRange}\PYG{o}{+}\PYG{n}{XMaxLoc}\PYG{p}{),}
+                    \PYG{o}{*}\PYG{n}{XFitParameters}\PYG{p}{),}
+                \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Gaussian Fit\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax3}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{n}{bbox\PYGZus{}to\PYGZus{}anchor}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mf}{0.}\PYG{p}{,}\PYG{o}{\PYGZhy{}.}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{o}{.}\PYG{l+m+mi}{102}\PYG{p}{),} \PYG{n}{loc}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{n}{ncol}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{borderaxespad}\PYG{o}{=}\PYG{l+m+mf}{0.}\PYG{p}{)}
+    \PYG{n}{ax3}\PYG{o}{.}\PYG{n}{invert\PYGZus{}yaxis}\PYG{p}{()}
+    \PYG{n}{ax3}\PYG{o}{.}\PYG{n}{xaxis}\PYG{o}{.}\PYG{n}{set\PYGZus{}visible}\PYG{p}{(}\PYG{n+nb+bp}{False}\PYG{p}{)}
+    
+    \PYG{c+c1}{\PYGZsh{}Bottom Right}
+    \PYG{n}{ax4}\PYG{o}{.}\PYG{n}{imshow}\PYG{p}{(}\PYG{n}{img}\PYG{p}{,}\PYG{n}{cmap}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}gray\PYGZsq{}}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{XMaxLoc} \PYG{o}{==} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{XFitParametersObj}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]):}
+        \PYG{n}{ax4}\PYG{o}{.}\PYG{n}{axvline}\PYG{p}{(}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}red\PYGZsq{}}\PYG{p}{)}
+        \PYG{n}{ax4}\PYG{o}{.}\PYG{n}{axhline}\PYG{p}{(}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}red\PYGZsq{}}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{XMaxLoc} \PYG{o}{==} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{XFitParametersRef}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]):}
+        \PYG{n}{ax4}\PYG{o}{.}\PYG{n}{axvline}\PYG{p}{(}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}blue\PYGZsq{}}\PYG{p}{)}
+        \PYG{n}{ax4}\PYG{o}{.}\PYG{n}{axhline}\PYG{p}{(}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}blue\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax4}\PYG{o}{.}\PYG{n}{axis}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}off\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots\PYGZus{}adjust}\PYG{p}{(}\PYG{n}{wspace}\PYG{o}{=.}\PYG{l+m+mi}{1}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots\PYGZus{}adjust}\PYG{p}{(}\PYG{n}{hspace}\PYG{o}{=.}\PYG{l+m+mi}{1}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{draw}\PYG{p}{()}
+
+    \PYG{c+c1}{\PYGZsh{}Title}
+    \PYG{k}{if} \PYG{n}{XMaxLoc} \PYG{o}{==} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{XFitParametersObj}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]):}
+        \PYG{n}{plt}\PYG{o}{.}\PYG{n}{suptitle}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Object\PYGZsq{}}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{XMaxLoc} \PYG{o}{==} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{XFitParametersRef}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]):}
+        \PYG{n}{plt}\PYG{o}{.}\PYG{n}{suptitle}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Reference Star\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{n}{f}\PYG{l+s+s1}{\PYGZsq{}testplot\PYGZob{}Iteration:03d\PYGZcb{}.pdf\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} Instructions for user}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Instructions\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Reference Star = left click ||| Object = right click\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Click on item. It does not need to be exact. Continue to hold and drag cursor to area of empty space next to item and release.\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}If circle does not satisfy what you were trying to do, feel free to repeat the previous instruction.\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+\PYG{c+c1}{\PYGZsh{} open with \PYGZdq{}python /path/to/script.py \PYGZhy{}\PYGZhy{}image /path/to/picture.jpg\PYGZdq{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+
+\PYG{n}{ap}\PYG{o}{=}\PYG{n}{argparse}\PYG{o}{.}\PYG{n}{ArgumentParser}\PYG{p}{()}
+\PYG{n}{ap}\PYG{o}{.}\PYG{n}{add\PYGZus{}argument}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}i\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}video\PYGZdq{}}\PYG{p}{,} \PYG{n}{required}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{)}
+\PYG{n}{args}\PYG{o}{=} \PYG{n+nb}{vars}\PYG{p}{(}\PYG{n}{ap}\PYG{o}{.}\PYG{n}{parse\PYGZus{}args}\PYG{p}{())}
+
+\PYG{n}{record} \PYG{o}{=} \PYG{n+nb+bp}{True}
+\PYG{n}{frame\PYGZus{}no} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}
+
+\PYG{n}{vid} \PYG{o}{=} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{VideoCapture}\PYG{p}{(}\PYG{n}{args}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}video\PYGZdq{}}\PYG{p}{])}
+\PYG{p}{(}\PYG{n}{Grabbed}\PYG{p}{,}\PYG{n}{img}\PYG{p}{)} \PYG{o}{=} \PYG{n}{vid}\PYG{o}{.}\PYG{n}{read}\PYG{p}{()}
+\PYG{n}{img} \PYG{o}{=} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{cvtColor}\PYG{p}{(}\PYG{n}{img}\PYG{p}{,} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{COLOR\PYGZus{}BGR2GRAY}\PYG{p}{)}
+
+\PYG{n}{blurred} \PYG{o}{=} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{GaussianBlur}\PYG{p}{(}\PYG{n}{img}\PYG{p}{,} \PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{),} \PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{n}{Thresh} \PYG{o}{=} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{threshold}\PYG{p}{(}\PYG{n}{blurred}\PYG{p}{,} \PYG{l+m+mi}{60}\PYG{p}{,} \PYG{l+m+mi}{255}\PYG{p}{,} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{THRESH\PYGZus{}BINARY}\PYG{p}{)[}\PYG{l+m+mi}{1}\PYG{p}{]}
+
+
+\PYG{n}{img2} \PYG{o}{=} \PYG{n}{img}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{()}
+\PYG{n}{cv2}\PYG{o}{.}\PYG{n}{namedWindow}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}window\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{cv2}\PYG{o}{.}\PYG{n}{setMouseCallback}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}window\PYGZdq{}}\PYG{p}{,} \PYG{n}{click}\PYG{p}{)}
+\PYG{n}{cv2}\PYG{o}{.}\PYG{n}{imshow}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}window\PYGZdq{}}\PYG{p}{,} \PYG{n}{img2}\PYG{p}{)}
+\PYG{n}{cv2}\PYG{o}{.}\PYG{n}{waitKey}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{n}{cv2}\PYG{o}{.}\PYG{n}{destroyAllWindows}\PYG{p}{()}
+
+    
+\PYG{n}{REFERENCESTARLOC} \PYG{o}{=} \PYG{n}{MaxFinder}\PYG{p}{(}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{img}\PYG{p}{)}
+\PYG{n}{XFitParametersRef} \PYG{o}{=} \PYG{n}{GaussianFinder}\PYG{p}{(}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}
+\PYG{n}{YFitParametersRef} \PYG{o}{=} \PYG{n}{GaussianFinder}\PYG{p}{(}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+\PYG{n}{ReferenceMagValue} \PYG{o}{=} \PYG{n}{MagnitudeFinder}\PYG{p}{(}\PYG{n}{REFERENCESTARLOC}\PYG{p}{,} 
+        \PYG{n}{GaussianFinder}\PYG{p}{(}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]),} 
+        \PYG{n}{GaussianFinder}\PYG{p}{(}\PYG{n}{REFERENCESTARLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]))}
+
+\PYG{n}{ObjectMagValueList} \PYG{o}{=} \PYG{p}{[]}
+\PYG{n}{CatalogList} \PYG{o}{=} \PYG{p}{[]}
+\PYG{n}{Instrument} \PYG{o}{=} \PYG{p}{[]}
+\PYG{n}{Iteration} \PYG{o}{=} \PYG{l+m+mi}{1}
+\PYG{n}{Round} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{k}{while} \PYG{n}{Grabbed} \PYG{o}{==} \PYG{n+nb+bp}{True}\PYG{p}{:}
+    \PYG{p}{(}\PYG{n}{Grabbed}\PYG{p}{,} \PYG{n}{img}\PYG{p}{)} \PYG{o}{=} \PYG{n}{vid}\PYG{o}{.}\PYG{n}{read}\PYG{p}{()}
+    \PYG{k}{if} \PYG{n}{Grabbed} \PYG{o}{==} \PYG{n+nb+bp}{False}\PYG{p}{:}
+        \PYG{k}{break}
+    \PYG{n}{img} \PYG{o}{=} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{cvtColor}\PYG{p}{(}\PYG{n}{img}\PYG{p}{,} \PYG{n}{cv2}\PYG{o}{.}\PYG{n}{COLOR\PYGZus{}BGR2GRAY}\PYG{p}{)}
+
+    \PYG{n}{OBJECTLOC} \PYG{o}{=} \PYG{n}{MaxFinder}\PYG{p}{(}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{img}\PYG{p}{)} 
+
+    \PYG{n}{XFitParametersObj} \PYG{o}{=} \PYG{n}{GaussianFinder}\PYG{p}{(}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}
+    \PYG{n}{YFitParametersObj} \PYG{o}{=} \PYG{n}{GaussianFinder}\PYG{p}{(}\PYG{n}{OBJECTLOC}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+
+    \PYG{n}{ObjectMagValue}\PYG{o}{=}\PYG{n}{MagnitudeFinder}\PYG{p}{(}\PYG{n}{OBJECTLOC}\PYG{p}{,}\PYG{n}{XFitParametersObj}\PYG{p}{,}\PYG{n}{YFitParametersObj}\PYG{p}{)}
+    \PYG{n}{ObjectMagValueList}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{ObjectMagValue}\PYG{p}{)}
+
+    \PYG{n}{InstrumentalMagnitude} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{2.5}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{log10}\PYG{p}{(}\PYG{n}{ReferenceMagValue}\PYG{p}{)}
+    \PYG{n}{CatalogMagnitude} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{2.65}
+    \PYG{n}{Offset} \PYG{o}{=} \PYG{n}{InstrumentalMagnitude} \PYG{o}{\PYGZhy{}} \PYG{n}{CatalogMagnitude} 
+    \PYG{c+c1}{\PYGZsh{}CatalogMagnitude = float(input(\PYGZsq{}Enter catalog magnitude: \PYGZsq{}))}
+
+    \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}TEMP}
+    \PYG{n}{Offset} \PYG{o}{=} \PYG{l+m+mi}{5}
+
+    \PYG{n}{ObjectCatalogValue} \PYG{o}{=} \PYG{l+m+mf}{2.5}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{log10}\PYG{p}{(}\PYG{n}{ObjectMagValue}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{Offset}
+    \PYG{n}{CatalogList}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{ObjectCatalogValue}\PYG{p}{)}
+    \PYG{n}{PlottingCurve}\PYG{p}{(}\PYG{n}{XFitParametersObj}\PYG{p}{,} \PYG{n}{YFitParametersObj}\PYG{p}{,} \PYG{n}{OBJECTBACKAVGRADIUS}\PYG{p}{)}
+    \PYG{n}{Iteration} \PYG{o}{+=} \PYG{l+m+mi}{1}
+\PYG{c+c1}{\PYGZsh{}plt.plot(np.arange(0,len(ObjectMagValueList)),ObjectMagValueList)}
+\PYG{c+c1}{\PYGZsh{}plt.plot(np.arange(1.3,len(CatalogList)/30+1.29,1/30),CatalogList)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{()}
+
+    
+\end{Verbatim}
