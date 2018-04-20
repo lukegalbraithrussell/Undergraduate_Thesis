@@ -15,10 +15,10 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces The first frame of an event. The user clicks on this image in the GUI.}}{16}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces The purpose of the initial clicking by the user.}}{16}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces The steps the image is process with to get a more accurate object position}}{17}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces The fireball in a unaltered frame can sometimes be too dim for the program to detect for the entirety of the event.}}{18}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces The fireball in a unaltered frame can sometimes be too dim for the program to detect for the entirety of the event.}}{17}
 \contentsline {figure}{\numberline {3.7}{\ignorespaces A thresholded image, when adjusted properly, allows the program to locate an object easier.}}{18}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces The steps taken to find the Gaussian parameters of the data.}}{19}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces The Gaussian curves in this plot align with the image, so one can visually confirm that they are fitting the data.}}{20}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces The steps taken to find the Gaussian parameters of the data.}}{18}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces The Gaussian curves in this plot align with the image, so one can visually confirm that they are fitting the data.}}{19}
 \contentsline {figure}{\numberline {3.10}{\ignorespaces The object is located in the center of this slice, and its light fades radially out from that center.}}{20}
 \contentsline {figure}{\numberline {3.11}{\ignorespaces The steps the function goes through to find the magnitude of the object.}}{21}
 \contentsline {figure}{\numberline {3.12}{\ignorespaces The pixels in red are within the calculated radius for this fireball.}}{21}
@@ -31,9 +31,13 @@
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Name}}{27}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces The light curve of the iridium flare event.}}{28}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces ObjectPlot055}}{28}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces A lightcurve the program calculated off one of NASA's detected meteor events.}}{29}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces The event in question is the light curve on the top.}}{30}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces The incomplete frame data can be seen in both slices of the pixel data.}}{30}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces The light curve of this event is much less smooth than one would expect from a fireball}}{31}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces The light curve NASA attained off the same video is shown in blue.}}{29}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Only celestial objects with a magnitude brighter than 2.00 are filtered through for ease of identifying them.}}{30}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces The threshold frame allows one to focus on the easily identifiable, bright, objects in the sky.}}{31}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Put Labels on this one, Luke!}}{31}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces A lightcurve the program calculated off one of NASA's detected meteor events.}}{32}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces The event in question is the light curve on the top.}}{32}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces The incomplete frame data can be seen in both slices of the pixel data.}}{33}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces The light curve of this event is much less smooth than one would expect from a fireball}}{34}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -46,11 +46,53 @@ Figure~\ref{fig:ObjectPlot055} allows us to see that the center of event is too 
 
 Another issue that is apparent in the iridium flare data is an excess of noise insections of the data. Specifically, the noise at the end of the event appears most jarring in Figure~\ref{fig:iridiummag}. When the event nears its end, the signal to noise greatly decreases. This noise is a result of the background light that has already been mentioned. Since the event is at its end, it is becoming incredibly dim, and in its last moments its signal is basically equal with the background light around it. Since the background light value we are using is the average of the area around the event, there arises occasions where the pixels of the event are smaller than the background light at this stage. This creates a magnitude that is the resultant of a log of an incredibly small, or even negative number. Since taking the logarithm of a negative error would break the program if left untreated, those values are set to 0. So, at the end of an event before the program no longer detects any trace, it has a few data points that are incredibly smaller, whose tiny size is magnified (this seems oxymoronic???) in the logarithmic-based light curve. While not aesthetically pleasing, this small values do not affect our results, as our results will be based off integrating the intensity along the light curve.
 
+Iridium flares are somewhat useful pseudo-meteors, but ultimately the program needs to show that it can successfully track actual meteors. When running the program on an iridium flare event, the tracking algorithm is not challenged greatly; the flare's light was at a relatively constant position on the camera's frames. Meteor events that do move far across the screen pose a new challenge for the program.
+
 \section{Comparison to NASA Data}
 
-The previous section provided an example of an acquired light curve from the completion of analysis from a NASA video clip. By running the script against clips from NASA, we can confirm that the script is working by comparing it to NASA's light curves provided with the videos. Examples of this are discussed below.
+The methods section provided an example of an acquired light curve from the completion of analysis from a NASA video clip. By running the script against clips from NASA, we can confirm that the script is working by comparing it to NASA's light curves provided with the videos. The collected data and results of this test are discussed below.
 
-When it is finished, the end result is the magnitude of each frame plotted over the time of the event, showing the light curve of the event. An example of this can be seen in Figure~\ref{fig:lightcurve}. 
+The first event that we acquired from NASA's database was one that occurred on March 21, 2018, by one of their cameras stationed at LOCATION. The video was downloaded alongside their infographic of data involving the event. This infographic, displayed as Figure~\ref{fig:infographic} contains the light curve of the event in the top right corner. 
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{infographic.png}
+	\caption{The light curve NASA attained off the same video is shown in blue.}
+	\label{fig:infographic}
+\end{figure}
+
+While the light curve is crucial to compare our results to, the infographic also contains crucial information for star calibration such as the video's location, the event's direction, and the time of the event. This allows us to make use of planetarium software to view how the stars were positioned at that time and orientation, so we can identify a correct reference star. For our purposes, we used stellarium. Stellarium is a free, open-source\footnote{Open-source projects are one the best catalysts of intelligent thought in a society. If possible, they should be used at all costs} planetarium available on all three major operating systems\footnote{Available on most, but perhaps not all, Linux distributions}.
+
+With the planetarium software, we were able to obtain a view of the position of celestial objects at that time, as seen in Figure~\ref{stellarium}.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{stellarium.png}
+	\caption{Only celestial objects with a magnitude brighter than 2.00 are filtered through for ease of identifying them.}
+	\label{fig:stellarium}
+\end{figure}
+
+Figure~\ref{stellarium} was then compared to the thresholded video frames of the event in order to try to identify one of the brighter objects. Assuming the stellarium was positioned correctly, celestial objects should appear to be in the same place in both images. Figure~\ref{ThresholdFrame} was the frame that was compared. 
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{ThresholdFrame.png}
+	\caption{The threshold frame allows one to focus on the easily identifiable, bright, objects in the sky.}
+	\label{fig:ThresholdFrame}
+\end{figure}
+
+Looking at Figure~\ref{ThresholdFrame} alongside Figure~\ref{stellarium} one can pick out which objects are which. A few pieces of data can be extracted from the two images. The only piece of data that we need is the magnitude of a single object, which can be obtained by clicking on that object in stellarium. For this calibration, Jupiter was used with its magnitude of -2.35 at the time. While only one object is needed, Jupiter and other notable stars are labeled in the identified version of the thresholded frame in Figure~\ref{FrameLabel}.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{ThresholdFrame.png}
+	\caption{Put Labels on this one, Luke!}
+	\label{fig:FrameLabel}
+\end{figure}
+
+Another piece of data that can be extracted is that the event in question was most likely from the $\theta$-Virginids or $\pi$-Virginids, as the event is in the same area as those two meteor showers were on that day. This is another piece of strong evidence that the sky is oriented correctly in the images.
+
+Now that we had a celestial object with a magnitude to calibrate to, the program was ran on the event. When it finished, the end result is the magnitude of each frame plotted over the time of the event, showing the light curve of the event. The light curve of this event from the program is shown in Figure~\ref{fig:lightcurve}. 
 
 \begin{figure}[htpb]
 	\centering
@@ -69,10 +111,11 @@ The general trend shows that program's methodology in calculating the magnitude 
 	\label{fig:nasa}
 \end{figure}
 
+One aspect of the data that does not seem to fit well is the beginning of the event. This discrepancy may be because the program does not take into account parameters such as atmospheric extinction. These parameters are more influential if the object moves radially across the night sky in the camera's frame. If NASA did take into account this affect, then that would explain the difference.
 
 \section{Fireballs detected with D6.}
 
-Ultimately, however, the goal of our research is to show our all-sky camera's capabilities. The final test of the photometry script is thus the ability for it to detect new data collected from our own all-sky camera. With self-collected data, however, there are often problems that need to be troubleshooted. One problem that emerged early on in our desire to build an ultra compact and affordable unit was that our hardware was not fast enough to write the frames of the events to the harddrive cleanly. The result of this is incomplete video frames, creating gaps in the data. This can be seen in Figure~\ref{fig:D6Glitch}. 
+Ultimately, however, the goal of our research is to show our all-sky camera's capabilities. The final test of the photometry script is thus the ability for it to detect new data collected from our own all-sky camera. With self-collected data, however, there are often problems that need to be troubleshooted. One problem that emerged early on in our desire to build an ultra compact and affordable unit was that our hardware was not fast enough to write the frames of the events to the hard drive cleanly. The result of this is incomplete video frames, creating gaps in the data. This can be seen in Figure~\ref{fig:D6Glitch}. 
 
 \begin{figure}[ht!]
 	\centering

@@ -1,4 +1,4 @@
-PWD /home/luke/Git/Senior-Thesis/Paper
+PWD /home/luke/Git/Undergraduate_Thesis/Paper
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT thesis.tex
@@ -297,9 +297,9 @@ INPUT methods.tex
 INPUT images/Flow.png
 INPUT ./images/Flow.png
 INPUT ./images/Flow.png
-INPUT images/gui.png
-INPUT ./images/gui.png
-INPUT ./images/gui.png
+INPUT images/ProgramLandscape.png
+INPUT ./images/ProgramLandscape.png
+INPUT ./images/ProgramLandscape.png
 INPUT images/scene.png
 INPUT ./images/scene.png
 INPUT ./images/scene.png
@@ -357,6 +357,17 @@ INPUT /home/luke/Data/IridiumFlare/IridiumCurve.pdf
 INPUT images/ObjectPlot055.png
 INPUT ./images/ObjectPlot055.png
 INPUT ./images/ObjectPlot055.png
+INPUT images/infographic.png
+INPUT ./images/infographic.png
+INPUT ./images/infographic.png
+INPUT images/stellarium.png
+INPUT ./images/stellarium.png
+INPUT ./images/stellarium.png
+INPUT images/ThresholdFrame.png
+INPUT ./images/ThresholdFrame.png
+INPUT ./images/ThresholdFrame.png
+INPUT images/ThresholdFrame.png
+INPUT ./images/ThresholdFrame.png
 INPUT /home/luke/Data/NASA/2018-03-21-0814/MeteorCurve.pdf
 INPUT /home/luke/Data/NASA/2018-03-21-0814/MeteorCurve.pdf
 INPUT /home/luke/Data/NASA/2018-03-21-0814/MeteorCurve.pdf
