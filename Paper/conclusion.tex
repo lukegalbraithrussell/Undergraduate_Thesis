@@ -1,8 +1,16 @@
 \chapter{Conclusion}
 
+So what does this data show us regarding the current capabilities of our all-sky camera setup? There are improvements to be made, problems to troubleshoot, but on a wholistic sense, the system is most assuredly capable of photometrically analysing the events.
+
 \section{Critique}
 
-Where does our system stand right now?
+As mentioned, there are improvements to be made. Further examination is needed to figure out whether or not the discrepancies at the beginning of the light curve is based off a correctable parameter such as atmospheric extinction, or whether it arises from a systematic failure in the program to successfully find the magnitudes of dimmer objects.
+
+Another potentially problematic issue is there is no current way for us to compare our calibrated light curves to other calibrated magnitudes. Each of the potential ways to do so are somewhat flawed in one aspect or the other. Comparing our data to NASA's allows us to effectively see if the shape of our light curve is accurate, but as they are uncalibrated, we cannot confirm our calibration is right then either.
+
+The other source of comparison is the iridium flare data. The iridium data does not have light curves to compare to but they do have posted maximum magnitudes. Unfortunately, as mentioned in the data section, our camera cannot see that maximum magnitude in most iridium flare events due to oversaturation.
+
+In order to confirm our calibration is accurate, ideally we would find data sets with calibrated magnitudes to compare to. However, it is worth noting that if the program can detect the shape of the light curve accurately, which it has repeatedly shown it can, it should have no problem with the calibration. After all, the calibration is dependent on the same algorithm, only it arises from the calculation of the reference star's magnitude instead of the object's magnitude. In fact, it should be even easier to do so, as the reference star does not move throughout the duration of the event; the program does not need to update the position it is covering.
 
 \section{Outlook}
 <<This is vague>>

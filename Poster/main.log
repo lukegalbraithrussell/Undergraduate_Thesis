@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.22)  20 APR 2018 10:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.22)  20 APR 2018 14:05
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -994,45 +994,45 @@ Overfull \hbox (1605.3045pt too wide) detected at line 71
  [] 
  []
 
-LaTeX Font Info:    Calculating math sizes for size <29.86> on input line 316.
+LaTeX Font Info:    Calculating math sizes for size <29.86> on input line 318.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <29.86> on input line 316.
+(Font)              <29.86> on input line 318.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <20.9019> on input line 316.
+(Font)              <20.9019> on input line 318.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.93> on input line 316.
+(Font)              <14.93> on input line 318.
 <deesix.jpg, id=13, 2661.945pt x 3653.65pt>
 File: deesix.jpg Graphic file (type jpg)
 <use deesix.jpg>
-Package pdftex.def Info: deesix.jpg  used on input line 316.
+Package pdftex.def Info: deesix.jpg  used on input line 318.
 (pdftex.def)             Requested size: 533.48688pt x 732.22232pt.
 <ProgramLandscape.png, id=16, 1465.475pt x 640.3925pt>
 File: ProgramLandscape.png Graphic file (type png)
 <use ProgramLandscape.png>
-Package pdftex.def Info: ProgramLandscape.png  used on input line 316.
+Package pdftex.def Info: ProgramLandscape.png  used on input line 318.
 (pdftex.def)             Requested size: 762.12744pt x 333.0451pt.
 <flowchart4.pdf, id=17, 285.065pt x 344.28625pt>
 File: flowchart4.pdf Graphic file (type pdf)
 <use flowchart4.pdf>
-Package pdftex.def Info: flowchart4.pdf  used on input line 316.
+Package pdftex.def Info: flowchart4.pdf  used on input line 318.
 (pdftex.def)             Requested size: 381.06372pt x 460.22745pt.
 <testplot2.pdf, id=18, 609.23611pt x 633.08517pt>
 File: testplot2.pdf Graphic file (type pdf)
 <use testplot2.pdf>
-Package pdftex.def Info: testplot2.pdf  used on input line 316.
+Package pdftex.def Info: testplot2.pdf  used on input line 318.
 (pdftex.def)             Requested size: 381.06372pt x 395.98639pt.
 <LightComparison0.pdf, id=19, 451.29164pt x 299.05351pt>
 File: LightComparison0.pdf Graphic file (type pdf)
 <use LightComparison0.pdf>
-Package pdftex.def Info: LightComparison0.pdf  used on input line 316.
+Package pdftex.def Info: LightComparison0.pdf  used on input line 318.
 (pdftex.def)             Requested size: 381.06372pt x 252.51741pt.
 <D6Curve.pdf, id=20, 468.52791pt x 299.05351pt>
 File: D6Curve.pdf Graphic file (type pdf)
 <use D6Curve.pdf>
-Package pdftex.def Info: D6Curve.pdf  used on input line 316.
+Package pdftex.def Info: D6Curve.pdf  used on input line 318.
 (pdftex.def)             Requested size: 381.06372pt x 243.2359pt.
 
-Overfull \hbox (2.78181pt too wide) detected at line 316
+Overfull \hbox (2.78181pt too wide) detected at line 318
 [][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][] 
  []
 
@@ -1057,42 +1057,42 @@ pdfTeX warning (ext4): destination with the same identifier (name{fig:sub1}) has
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.316 \end{frame}
+l.318 \end{frame}
                   % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{sub@fig:sub1}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.316 \end{frame}
+l.318 \end{frame}
                   % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{fig:test}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.316 \end{frame}
+l.318 \end{frame}
                   % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{fig:sub1}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.316 \end{frame}
+l.318 \end{frame}
                   % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{sub@fig:sub1}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.316 \end{frame}
+l.318 \end{frame}
                   % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{fig:sub2}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.316 \end{frame}
+l.318 \end{frame}
                   % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{sub@fig:sub2}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.316 \end{frame}
+l.318 \end{frame}
                   % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{fig:test}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.316 \end{frame}
+l.318 \end{frame}
                   % End of the enclosing frame <./deesix.jpg> <./ProgramLandscape.png> <./flowchart4.pdf> <./testplot2.pdf> <./LightComparison0.pdf
 
 pdfTeX warning: pdflatex (file ./LightComparison0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -1109,11 +1109,11 @@ pdfTeX warning: pdflatex (file ./D6Curve.pdf): PDF inclusion: multiple pdfs with
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 318.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 318.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 320.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 320.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 318.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 318.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 320.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 320.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1122,18 +1122,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 23419 strings out of 492982
- 449638 string characters out of 6138579
- 570096 words of memory out of 5000000
- 26424 multiletter control sequences out of 15000+600000
- 63722 words of font info for 60 fonts, out of 8000000 for 9000
+ 23441 strings out of 492982
+ 450146 string characters out of 6138579
+ 572210 words of memory out of 5000000
+ 26446 multiletter control sequences out of 15000+600000
+ 66511 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,17n,71p,791b,1499s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on main.pdf (1 page, 1216177 bytes).
+ 60i,17n,79p,791b,1589s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
+Output written on main.pdf (1 page, 1233962 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
+ 162 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
  11 named destinations out of 1000 (max. 500000)
  73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

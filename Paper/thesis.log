@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.22)  19 APR 2018 23:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.22)  20 APR 2018 13:51
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -461,7 +461,14 @@ File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 \tikz@expandcount=\count157
  (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
-)))
+))) (/usr/share/texmf-dist/tex/latex/tools/array.sty
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+\col@sep=\dimen180
+\extrarowheight=\dimen181
+\NC@list=\toks37
+\extratabsurround=\skip53
+\backup@length=\skip54
+)
 runsystem(which pygmentize && touch thesis.aex)...executed.
 
 runsystem(rm thesis.aex)...executed.
@@ -469,31 +476,31 @@ runsystem(rm thesis.aex)...executed.
  (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count158
-\scratchdimen=\dimen180
+\scratchdimen=\dimen182
 \scratchbox=\box50
 \nofMPsegments=\count159
 \nofMParguments=\count160
-\everyMPshowfont=\toks37
+\everyMPshowfont=\toks38
 \MPscratchCnt=\count161
-\MPscratchDim=\dimen181
+\MPscratchDim=\dimen183
 \MPnumerator=\count162
 \makeMPintoPDFobject=\count163
-\everyMPtoPDFconversion=\toks38
+\everyMPtoPDFconversion=\toks39
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  (/usr/share/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -957,45 +964,45 @@ Package pdftex.def Info: /home/luke/Data/D6/D6Curve.pdf  used on input line 131.
 (pdftex.def)             Requested size: 249.33403pt x 173.46301pt.
 ) (./conclusion.tex [33 <./images/D6Glitch.png>] [34 </home/luke/Data/D6/D6Curve.pdf>]
 Chapter 5.
-) (./appendix.tex [35
+[35
 
 
-]
+]) (./appendix.tex [36]
 Appendix A.
 (./_minted-thesis/default-pyg-prefix.pygstyle) (./_minted-thesis/default.pygstyle) (./_minted-thesis/C8552BCC387EE910BB9084CCC6E13F5B7E95A862BB06398B2420F7089899F76B.pygtex
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 14.
- [36
+ [37
 
 
-] [37] [38] [39] [40] [41] [42] [43] [44] [45]) (./_minted-thesis/1EEC23EFE627842F0C05F69CEED12F68D445AA5F0AE86758865CB5739C599ECE.pygtex [46] [47] [48] [49] [50] [51] [52] [53])) (./thesis.bbl [54]
+] [38] [39] [40] [41] [42] [43] [44] [45] [46]) (./_minted-thesis/1EEC23EFE627842F0C05F69CEED12F68D445AA5F0AE86758865CB5739C599ECE.pygtex [47] [48] [49] [50] [51] [52] [53] [54])) (./thesis.bbl [55]
 Missing character: There is no Â in font cmr12!
 Missing character: There is no   in font cmr12!
 Missing character: There is no Â in font cmr12!
 Missing character: There is no   in font cmr12!
 Missing character: There is no Â in font cmr12!
 Missing character: There is no   in font cmr12!
- [55
+ [56
 
 
-]) [56] (./thesis.aux)
+]) [57] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17335 strings out of 492982
- 333857 string characters out of 6138579
- 411870 words of memory out of 5000000
- 20479 multiletter control sequences out of 15000+600000
+ 17377 strings out of 492982
+ 334332 string characters out of 6138579
+ 411549 words of memory out of 5000000
+ 20519 multiletter control sequences out of 15000+600000
  13775 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,8n,54p,1815b,674s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (66 pages, 4194079 bytes).
+Output written on thesis.pdf (67 pages, 4195976 bytes).
 PDF statistics:
- 635 PDF objects out of 1000 (max. 8388607)
- 310 compressed objects within 4 object streams
+ 639 PDF objects out of 1000 (max. 8388607)
+ 313 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  188 words of extra memory for PDF output out of 10000 (max. 10000000)
 

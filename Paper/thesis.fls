@@ -189,6 +189,8 @@ INPUT /usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.cod
 INPUT /usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /usr/share/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/share/texmf-dist/tex/latex/tools/array.sty
 INPUT thesis.aex
 INPUT thesis.aex
 INPUT thesis.aux

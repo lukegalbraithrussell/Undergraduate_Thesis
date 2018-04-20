@@ -21,8 +21,8 @@
 \contentsline {section}{\numberline {4.3}Fireballs detected with D6.}{33}
 \contentsline {chapter}{\numberline {5}Conclusion}{35}
 \contentsline {section}{\numberline {5.1}Critique}{35}
-\contentsline {section}{\numberline {5.2}Outlook}{35}
-\contentsline {chapter}{\numberline {A}Code}{36}
-\contentsline {section}{\numberline {A.1}Photometry Script}{36}
-\contentsline {section}{\numberline {A.2}GUI Script}{47}
-\contentsline {chapter}{Bibliography}{55}
+\contentsline {section}{\numberline {5.2}Outlook}{36}
+\contentsline {chapter}{\numberline {A}Code}{37}
+\contentsline {section}{\numberline {A.1}Photometry Script}{37}
+\contentsline {section}{\numberline {A.2}GUI Script}{48}
+\contentsline {chapter}{Bibliography}{56}

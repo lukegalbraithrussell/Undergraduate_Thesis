@@ -425,6 +425,7 @@ INPUT ./testplot2.pdf
 INPUT LightComparison0.pdf
 INPUT ./LightComparison0.pdf
 INPUT ./LightComparison0.pdf
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss17.tfm
 INPUT D6Curve.pdf
 INPUT ./D6Curve.pdf
 INPUT ./D6Curve.pdf
@@ -436,12 +437,13 @@ OUTPUT main.snm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
+INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
-INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb
