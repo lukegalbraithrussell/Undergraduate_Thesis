@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.22)  19 APR 2018 14:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.22)  20 APR 2018 10:18
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -507,7 +507,29 @@ Package: amsthm 2017/10/31 v2.20.4
 ) (/usr/share/texmf-dist/tex/latex/beamer/beamerbasethemes.sty)) (/usr/share/texmf-dist/tex/latex/beamer/beamerthemedefault.sty (/usr/share/texmf-dist/tex/latex/beamer/beamerfontthemedefault.sty) (/usr/share/texmf-dist/tex/latex/beamer/beamercolorthemedefault.sty) (/usr/share/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
 \beamer@dima=\dimen188
 \beamer@dimb=\dimen189
-) (/usr/share/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (./beamerposter.sty
+) (/usr/share/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (/usr/share/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+ (/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen190
+\captionmargin@=\dimen191
+\captionwidth=\dimen192
+\caption@tempdima=\dimen193
+\caption@indent=\dimen194
+\caption@parindent=\dimen195
+\caption@hangindent=\dimen196
+)
+\c@ContinuedFloat=\count154
+Package caption Info: beamer document class.
+Package caption Info: hyperref package is loaded.
+Package caption Info: Hyperref support is turned off
+(caption)             because hyperref has stopped early.
+) (/usr/share/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
+\c@subfigure=\count155
+\c@subtable=\count156
+) (./beamerposter.sty
 Package: 2008/03/11. v.1.07. beamerposter: latex-beamer poster extension
 Package: beamerposter 2008/03/11. v.1.07. beamerposter: latex-beamer poster extension
 (/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
@@ -516,7 +538,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks43
 \XKV@tempa@toks=\toks44
 )
-\XKV@depth=\count154
+\XKV@depth=\count157
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/usr/share/texmf-dist/tex/latex/type1cm/type1cm.sty
 Package: type1cm 2002/09/05 v0.04 BlueSky/Y&Y Type1 CM font definitions (DPC, patched RF)
@@ -533,18 +555,18 @@ beamerposter: finished orientation check.
 Package: fp 1995/04/02
  `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich (/usr/share/texmf-dist/tex/latex/fp/defpattern.sty
 Package: defpattern 1994/10/12
-\actioncount=\count155
+\actioncount=\count158
 ) (/usr/share/texmf-dist/tex/latex/fp/fp-basic.sty
 Package: fp-basic 1996/05/13
-\FP@xs=\count156
-\FP@xia=\count157
-\FP@xib=\count158
-\FP@xfa=\count159
-\FP@xfb=\count160
-\FP@rega=\count161
-\FP@regb=\count162
-\FP@regs=\count163
-\FP@times=\count164
+\FP@xs=\count159
+\FP@xia=\count160
+\FP@xib=\count161
+\FP@xfa=\count162
+\FP@xfb=\count163
+\FP@rega=\count164
+\FP@regb=\count165
+\FP@regs=\count166
+\FP@times=\count167
 ) (/usr/share/texmf-dist/tex/latex/fp/fp-addons.sty
 Package: fp-addons 1995/03/15
 ) (/usr/share/texmf-dist/tex/latex/fp/fp-snap.sty
@@ -557,7 +579,7 @@ Package: fp-trigo 1995/04/14
 Package: fp-pas 1994/08/29
 ) (/usr/share/texmf-dist/tex/latex/fp/fp-random.sty
 Package: fp-random 1995/02/23
-\FPseed=\count165
+\FPseed=\count168
 ) (/usr/share/texmf-dist/tex/latex/fp/fp-eqn.sty
 Package: fp-eqn 1995/04/03
 ) (/usr/share/texmf-dist/tex/latex/fp/fp-upn.sty
@@ -565,7 +587,7 @@ Package: fp-upn 1996/10/21
 ) (/usr/share/texmf-dist/tex/latex/fp/fp-eval.sty
 Package: fp-eval 1995/04/03
 ))
-\tmp=\dimen190
+\tmp=\dimen197
  ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) ) ( FP-UPN ( FP-MUL ) ( FP-ROUND ) )) (./beamerthemeconfposter.sty
 Package: beamerthemeconfposter 
  (/usr/share/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
@@ -577,52 +599,52 @@ File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
 File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 ) (/usr/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen191
-\pgf@nodesepend=\dimen192
+\pgf@nodesepstart=\dimen198
+\pgf@nodesepend=\dimen199
 ) (/usr/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
 )) (/usr/share/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/share/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
  (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen193
-\pgffor@skip=\dimen194
+\pgffor@iter=\dimen256
+\pgffor@skip=\dimen257
 \pgffor@stack=\toks45
 \pgffor@toks=\toks46
 )) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
  (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count166
-\pgfplotmarksize=\dimen195
+\pgf@plot@mark@count=\count169
+\pgfplotmarksize=\dimen258
 )
-\tikz@lastx=\dimen196
-\tikz@lasty=\dimen197
-\tikz@lastxsaved=\dimen198
-\tikz@lastysaved=\dimen199
-\tikzleveldistance=\dimen256
-\tikzsiblingdistance=\dimen257
+\tikz@lastx=\dimen259
+\tikz@lasty=\dimen260
+\tikz@lastxsaved=\dimen261
+\tikz@lastysaved=\dimen262
+\tikzleveldistance=\dimen263
+\tikzsiblingdistance=\dimen264
 \tikz@figbox=\box54
 \tikz@figbox@bg=\box55
 \tikz@tempbox=\box56
 \tikz@tempbox@bg=\box57
-\tikztreelevel=\count167
-\tikznumberofchildren=\count168
-\tikznumberofcurrentchild=\count169
-\tikz@fig@count=\count170
+\tikztreelevel=\count170
+\tikznumberofchildren=\count171
+\tikznumberofcurrentchild=\count172
+\tikz@fig@count=\count173
  (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count171
-\pgfmatrixcurrentcolumn=\count172
-\pgf@matrix@numberofcolumns=\count173
+\pgfmatrixcurrentrow=\count174
+\pgfmatrixcurrentcolumn=\count175
+\pgf@matrix@numberofcolumns=\count176
 )
-\tikz@expandcount=\count174
+\tikz@expandcount=\count177
  (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 ))) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
  (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
-\arrowsize=\dimen258
+\arrowsize=\dimen265
 )) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2013/07/18 v3.0.1a (rcs-revision 1.3)
 \pgf@layerbox@background=\box58
@@ -775,47 +797,72 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 \threecolwid=\skip77
  (/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2016/04/27 v1.618033 publication quality tables
-\heavyrulewidth=\dimen259
-\lightrulewidth=\dimen260
-\cmidrulewidth=\dimen261
-\belowrulesep=\dimen262
-\belowbottomsep=\dimen263
-\aboverulesep=\dimen264
-\abovetopsep=\dimen265
-\cmidrulesep=\dimen266
-\cmidrulekern=\dimen267
-\defaultaddspace=\dimen268
-\@cmidla=\count175
-\@cmidlb=\count176
-\@aboverulesep=\dimen269
-\@belowrulesep=\dimen270
-\@thisruleclass=\count177
-\@lastruleclass=\count178
-\@thisrulewidth=\dimen271
-) (./main.aux)
+\heavyrulewidth=\dimen266
+\lightrulewidth=\dimen267
+\cmidrulewidth=\dimen268
+\belowrulesep=\dimen269
+\belowbottomsep=\dimen270
+\aboverulesep=\dimen271
+\abovetopsep=\dimen272
+\cmidrulesep=\dimen273
+\cmidrulekern=\dimen274
+\defaultaddspace=\dimen275
+\@cmidla=\count178
+\@cmidlb=\count179
+\@aboverulesep=\dimen276
+\@belowrulesep=\dimen277
+\@thisruleclass=\count180
+\@lastruleclass=\count181
+\@thisrulewidth=\dimen278
+) (./main.aux
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:test' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:test' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 70.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 71.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 71.
  (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 70.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 71.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -855,16 +902,16 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count179
-\scratchdimen=\dimen272
+\scratchcounter=\count182
+\scratchdimen=\dimen279
 \scratchbox=\box60
-\nofMPsegments=\count180
-\nofMParguments=\count181
+\nofMPsegments=\count183
+\nofMParguments=\count184
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count182
-\MPscratchDim=\dimen273
-\MPnumerator=\count183
-\makeMPintoPDFobject=\count184
+\MPscratchCnt=\count185
+\MPscratchDim=\dimen280
+\MPnumerator=\count186
+\makeMPintoPDFobject=\count187
 \everyMPtoPDFconversion=\toks48
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -879,17 +926,17 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box61
-Package hyperref Info: Link coloring OFF on input line 70.
+Package hyperref Info: Link coloring OFF on input line 71.
  (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count185
+\c@section@level=\count188
 )
-LaTeX Info: Redefining \ref on input line 70.
-LaTeX Info: Redefining \pageref on input line 70.
-LaTeX Info: Redefining \nameref on input line 70.
+LaTeX Info: Redefining \ref on input line 71.
+LaTeX Info: Redefining \pageref on input line 71.
+LaTeX Info: Redefining \nameref on input line 71.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -906,93 +953,87 @@ Dictionary: translator-months-dictionary, Language: English
 Dictionary: translator-numbers-dictionary, Language: English 
 ) (/usr/share/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 70.
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+ ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 71.
  (./main.nav)
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 70.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 71.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 
 LaTeX Font Warning: Font shape `T1/lmss/m/sc' in size <74.3> not available
-(Font)              Font shape `T1/lmr/m/sc' tried instead on input line 70.
+(Font)              Font shape `T1/lmr/m/sc' tried instead on input line 71.
 
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 70.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 71.
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 70.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 71.
  (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 70.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 71.
  (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 70.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 71.
  (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 70.
+(Font)              <14.4> on input line 71.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 70.
+(Font)              <10> on input line 71.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 70.
+(Font)              <7> on input line 71.
 
-Overfull \hbox (1605.3045pt too wide) detected at line 70
+Overfull \hbox (1605.3045pt too wide) detected at line 71
  [] 
  []
 
-LaTeX Font Info:    Calculating math sizes for size <29.86> on input line 311.
+LaTeX Font Info:    Calculating math sizes for size <29.86> on input line 316.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <29.86> on input line 311.
+(Font)              <29.86> on input line 316.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <20.9019> on input line 311.
+(Font)              <20.9019> on input line 316.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.93> on input line 311.
+(Font)              <14.93> on input line 316.
 <deesix.jpg, id=13, 2661.945pt x 3653.65pt>
 File: deesix.jpg Graphic file (type jpg)
 <use deesix.jpg>
-Package pdftex.def Info: deesix.jpg  used on input line 311.
-(pdftex.def)             Requested size: 382.13759pt x 524.4973pt.
-<iridium3.png, id=16, 633.36626pt x 481.8pt>
-File: iridium3.png Graphic file (type png)
-<use iridium3.png>
-Package pdftex.def Info: iridium3.png  used on input line 311.
-(pdftex.def)             Requested size: 477.67018pt x 363.3708pt.
-<flowchart.pdf, id=18, 285.065pt x 404.51125pt>
-File: flowchart.pdf Graphic file (type pdf)
-<use flowchart.pdf>
-Package pdftex.def Info: flowchart.pdf  used on input line 311.
-(pdftex.def)             Requested size: 520.34929pt x 738.38428pt.
-<testplot1.pdf, id=19, 609.77812pt x 633.2659pt>
-File: testplot1.pdf Graphic file (type pdf)
-<use testplot1.pdf>
-Package pdftex.def Info: testplot1.pdf  used on input line 311.
-(pdftex.def)             Requested size: 382.13759pt x 396.87245pt.
-<IridiumCurve.pdf, id=20, 451.29164pt x 300.03235pt>
-File: IridiumCurve.pdf Graphic file (type pdf)
-<use IridiumCurve.pdf>
-Package pdftex.def Info: IridiumCurve.pdf  used on input line 311.
-(pdftex.def)             Requested size: 382.13759pt x 254.05814pt.
-<LightComparison0.pdf, id=21, 451.29164pt x 299.05351pt>
+Package pdftex.def Info: deesix.jpg  used on input line 316.
+(pdftex.def)             Requested size: 533.48688pt x 732.22232pt.
+<ProgramLandscape.png, id=16, 1465.475pt x 640.3925pt>
+File: ProgramLandscape.png Graphic file (type png)
+<use ProgramLandscape.png>
+Package pdftex.def Info: ProgramLandscape.png  used on input line 316.
+(pdftex.def)             Requested size: 762.12744pt x 333.0451pt.
+<flowchart4.pdf, id=17, 285.065pt x 344.28625pt>
+File: flowchart4.pdf Graphic file (type pdf)
+<use flowchart4.pdf>
+Package pdftex.def Info: flowchart4.pdf  used on input line 316.
+(pdftex.def)             Requested size: 381.06372pt x 460.22745pt.
+<testplot2.pdf, id=18, 609.23611pt x 633.08517pt>
+File: testplot2.pdf Graphic file (type pdf)
+<use testplot2.pdf>
+Package pdftex.def Info: testplot2.pdf  used on input line 316.
+(pdftex.def)             Requested size: 381.06372pt x 395.98639pt.
+<LightComparison0.pdf, id=19, 451.29164pt x 299.05351pt>
 File: LightComparison0.pdf Graphic file (type pdf)
 <use LightComparison0.pdf>
-Package pdftex.def Info: LightComparison0.pdf  used on input line 311.
-(pdftex.def)             Requested size: 382.13759pt x 253.22928pt.
-<D6Curve.pdf, id=22, 468.52791pt x 299.05351pt>
+Package pdftex.def Info: LightComparison0.pdf  used on input line 316.
+(pdftex.def)             Requested size: 381.06372pt x 252.51741pt.
+<D6Curve.pdf, id=20, 468.52791pt x 299.05351pt>
 File: D6Curve.pdf Graphic file (type pdf)
 <use D6Curve.pdf>
-Package pdftex.def Info: D6Curve.pdf  used on input line 311.
-(pdftex.def)             Requested size: 382.13759pt x 243.92494pt.
+Package pdftex.def Info: D6Curve.pdf  used on input line 316.
+(pdftex.def)             Requested size: 381.06372pt x 243.2359pt.
 
-Overfull \hbox (8.32762pt too wide) detected at line 311
-[][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][]  [][] [][][][][][][] 
- []
-
-
-Overfull \vbox (540.71162pt too high) detected at line 311
+Overfull \hbox (2.78181pt too wide) detected at line 316
+[][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][] 
  []
 
 
@@ -1012,10 +1053,47 @@ Overfull \hbox (44.38647pt too wide) has occurred while \output is active
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- <./deesix.jpg> <./iridium3.png> <./flowchart.pdf> <./testplot1.pdf> <./IridiumCurve.pdf
+pdfTeX warning (ext4): destination with the same identifier (name{fig:sub1}) has been already used, duplicate ignored
 
-pdfTeX warning: pdflatex (file ./IridiumCurve.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <./LightComparison0.pdf
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.316 \end{frame}
+                  % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{sub@fig:sub1}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.316 \end{frame}
+                  % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{fig:test}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.316 \end{frame}
+                  % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{fig:sub1}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.316 \end{frame}
+                  % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{sub@fig:sub1}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.316 \end{frame}
+                  % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{fig:sub2}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.316 \end{frame}
+                  % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{sub@fig:sub2}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.316 \end{frame}
+                  % End of the enclosing framepdfTeX warning (ext4): destination with the same identifier (name{fig:test}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.316 \end{frame}
+                  % End of the enclosing frame <./deesix.jpg> <./ProgramLandscape.png> <./flowchart4.pdf> <./testplot2.pdf> <./LightComparison0.pdf
 
 pdfTeX warning: pdflatex (file ./LightComparison0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 > <./D6Curve.pdf
@@ -1031,27 +1109,31 @@ pdfTeX warning: pdflatex (file ./D6Curve.pdf): PDF inclusion: multiple pdfs with
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 313.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 313.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 318.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 318.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 313.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 313.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 318.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 318.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 22348 strings out of 492982
- 430334 string characters out of 6138579
- 579721 words of memory out of 5000000
- 25366 multiletter control sequences out of 15000+600000
- 66737 words of font info for 61 fonts, out of 8000000 for 9000
+ 23419 strings out of 492982
+ 449638 string characters out of 6138579
+ 570096 words of memory out of 5000000
+ 26424 multiletter control sequences out of 15000+600000
+ 63722 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,17n,71p,771b,1514s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,17n,71p,791b,1499s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on main.pdf (1 page, 1000674 bytes).
+Output written on main.pdf (1 page, 1216177 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 158 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

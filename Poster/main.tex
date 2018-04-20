@@ -23,7 +23,8 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[final]{beamer}
-
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage[scale=1,orientation=portrait]{beamerposter} % Use the beamerposter package for laying out the poster
 
 \usetheme{confposter} % Use the confposter theme supplied with this template
@@ -31,7 +32,7 @@
 \setbeamercolor{block title}{fg=black,bg=white} % Colors of the block titles
 \setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
 \setbeamercolor{block alerted title}{fg=white,bg=black} % Colors of the highlighted block titles
-\setbeamercolor{block alerted body}{fg=black,bg=white} % Colors of the body of highlighted blocks
+\setbeamercolor{block alerted body}{fg=black,bg=five38} % Colors of the body of highlighted blocks
 % Many more colors are available for use in beamerthemeconfposter.sty
 
 %-----------------------------------------------------------
@@ -81,7 +82,7 @@
 
 \begin{column}{\sepwid}\end{column} % Empty spacer column
 
-\begin{column}{\onecolwid} % The first column
+\begin{column}{\twocolwid} % The first column
 
 %----------------------------------------------------------------------------------------
 %	OBJECTIVES
@@ -106,17 +107,22 @@ To protect space endeavors, more information is needed about meteoroid populatio
 
 \end{alertblock}
 
-%----------------------------------------------------------------------------------------
-%	INTRODUCTION
-%----------------------------------------------------------------------------------------
-
-
 
 \begin{alertblock}{Our All-Sky Camera}
 
 \begin{figure}
-\includegraphics[width=0.8\linewidth]{deesix.jpg}
-\caption{The programs saves this plot for every frame.}
+\centering
+\begin{subfigure}{.7\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{deesix.jpg}
+  \label{fig:sub1}
+\end{subfigure}%
+%\begin{subfigure}{0\textwidth}
+  %\centering
+  %\includegraphics[width=\linewidth]{iridium3.png}
+  %\label{fig:sub2}
+%\end{subfigure}
+\label{fig:test}
 \end{figure}
 
 \end{alertblock}
@@ -143,45 +149,45 @@ L = \tau \frac{v^1}{2} \frac{dM}{dt}
 
 \begin{column}{\sepwid}\end{column} % Empty spacer column
 
-\begin{column}{\onecolwid} % Begin a column which is two columns wide (column 2)
+\begin{column}{\twocolwid} % Begin a column which is two columns wide (column 2)
 
 \begin{block}{Computational Methods}
-
-\setbeamercolor{block alerted title}{fg=black,bg=plotyell} % Change the alert block title colors
+\setbeamercolor{block alerted title}{fg=white,bg=plotblue} % Change the alert block title colors
 \setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
 
-\begin{alertblock}{Frame Data}
-
+\begin{alertblock}{Photometry Program}
 \begin{figure}
-\includegraphics[width=\linewidth]{iridium3.png}
-\caption{The programs saves this plot for every frame.}
+	\centering
+	\includegraphics[width=\linewidth]{ProgramLandscape.png}
+	\label{fig:}
 \end{figure}
-
+\vspace{-1.5cm}
 \end{alertblock}
-
-\begin{figure}
-\includegraphics[width=\linewidth]{flowchart.pdf}
-\caption{The programs saves this plot for every frame.}
-\end{figure}
-
-
 \end{block}
 
 \setbeamercolor{block alerted title}{fg=black,bg=plotyell} % Change the alert block title colors
-\setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
+\setbeamercolor{block alerted body}{fg=black,bg=five38} % Change the alert block body colors
 
 \begin{alertblock}{Frame Data}
 
 \begin{figure}
-\includegraphics[width=0.8\linewidth]{testplot1.pdf}
-\caption{The programs saves this plot for every frame.}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{flowchart4.pdf}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{testplot2.pdf}
+  \label{fig:sub2}
+\end{subfigure}
+\label{fig:test}
 \end{figure}
-
+\vspace{-1cm}
 \end{alertblock}
 %----------------------------------------------------------------------------------------
 
-\end{column} % End of column 2.1
-\begin{column}{\sepwid}\end{column} % Empty spacer column
 
 %\end{columns} % End of the split of column 2 - any content after this will now take up 2 columns width
 
@@ -190,7 +196,7 @@ L = \tau \frac{v^1}{2} \frac{dM}{dt}
 %----------------------------------------------------------------------------------------
 
 \setbeamercolor{block alerted title}{fg=black,bg=plotyell} % Change the alert block title colors
-\setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
+\setbeamercolor{block alerted body}{fg=black,bg=five38} % Change the alert block body colors
 
 %\begin{alertblock}{Important Result}
 
@@ -202,49 +208,48 @@ L = \tau \frac{v^1}{2} \frac{dM}{dt}
 
 %\begin{columns}[t,totalwidth=\twocolwid] % Split up the two columns wide column again
 
-\begin{column}{\onecolwid} % The second column within column 2 (column 2.2)
 
 %----------------------------------------------------------------------------------------
 %	RESULTS
 %----------------------------------------------------------------------------------------
 
+%The first object to test the program on was an iridium flare. They're good psuedo-meteors as their times are easily predictable and they have known magnitudes to compare to.
+
+%\begin{alertblock}{Iridium Flare}
+
+%\begin{figure}
+%\includegraphics[width=0.3\linewidth]{IridiumCurve.pdf}
+%\caption{The iridium flare data matches quantitatively with the event, but a reference star couldn't be identified during the event, so calibration was not possible}
+%\end{figure}
+
+%\end{alertblock}
+
 \begin{block}{Results}
-
-The first object to test the program on was an iridium flare. They're good psuedo-meteors as their times are easily predictable and they have known magnitudes to compare to.
-
+The program was than ran on meteor events collected on NASA's all-sky network. This was done multiple times, each time providing solid evidence that the program was working correctly. The program was then ran on a fireball our own system detected.
 \end{block}
-\begin{alertblock}{Iridium Flare}
+
+\begin{alertblock}{Meteor Data}
 
 \begin{figure}
-\includegraphics[width=0.8\linewidth]{IridiumCurve.pdf}
-\caption{The iridium flare data matches quantitatively with the event, but a reference star couldn't be identified during the event, so calibration was not possible}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{LightComparison0.pdf}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{D6Curve.pdf}
+  \label{fig:sub2}
+\end{subfigure}
+\label{fig:test}
 \end{figure}
 
 \end{alertblock}
 
 \vspace{-1.5cm}
-\begin{block}{}
-The program was than ran on meteor events collected on NASA's all-sky network. NASA posts their uncalibrated light curves along with the videos, allowing easy comparison of light curves. This was done multiple times, each time providing solid evidence that the program was working correctly. An example of this can be in Figure 3. 
-\end{block}
 
-\vspace{-1.5cm}
-\begin{block}{}
-The last step was to test the program on a fireball video detected by our own all-sky camera unit. Our all-sky camera unit's operating system is currently under repairs, so we only had old data, with a slower processor. This may possibly explain why the light curve in equation 4 looks so noisy, and is confirmed in the plot data of the event.
-\end{block}
 
-\begin{alertblock}{Meteors}
-
-\begin{figure}
-\includegraphics[width=.8\linewidth]{LightComparison0.pdf}
-\caption{The light curves match well, except at the beginning. This may be due to unaccounted parameters such as atmospheric extinction}
-
-\vspace{0cm}
-
-\includegraphics[width=.8\linewidth]{D6Curve.pdf}
-\caption{The light curves is noisy. Ideally, the peaks and valleys wouldn't be so apparent, but the general trend supports the success of the photometry script despite the video quality issue}
-\end{figure}
-
-\end{alertblock}
 \begin{block}{Conclusion}
 
 The photometric program we wrote appears to be successful at finding the calibrated magnitudes of events. There is some fine tweaking and optimization to be done, but after that, it's on to collecting enough data to perform statistical analysis on and create our own population distribution of meteoroids. 
@@ -288,7 +293,7 @@ The photometric program we wrote appears to be successful at finding the calibra
 %----------------------------------------------------------------------------------------
 
 \setbeamercolor{block alerted title}{fg=black,bg=dalblue} % Change the alert block title colors
-\setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
+\setbeamercolor{block alerted body}{fg=black,bg=five38} % Change the alert block body colors
 
 %\begin{alertblock}{Contact Information}
 
