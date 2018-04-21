@@ -43,6 +43,19 @@
 % Set twocolwid to be (2*onecolwid)+sepwid = 0.464
 % Set threecolwid to be (3*onecolwid)+2*sepwid = 0.708
 
+% The below is a fix for the lmodern bug with large summation symbols
+% declare `cmex` to be arbitrary scalable
+\DeclareFontShape{OMX}{cmex}{m}{n}{
+  <-7.5> cmex7
+  <7.5-8.5> cmex8
+  <8.5-9.5> cmex9
+  <9.5-> cmex10
+}{}
+
+\SetSymbolFont{largesymbols}{normal}{OMX}{cmex}{m}{n}
+\SetSymbolFont{largesymbols}{bold}  {OMX}{cmex}{m}{n}
+% Bugfix ends here
+
 \newlength{\sepwid}
 \newlength{\onecolwid}
 \newlength{\twocolwid}
@@ -65,7 +78,7 @@
 %----------------------------------------------------------------------------------------
 \title{Photometry of Celestial Fireballs} % Poster title
 
-\author{Luke Russell | Willamette University} % Author(s)
+\author{Luke Russell | Willamette University | Advised by Dr.~Jed Rembold} % Author(s)
 %----------------------------------------------------------------------------------------
 
 \begin{document}
@@ -82,7 +95,7 @@
 
 \begin{column}{\sepwid}\end{column} % Empty spacer column
 
-\begin{column}{\twocolwid} % The first column
+\begin{column}{.8\twocolwid} % The first column
 
 %----------------------------------------------------------------------------------------
 %	OBJECTIVES
@@ -93,16 +106,16 @@
 
 \begin{block}{Introduction}
 
-To protect space endeavors, more information is needed about the near-Earth meteoroid population. We created a portable all-sky camera system that can potentially increase the amount of meteor data astronomers can collect. The first step is showing that our photometric data is just as accurate as other systems.
+To protect space endeavors, more information is needed about the near-Earth meteoroid population. We created a portable all-sky camera system that hopes to increase the flexibility and affordability of meteoroid observation systems. This project focused on writing software perform accurate photometric data reduction.
 
 \end{block}
 
 \begin{alertblock}{Objectives}
 
  \begin{itemize}
-\item Create a program that can analyze photometric data from meteor video
-\item Run program on events with previously established light curves to test its validity
-\item Run program on events captured by our own all-sky camera. 
+\item Create a program that can analyze moving photometric data from meteor video
+\item Test program on known events to test its accuracy and validity
+\item Use program to analyze events captured by our own all-sky camera
 \end{itemize}
 
 \end{alertblock}
@@ -115,33 +128,33 @@ To protect space endeavors, more information is needed about the near-Earth mete
 \begin{subfigure}{.7\textwidth}
   \centering
   \includegraphics[width=\linewidth]{deesix.jpg}
-  \label{fig:sub1}
+  \label{fig:d6}
 \end{subfigure}%
 %\begin{subfigure}{0\textwidth}
   %\centering
   %\includegraphics[width=\linewidth]{iridium3.png}
   %\label{fig:sub2}
 %\end{subfigure}
-\label{fig:test}
 \end{figure}
 
 \end{alertblock}
 %------------------------------------------------
 \begin{block}{Mathematical Methods}
 
-The photometric data we can extract from our camera is its pixel values, an uncalibrated measure of \textbf{intensity}. We use Equation~\ref{eqn:Light} to turn that into an uncalibrated \textbf{magnitude}. We also apply Equation~\ref{eqn:Light} on a star in that sky with a known magnitude in order to calibrate our camera.
-
+	Our camera reports light \textbf{intensity} as an 8-bit integer value, ranging from 0 to 255. Summing over the intensity values for each pixel in an event approximates the total intensity of the event. We use Equation~\ref{eqn:Light} to turn that into an uncalibrated \textbf{magnitude}, which is a log scale and generally how astronomical brightnesses are reported. 
 \begin{equation}
-m = -2.5 \log(I)
+	m = -2.5 \log\Big(\sum_{pixels} I\Big)
 \label{eqn:Light}
 \end{equation}
 
-From intensity, we can extrapolate out to get the object's total \textbf{luminosity}. We can then relate the luminosity of the event to its total \textbf{kinetic energy} to find its \textbf{mass} through integration of its light curve,
+This magnitude is uncalibrated however, and measurements from different systems would disagree as to its value. The system is calibrated by observing a star of known magnitude during the event. This yields a correction factor needed to relate the sum of the pixels to the known magnitude. This correction factor is then applied to the unknown magnitude to determine the calibrated apparent magnitude of the event.
 
-\begin{equation}
-L = \tau \frac{v^1}{2} \frac{dM}{dt}
-\label{eq:Mass}
-\end{equation}
+%From intensity, we can extrapolate out to get the object's total \textbf{luminosity}. We can then relate the luminosity of the event to its total \textbf{kinetic energy} to find its \textbf{mass} through integration of its light curve,
+
+%\begin{equation}
+%L = \tau \frac{v^1}{2} \frac{dM}{dt}
+%\label{eq:Mass}
+%\end{equation}
 \end{block}
 %----------------------------------------------------------------------------------------
 
@@ -149,9 +162,29 @@ L = \tau \frac{v^1}{2} \frac{dM}{dt}
 
 \begin{column}{\sepwid}\end{column} % Empty spacer column
 
-\begin{column}{\twocolwid} % Begin a column which is two columns wide (column 2)
+\begin{column}{1.2\twocolwid} % Begin a column which is two columns wide (column 2)
+\setbeamercolor{block alerted title}{fg=black,bg=plotyell} % Change the alert block title colors
+\setbeamercolor{block alerted body}{fg=black,bg=five38} % Change the alert block body colors
 
-\begin{block}{Computational Methods}
+\begin{alertblock}{Analysis Procedure}
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{flowchart4.pdf}
+  \label{fig:flowchart}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{testplot2.pdf}
+  \label{fig:gaussians}
+\end{subfigure}
+\end{figure}
+\vspace{-1cm}
+\end{alertblock}
+
+%\begin{block}{Computational Methods}
 \setbeamercolor{block alerted title}{fg=white,bg=plotblue} % Change the alert block title colors
 \setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
 
@@ -163,29 +196,8 @@ L = \tau \frac{v^1}{2} \frac{dM}{dt}
 \end{figure}
 \vspace{-1.5cm}
 \end{alertblock}
-\end{block}
+%\end{block}
 
-\setbeamercolor{block alerted title}{fg=black,bg=plotyell} % Change the alert block title colors
-\setbeamercolor{block alerted body}{fg=black,bg=five38} % Change the alert block body colors
-
-\begin{alertblock}{Frame Data}
-
-\begin{figure}
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{flowchart4.pdf}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{testplot2.pdf}
-  \label{fig:sub2}
-\end{subfigure}
-\label{fig:test}
-\end{figure}
-\vspace{-1cm}
-\end{alertblock}
 %----------------------------------------------------------------------------------------
 
 
@@ -225,7 +237,7 @@ L = \tau \frac{v^1}{2} \frac{dM}{dt}
 %\end{alertblock}
 
 \begin{block}{Results}
-The program was ran on meteor events collected by NASA's all-sky network. This was done multiple times, each time providing solid evidence that the program was working correctly. The program was then ran on a fireball our own system detected.
+As a test, the program was run on meteor events collected by NASA's ASGARD all-sky network. Lightcurves are also available for this data, and serve as a useful comparison and analysis check. On all comparisons thus far the program has compared favorably. 
 \end{block}
 
 \begin{alertblock}{Meteor Data}
@@ -249,7 +261,11 @@ The program was ran on meteor events collected by NASA's all-sky network. This w
 
 \end{alertblock}
 
+<<<<<<< HEAD
 %\vspace{-1cm}
+=======
+%\vspace{-1.5cm}
+>>>>>>> 7c6b91221d35c5b8a461371884bcd67603c68eb5
 
 
 \begin{block}{Conclusion}
