@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.22)  18 APR 2018 21:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.22)  20 APR 2018 14:10
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -520,8 +520,8 @@ Overfull \hbox (24.99878pt too wide) in paragraph at lines 29--30
 [] \T1/cmr/m/n/10 :
  []
 
-./beamerthemeconfposter.sty:152: Undefined control sequence.
-l.152 \setbeamercolor
+./beamerthemeconfposter.sty:154: Undefined control sequence.
+l.154 \setbeamercolor
                      {palette primary}   {fg=black,bg=white}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -530,38 +530,20 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:152: LaTeX Error: Missing \begin{document}.
+./beamerthemeconfposter.sty:154: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.152 \setbeamercolor{p
+l.154 \setbeamercolor{p
                        alette primary}   {fg=black,bg=white}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./beamerthemeconfposter.sty:153: Undefined control sequence.
-l.153 \setbeamercolor
-                     {palette secondary} {fg=black,bg=white}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./beamerthemeconfposter.sty:154: Undefined control sequence.
-l.154 \setbeamercolor
-                     {palette tertiary}  {bg=black,fg=white}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 ./beamerthemeconfposter.sty:155: Undefined control sequence.
 l.155 \setbeamercolor
-                     {palette quaternary}{fg=black,bg=white}
+                     {palette secondary} {fg=black,bg=white}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -570,7 +552,7 @@ and I'll forget about whatever was undefined.
 
 ./beamerthemeconfposter.sty:156: Undefined control sequence.
 l.156 \setbeamercolor
-                     {structure}{fg=black}
+                     {palette tertiary}  {bg=black,fg=white}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -579,7 +561,7 @@ and I'll forget about whatever was undefined.
 
 ./beamerthemeconfposter.sty:157: Undefined control sequence.
 l.157 \setbeamercolor
-                     {titlelike}         {bg=black,fg=white}
+                     {palette quaternary}{fg=black,bg=white}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -588,7 +570,7 @@ and I'll forget about whatever was undefined.
 
 ./beamerthemeconfposter.sty:158: Undefined control sequence.
 l.158 \setbeamercolor
-                     {frametitle}        {bg=white,fg=black}
+                     {structure}{fg=black}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -597,7 +579,7 @@ and I'll forget about whatever was undefined.
 
 ./beamerthemeconfposter.sty:159: Undefined control sequence.
 l.159 \setbeamercolor
-                     {cboxb}{fg=black,bg=black}
+                     {titlelike}         {bg=black,fg=white}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -606,6 +588,24 @@ and I'll forget about whatever was undefined.
 
 ./beamerthemeconfposter.sty:160: Undefined control sequence.
 l.160 \setbeamercolor
+                     {frametitle}        {bg=white,fg=black}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./beamerthemeconfposter.sty:161: Undefined control sequence.
+l.161 \setbeamercolor
+                     {cboxb}{fg=black,bg=black}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./beamerthemeconfposter.sty:162: Undefined control sequence.
+l.162 \setbeamercolor
                      {cboxr}{fg=black,bg=red}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -614,147 +614,147 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (49.99268pt too wide) in paragraph at lines 152--161
+Overfull \hbox (49.99268pt too wide) in paragraph at lines 154--163
 []\T1/cmr/m/n/10 palette
  []
 
 
-Overfull \hbox (15.57953pt too wide) in paragraph at lines 152--161
+Overfull \hbox (15.57953pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 pri-
  []
 
 
-Overfull \hbox (22.52228pt too wide) in paragraph at lines 152--161
+Overfull \hbox (22.52228pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 mary
  []
 
 
-Overfull \hbox (83.5907pt too wide) in paragraph at lines 152--161
+Overfull \hbox (83.5907pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 fg=black,bg=white
  []
 
 
-Overfull \hbox (29.99268pt too wide) in paragraph at lines 152--161
+Overfull \hbox (29.99268pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 palette
  []
 
 
-Overfull \hbox (16.16272pt too wide) in paragraph at lines 152--161
+Overfull \hbox (16.16272pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 sec-
  []
 
 
-Overfull \hbox (30.29816pt too wide) in paragraph at lines 152--161
+Overfull \hbox (30.29816pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 ondary
  []
 
 
-Overfull \hbox (83.5907pt too wide) in paragraph at lines 152--161
+Overfull \hbox (83.5907pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 fg=black,bg=white
  []
 
 
-Overfull \hbox (29.99268pt too wide) in paragraph at lines 152--161
+Overfull \hbox (29.99268pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 palette
  []
 
 
-Overfull \hbox (15.57953pt too wide) in paragraph at lines 152--161
+Overfull \hbox (15.57953pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 ter-
  []
 
 
-Overfull \hbox (20.85602pt too wide) in paragraph at lines 152--161
+Overfull \hbox (20.85602pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 tiary
  []
 
 
-Overfull \hbox (83.5907pt too wide) in paragraph at lines 152--161
+Overfull \hbox (83.5907pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 bg=black,fg=white
  []
 
 
-Overfull \hbox (29.99268pt too wide) in paragraph at lines 152--161
+Overfull \hbox (29.99268pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 palette
  []
 
 
-Overfull \hbox (19.16199pt too wide) in paragraph at lines 152--161
+Overfull \hbox (19.16199pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 qua-
  []
 
 
-Overfull \hbox (15.57953pt too wide) in paragraph at lines 152--161
+Overfull \hbox (15.57953pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 ter-
  []
 
 
-Overfull \hbox (103.33588pt too wide) in paragraph at lines 152--161
+Overfull \hbox (103.33588pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 naryfg=black,bg=white
  []
 
 
-Overfull \hbox (25.07721pt too wide) in paragraph at lines 152--161
+Overfull \hbox (25.07721pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 struc-
  []
 
 
-Overfull \hbox (56.4029pt too wide) in paragraph at lines 152--161
+Overfull \hbox (56.4029pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 turefg=black
  []
 
 
-Overfull \hbox (9.99756pt too wide) in paragraph at lines 152--161
+Overfull \hbox (9.99756pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 ti-
  []
 
 
-Overfull \hbox (14.44092pt too wide) in paragraph at lines 152--161
+Overfull \hbox (14.44092pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 tle-
  []
 
 
-Overfull \hbox (14.99634pt too wide) in paragraph at lines 152--161
+Overfull \hbox (14.99634pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 like
  []
 
 
-Overfull \hbox (83.5907pt too wide) in paragraph at lines 152--161
+Overfull \hbox (83.5907pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 bg=black,fg=white
  []
 
 
-Overfull \hbox (23.63312pt too wide) in paragraph at lines 152--161
+Overfull \hbox (23.63312pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 fram-
  []
 
 
-Overfull \hbox (14.44092pt too wide) in paragraph at lines 152--161
+Overfull \hbox (14.44092pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 eti-
  []
 
 
-Overfull \hbox (11.1084pt too wide) in paragraph at lines 152--161
+Overfull \hbox (11.1084pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 tle
  []
 
 
-Overfull \hbox (83.5907pt too wide) in paragraph at lines 152--161
+Overfull \hbox (83.5907pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 bg=white,fg=black
  []
 
 
-Overfull \hbox (108.30688pt too wide) in paragraph at lines 152--161
+Overfull \hbox (108.30688pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 cboxbfg=black,bg=black
  []
 
 
-Overfull \hbox (97.80945pt too wide) in paragraph at lines 152--161
+Overfull \hbox (97.80945pt too wide) in paragraph at lines 154--163
 \T1/cmr/m/n/10 cboxrfg=black,bg=red 
  []
 
-./beamerthemeconfposter.sty:163: Undefined control sequence.
-l.163 \setbeamercolor
+./beamerthemeconfposter.sty:165: Undefined control sequence.
+l.165 \setbeamercolor
                      {item}{fg=black}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -763,19 +763,19 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:163: LaTeX Error: Missing \begin{document}.
+./beamerthemeconfposter.sty:165: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.163 \setbeamercolor{i
+l.165 \setbeamercolor{i
                        tem}{fg=black}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./beamerthemeconfposter.sty:164: Undefined control sequence.
-l.164 \setbeamercolor
+./beamerthemeconfposter.sty:166: Undefined control sequence.
+l.166 \setbeamercolor
                      {item projected}{fg=white,bg=black}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -784,32 +784,32 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (78.04138pt too wide) in paragraph at lines 163--165
+Overfull \hbox (78.04138pt too wide) in paragraph at lines 165--167
 []\T1/cmr/m/n/10 itemfg=black
  []
 
 
-Overfull \hbox (19.4397pt too wide) in paragraph at lines 163--165
+Overfull \hbox (19.4397pt too wide) in paragraph at lines 165--167
 \T1/cmr/m/n/10 item
  []
 
 
-Overfull \hbox (17.80121pt too wide) in paragraph at lines 163--165
+Overfull \hbox (17.80121pt too wide) in paragraph at lines 165--167
 \T1/cmr/m/n/10 pro-
  []
 
 
-Overfull \hbox (19.16199pt too wide) in paragraph at lines 163--165
+Overfull \hbox (19.16199pt too wide) in paragraph at lines 165--167
 \T1/cmr/m/n/10 ject-
  []
 
 
-Overfull \hbox (93.58826pt too wide) in paragraph at lines 163--165
+Overfull \hbox (93.58826pt too wide) in paragraph at lines 165--167
 \T1/cmr/m/n/10 edfg=white,bg=black 
  []
 
-./beamerthemeconfposter.sty:167: Undefined control sequence.
-l.167 \setbeamercolor
+./beamerthemeconfposter.sty:169: Undefined control sequence.
+l.169 \setbeamercolor
                      {block title}{fg=black,bg=white}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -818,19 +818,19 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:167: LaTeX Error: Missing \begin{document}.
+./beamerthemeconfposter.sty:169: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.167 \setbeamercolor{b
+l.169 \setbeamercolor{b
                        lock title}{fg=black,bg=white}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./beamerthemeconfposter.sty:168: Undefined control sequence.
-l.168 \setbeamercolor
+./beamerthemeconfposter.sty:170: Undefined control sequence.
+l.170 \setbeamercolor
                      {block body}{fg=black,bg=white}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -839,32 +839,32 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (43.04993pt too wide) in paragraph at lines 167--169
+Overfull \hbox (43.04993pt too wide) in paragraph at lines 169--171
 []\T1/cmr/m/n/10 block
  []
 
 
-Overfull \hbox (9.99756pt too wide) in paragraph at lines 167--169
+Overfull \hbox (9.99756pt too wide) in paragraph at lines 169--171
 \T1/cmr/m/n/10 ti-
  []
 
 
-Overfull \hbox (94.6991pt too wide) in paragraph at lines 167--169
+Overfull \hbox (94.6991pt too wide) in paragraph at lines 169--171
 \T1/cmr/m/n/10 tlefg=black,bg=white
  []
 
 
-Overfull \hbox (23.04993pt too wide) in paragraph at lines 167--169
+Overfull \hbox (23.04993pt too wide) in paragraph at lines 169--171
 \T1/cmr/m/n/10 block
  []
 
 
-Overfull \hbox (105.52979pt too wide) in paragraph at lines 167--169
+Overfull \hbox (105.52979pt too wide) in paragraph at lines 169--171
 \T1/cmr/m/n/10 bodyfg=black,bg=white 
  []
 
-./beamerthemeconfposter.sty:171: Undefined control sequence.
-l.171 \setbeamercolor
+./beamerthemeconfposter.sty:173: Undefined control sequence.
+l.173 \setbeamercolor
                      {block alerted title}{fg=white,bg=black}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -873,19 +873,19 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:171: LaTeX Error: Missing \begin{document}.
+./beamerthemeconfposter.sty:173: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.171 \setbeamercolor{b
+l.173 \setbeamercolor{b
                        lock alerted title}{fg=white,bg=black}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./beamerthemeconfposter.sty:172: Undefined control sequence.
-l.172 \setbeamercolor
+./beamerthemeconfposter.sty:174: Undefined control sequence.
+l.174 \setbeamercolor
                      {block alerted body}{fg=black,bg=white}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -894,42 +894,42 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (43.04993pt too wide) in paragraph at lines 171--173
+Overfull \hbox (43.04993pt too wide) in paragraph at lines 173--175
 []\T1/cmr/m/n/10 block
  []
 
 
-Overfull \hbox (30.02045pt too wide) in paragraph at lines 171--173
+Overfull \hbox (30.02045pt too wide) in paragraph at lines 173--175
 \T1/cmr/m/n/10 alerted
  []
 
 
-Overfull \hbox (9.99756pt too wide) in paragraph at lines 171--173
+Overfull \hbox (9.99756pt too wide) in paragraph at lines 173--175
 \T1/cmr/m/n/10 ti-
  []
 
 
-Overfull \hbox (94.6991pt too wide) in paragraph at lines 171--173
+Overfull \hbox (94.6991pt too wide) in paragraph at lines 173--175
 \T1/cmr/m/n/10 tlefg=white,bg=black
  []
 
 
-Overfull \hbox (23.04993pt too wide) in paragraph at lines 171--173
+Overfull \hbox (23.04993pt too wide) in paragraph at lines 173--175
 \T1/cmr/m/n/10 block
  []
 
 
-Overfull \hbox (30.02045pt too wide) in paragraph at lines 171--173
+Overfull \hbox (30.02045pt too wide) in paragraph at lines 173--175
 \T1/cmr/m/n/10 alerted
  []
 
 
-Overfull \hbox (105.52979pt too wide) in paragraph at lines 171--173
+Overfull \hbox (105.52979pt too wide) in paragraph at lines 173--175
 \T1/cmr/m/n/10 bodyfg=black,bg=white 
  []
 
-./beamerthemeconfposter.sty:175: Undefined control sequence.
-l.175 \setbeamerfont
+./beamerthemeconfposter.sty:177: Undefined control sequence.
+l.177 \setbeamerfont
                     {section in head/foot}{series=\rmfamily, shape=\scshape}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -938,42 +938,24 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:175: LaTeX Error: Missing \begin{document}.
+./beamerthemeconfposter.sty:177: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.175 \setbeamerfont{s
+l.177 \setbeamerfont{s
                       ection in head/foot}{series=\rmfamily, shape=\scshape}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 175.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 177.
 (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-./beamerthemeconfposter.sty:176: Undefined control sequence.
-l.176 \setbeamerfont
-                    {block title}{shape=\scshape}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./beamerthemeconfposter.sty:177: Undefined control sequence.
-l.177 \setbeamerfont
-                    {block alerted title}{shape=\scshape}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 ./beamerthemeconfposter.sty:178: Undefined control sequence.
 l.178 \setbeamerfont
-                    {frametitle}{shape=\scshape}
+                    {block title}{shape=\scshape}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -982,16 +964,7 @@ and I'll forget about whatever was undefined.
 
 ./beamerthemeconfposter.sty:179: Undefined control sequence.
 l.179 \setbeamerfont
-                    {frametitle}{size=\Large, shape=\scshape}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./beamerthemeconfposter.sty:179: Undefined control sequence.
-l.179 \setbeamerfont{frametitle}{size=\Large
-                                            , shape=\scshape}
+                    {block alerted title}{shape=\scshape}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1000,6 +973,33 @@ and I'll forget about whatever was undefined.
 
 ./beamerthemeconfposter.sty:180: Undefined control sequence.
 l.180 \setbeamerfont
+                    {frametitle}{shape=\scshape}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./beamerthemeconfposter.sty:181: Undefined control sequence.
+l.181 \setbeamerfont
+                    {frametitle}{size=\Large, shape=\scshape}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./beamerthemeconfposter.sty:181: Undefined control sequence.
+l.181 \setbeamerfont{frametitle}{size=\Large
+                                            , shape=\scshape}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./beamerthemeconfposter.sty:182: Undefined control sequence.
+l.182 \setbeamerfont
                     {block body}{series=\rmfamily}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1008,127 +1008,127 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (50.04822pt too wide) in paragraph at lines 175--181
+Overfull \hbox (50.04822pt too wide) in paragraph at lines 177--183
 []\T1/cmr/m/n/10 section
  []
 
 
-Overfull \hbox (8.3313pt too wide) in paragraph at lines 175--181
+Overfull \hbox (8.3313pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 in
  []
 
 
-Overfull \hbox (76.78746pt too wide) in paragraph at lines 175--181
+Overfull \hbox (76.78746pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 head/footseries=\T1/lmr/m/n/10 ,
  []
 
 
-Overfull \hbox (32.55576pt too wide) in paragraph at lines 175--181
+Overfull \hbox (32.55576pt too wide) in paragraph at lines 177--183
 \T1/lmr/m/n/10 shape=
  []
 
 
-Overfull \hbox (23.04993pt too wide) in paragraph at lines 175--181
+Overfull \hbox (23.04993pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 block
  []
 
 
-Overfull \hbox (9.99756pt too wide) in paragraph at lines 175--181
+Overfull \hbox (9.99756pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 ti-
  []
 
 
-Overfull \hbox (14.44092pt too wide) in paragraph at lines 175--181
+Overfull \hbox (14.44092pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 tle-
  []
 
 
-Overfull \hbox (32.5476pt too wide) in paragraph at lines 175--181
+Overfull \hbox (32.5476pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 shape=
  []
 
 
-Overfull \hbox (23.04993pt too wide) in paragraph at lines 175--181
+Overfull \hbox (23.04993pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 block
  []
 
 
-Overfull \hbox (30.02045pt too wide) in paragraph at lines 175--181
+Overfull \hbox (30.02045pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 alerted
  []
 
 
-Overfull \hbox (9.99756pt too wide) in paragraph at lines 175--181
+Overfull \hbox (9.99756pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 ti-
  []
 
 
-Overfull \hbox (14.44092pt too wide) in paragraph at lines 175--181
+Overfull \hbox (14.44092pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 tle-
  []
 
 
-Overfull \hbox (32.5476pt too wide) in paragraph at lines 175--181
+Overfull \hbox (32.5476pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 shape=
  []
 
 
-Overfull \hbox (23.63312pt too wide) in paragraph at lines 175--181
+Overfull \hbox (23.63312pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 fram-
  []
 
 
-Overfull \hbox (14.44092pt too wide) in paragraph at lines 175--181
+Overfull \hbox (14.44092pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 eti-
  []
 
 
-Overfull \hbox (14.44092pt too wide) in paragraph at lines 175--181
+Overfull \hbox (14.44092pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 tle-
  []
 
 
-Overfull \hbox (32.5476pt too wide) in paragraph at lines 175--181
+Overfull \hbox (32.5476pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 shape=
  []
 
 
-Overfull \hbox (23.63312pt too wide) in paragraph at lines 175--181
+Overfull \hbox (23.63312pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 fram-
  []
 
 
-Overfull \hbox (14.44092pt too wide) in paragraph at lines 175--181
+Overfull \hbox (14.44092pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 eti-
  []
 
 
-Overfull \hbox (14.44092pt too wide) in paragraph at lines 175--181
+Overfull \hbox (14.44092pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 tle-
  []
 
 
-Overfull \hbox (26.16028pt too wide) in paragraph at lines 175--181
+Overfull \hbox (26.16028pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 size=,
  []
 
 
-Overfull \hbox (32.5476pt too wide) in paragraph at lines 175--181
+Overfull \hbox (32.5476pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 shape=
  []
 
 
-Overfull \hbox (23.04993pt too wide) in paragraph at lines 175--181
+Overfull \hbox (23.04993pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 block
  []
 
 
-Overfull \hbox (53.18146pt too wide) in paragraph at lines 175--181
+Overfull \hbox (53.18146pt too wide) in paragraph at lines 177--183
 \T1/cmr/m/n/10 bodyseries= 
  []
 
-./beamerthemeconfposter.sty:183: Undefined control sequence.
-l.183 \setbeamertemplate
+./beamerthemeconfposter.sty:185: Undefined control sequence.
+l.185 \setbeamertemplate
                         {title page}[default][colsep=-4bp,rounded=true]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1137,19 +1137,19 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:183: LaTeX Error: Missing \begin{document}.
+./beamerthemeconfposter.sty:185: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.183 \setbeamertemplate{t
+l.185 \setbeamertemplate{t
                           itle page}[default][colsep=-4bp,rounded=true]
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./beamerthemeconfposter.sty:184: Undefined control sequence.
-l.184 \setbeamertemplate
+./beamerthemeconfposter.sty:186: Undefined control sequence.
+l.186 \setbeamertemplate
                         {sections/subsections in toc}[square]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1157,8 +1157,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./beamerthemeconfposter.sty:185: Undefined control sequence.
-l.185 \setbeamertemplate
+./beamerthemeconfposter.sty:187: Undefined control sequence.
+l.187 \setbeamertemplate
                         {items}[circle]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1166,8 +1166,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./beamerthemeconfposter.sty:186: Undefined control sequence.
-l.186 \setbeamertemplate
+./beamerthemeconfposter.sty:188: Undefined control sequence.
+l.188 \setbeamertemplate
                         {blocks}[width=0.0]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1175,8 +1175,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./beamerthemeconfposter.sty:187: Undefined control sequence.
-l.187 \beamertemplatenavigationsymbolsempty
+./beamerthemeconfposter.sty:189: Undefined control sequence.
+l.189 \beamertemplatenavigationsymbolsempty
                                            
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1185,52 +1185,52 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (37.77344pt too wide) in paragraph at lines 183--188
+Overfull \hbox (37.77344pt too wide) in paragraph at lines 185--190
 []\T1/cmr/m/n/10 title
  []
 
 
-Overfull \hbox (95.86548pt too wide) in paragraph at lines 183--188
+Overfull \hbox (95.86548pt too wide) in paragraph at lines 185--190
 \T1/cmr/m/n/10 page[default][colsep=-
  []
 
 
-Overfull \hbox (82.81311pt too wide) in paragraph at lines 183--188
+Overfull \hbox (82.81311pt too wide) in paragraph at lines 185--190
 \T1/cmr/m/n/10 4bp,rounded=true]
  []
 
 
-Overfull \hbox (16.16272pt too wide) in paragraph at lines 183--188
+Overfull \hbox (16.16272pt too wide) in paragraph at lines 185--190
 \T1/cmr/m/n/10 sec-
  []
 
 
-Overfull \hbox (75.20386pt too wide) in paragraph at lines 183--188
+Overfull \hbox (75.20386pt too wide) in paragraph at lines 185--190
 \T1/cmr/m/n/10 tions/subsections
  []
 
 
-Overfull \hbox (8.3313pt too wide) in paragraph at lines 183--188
+Overfull \hbox (8.3313pt too wide) in paragraph at lines 185--190
 \T1/cmr/m/n/10 in
  []
 
 
-Overfull \hbox (47.294pt too wide) in paragraph at lines 183--188
+Overfull \hbox (47.294pt too wide) in paragraph at lines 185--190
 \T1/cmr/m/n/10 toc[square]
  []
 
 
-Overfull \hbox (51.73737pt too wide) in paragraph at lines 183--188
+Overfull \hbox (51.73737pt too wide) in paragraph at lines 185--190
 \T1/cmr/m/n/10 items[circle]
  []
 
 
-Overfull \hbox (78.09204pt too wide) in paragraph at lines 183--188
+Overfull \hbox (78.09204pt too wide) in paragraph at lines 185--190
 \T1/cmr/m/n/10 blocks[width=0.0] 
  []
 
-./beamerthemeconfposter.sty:190: Undefined control sequence.
-l.190 \setbeamertemplate
+./beamerthemeconfposter.sty:192: Undefined control sequence.
+l.192 \setbeamertemplate
                         {bibliography item}[text]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1239,34 +1239,16 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:190: LaTeX Error: Missing \begin{document}.
+./beamerthemeconfposter.sty:192: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.190 \setbeamertemplate{b
+l.192 \setbeamertemplate{b
                           ibliography item}[text]
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
-
-./beamerthemeconfposter.sty:191: Undefined control sequence.
-l.191 \setbeamercolor
-                     {bibliography item}{fg=black,bg=white}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./beamerthemeconfposter.sty:192: Undefined control sequence.
-l.192 \setbeamercolor
-                     {bibliography entry author}{fg=black,bg=white}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
 ./beamerthemeconfposter.sty:193: Undefined control sequence.
 l.193 \setbeamercolor
@@ -1277,139 +1259,157 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+./beamerthemeconfposter.sty:194: Undefined control sequence.
+l.194 \setbeamercolor
+                     {bibliography entry author}{fg=black,bg=white}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-Overfull \hbox (74.45892pt too wide) in paragraph at lines 190--194
+./beamerthemeconfposter.sty:195: Undefined control sequence.
+l.195 \setbeamercolor
+                     {bibliography item}{fg=black,bg=white}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (74.45892pt too wide) in paragraph at lines 192--196
 []\T1/cmr/m/n/10 bibliography
  []
 
 
-Overfull \hbox (42.48962pt too wide) in paragraph at lines 190--194
+Overfull \hbox (42.48962pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 item[text]
  []
 
 
-Overfull \hbox (17.21802pt too wide) in paragraph at lines 190--194
+Overfull \hbox (17.21802pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 bib-
  []
 
 
-Overfull \hbox (8.88672pt too wide) in paragraph at lines 190--194
+Overfull \hbox (8.88672pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 li-
  []
 
 
-Overfull \hbox (13.33008pt too wide) in paragraph at lines 190--194
+Overfull \hbox (13.33008pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 og-
  []
 
 
-Overfull \hbox (12.24701pt too wide) in paragraph at lines 190--194
+Overfull \hbox (12.24701pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 ra-
  []
 
 
-Overfull \hbox (16.10718pt too wide) in paragraph at lines 190--194
+Overfull \hbox (16.10718pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 phy
  []
 
 
-Overfull \hbox (103.0304pt too wide) in paragraph at lines 190--194
+Overfull \hbox (103.0304pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 itemfg=black,bg=white
  []
 
 
-Overfull \hbox (17.21802pt too wide) in paragraph at lines 190--194
+Overfull \hbox (17.21802pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 bib-
  []
 
 
-Overfull \hbox (8.88672pt too wide) in paragraph at lines 190--194
+Overfull \hbox (8.88672pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 li-
  []
 
 
-Overfull \hbox (13.33008pt too wide) in paragraph at lines 190--194
+Overfull \hbox (13.33008pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 og-
  []
 
 
-Overfull \hbox (12.24701pt too wide) in paragraph at lines 190--194
+Overfull \hbox (12.24701pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 ra-
  []
 
 
-Overfull \hbox (16.10718pt too wide) in paragraph at lines 190--194
+Overfull \hbox (16.10718pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 phy
  []
 
 
-Overfull \hbox (13.33008pt too wide) in paragraph at lines 190--194
+Overfull \hbox (13.33008pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 en-
  []
 
 
-Overfull \hbox (13.08014pt too wide) in paragraph at lines 190--194
+Overfull \hbox (13.08014pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 try
  []
 
 
-Overfull \hbox (13.8855pt too wide) in paragraph at lines 190--194
+Overfull \hbox (13.8855pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 au-
  []
 
 
-Overfull \hbox (101.94733pt too wide) in paragraph at lines 190--194
+Overfull \hbox (101.94733pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 thorfg=black,bg=white
  []
 
 
-Overfull \hbox (17.21802pt too wide) in paragraph at lines 190--194
+Overfull \hbox (17.21802pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 bib-
  []
 
 
-Overfull \hbox (8.88672pt too wide) in paragraph at lines 190--194
+Overfull \hbox (8.88672pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 li-
  []
 
 
-Overfull \hbox (13.33008pt too wide) in paragraph at lines 190--194
+Overfull \hbox (13.33008pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 og-
  []
 
 
-Overfull \hbox (12.24701pt too wide) in paragraph at lines 190--194
+Overfull \hbox (12.24701pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 ra-
  []
 
 
-Overfull \hbox (16.10718pt too wide) in paragraph at lines 190--194
+Overfull \hbox (16.10718pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 phy
  []
 
 
-Overfull \hbox (103.0304pt too wide) in paragraph at lines 190--194
+Overfull \hbox (103.0304pt too wide) in paragraph at lines 192--196
 \T1/cmr/m/n/10 itemfg=black,bg=white 
  []
 
 
-./beamerthemeconfposter.sty:194: LaTeX Error: The font size command \normalsize is not defined:
+./beamerthemeconfposter.sty:196: LaTeX Error: The font size command \normalsize is not defined:
                there is probably something wrong with the class file.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.194 
+l.196 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-./beamerthemeconfposter.sty:194: Undefined control sequence.
+./beamerthemeconfposter.sty:196: Undefined control sequence.
 \set@color ...\@pdfcolorstack push{\current@color 
                                                   }\aftergroup \reset@color 
-l.194 
+l.196 
       
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1417,10 +1417,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./beamerthemeconfposter.sty:194: Undefined control sequence.
+./beamerthemeconfposter.sty:196: Undefined control sequence.
 \set@color ...\@pdfcolorstack push{\current@color 
                                                   }\aftergroup \reset@color 
-l.194 
+l.196 
       
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1433,8 +1433,8 @@ and I'll forget about whatever was undefined.
 \iinboxwd=\skip45
 \inboxrule=\skip46
 
-./beamerthemeconfposter.sty:205: Undefined control sequence.
-l.205 \setbeamertemplate
+./beamerthemeconfposter.sty:207: Undefined control sequence.
+l.207 \setbeamertemplate
                         {headline}{
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1443,56 +1443,56 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:205: LaTeX Error: Missing \begin{document}.
+./beamerthemeconfposter.sty:207: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.205 \setbeamertemplate{h
+l.207 \setbeamertemplate{h
                           eadline}{
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./beamerthemeconfposter.sty:207: LaTeX Error: Environment columns undefined.
+./beamerthemeconfposter.sty:209: LaTeX Error: Environment columns undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.207   \begin{columns}
+l.209   \begin{columns}
                        
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./beamerthemeconfposter.sty:208: LaTeX Error: Environment column undefined.
+./beamerthemeconfposter.sty:210: LaTeX Error: Environment column undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.208    \begin{column}
+l.210    \begin{column}
                        {\linewidth}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-./beamerthemeconfposter.sty:208: Missing number, treated as zero.
+./beamerthemeconfposter.sty:210: Missing number, treated as zero.
 <to be read again> 
                    }
-l.208    \begin{column}{\linewidth}
+l.210    \begin{column}{\linewidth}
                                    
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-./beamerthemeconfposter.sty:208: Illegal unit of measure (pt inserted).
+./beamerthemeconfposter.sty:210: Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.208    \begin{column}{\linewidth}
+l.210    \begin{column}{\linewidth}
                                    
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1502,12 +1502,12 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 
-Overfull \hbox (56.1023pt too wide) in paragraph at lines 205--209
+Overfull \hbox (56.1023pt too wide) in paragraph at lines 207--211
 []\T1/cmr/m/n/10 headline
  []
 
-./beamerthemeconfposter.sty:210: Undefined control sequence.
-l.210 		\usebeamercolor
+./beamerthemeconfposter.sty:212: Undefined control sequence.
+l.212 		\usebeamercolor
                        {title in headline}{\color{fg}\Huge{\scshape \insertt...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1516,19 +1516,19 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:210: Package xcolor Error: Undefined color `fg'.
+./beamerthemeconfposter.sty:212: Package xcolor Error: Undefined color `fg'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.210 ...beamercolor{title in headline}{\color{fg}
+l.212 ...beamercolor{title in headline}{\color{fg}
                                                   \Huge{\scshape \inserttitl...
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./beamerthemeconfposter.sty:210: Undefined control sequence.
-l.210 ...rcolor{title in headline}{\color{fg}\Huge
+./beamerthemeconfposter.sty:212: Undefined control sequence.
+l.212 ...rcolor{title in headline}{\color{fg}\Huge
                                                   {\scshape \inserttitle}\\[...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1536,8 +1536,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./beamerthemeconfposter.sty:210: Undefined control sequence.
-l.210 ...ne}{\color{fg}\Huge{\scshape \inserttitle
+./beamerthemeconfposter.sty:212: Undefined control sequence.
+l.212 ...ne}{\color{fg}\Huge{\scshape \inserttitle
                                                   }\\[1.5ex]}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1546,27 +1546,27 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (17.77344pt too wide) in paragraph at lines 210--210
+Overfull \hbox (17.77344pt too wide) in paragraph at lines 212--212
  \T1/cmr/m/n/10 title 
  []
 
 
-Overfull \hbox (8.3313pt too wide) in paragraph at lines 210--210
+Overfull \hbox (8.3313pt too wide) in paragraph at lines 212--212
  \T1/cmr/m/n/10 in 
  []
 
 
-Overfull \hbox (23.88306pt too wide) in paragraph at lines 210--210
+Overfull \hbox (23.88306pt too wide) in paragraph at lines 212--212
  \T1/cmr/m/n/10 head- 
  []
 
 
-Overfull \hbox (15.55176pt too wide) in paragraph at lines 210--210
+Overfull \hbox (15.55176pt too wide) in paragraph at lines 212--212
  \T1/cmr/m/n/10 line[] 
  []
 
-./beamerthemeconfposter.sty:211: Undefined control sequence.
-l.211     	\usebeamercolor
+./beamerthemeconfposter.sty:214: Undefined control sequence.
+l.214     	\usebeamercolor
                           {author in headline}{\color{fg}\LARGE{\rmfamily\in...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1575,19 +1575,19 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:211: Package xcolor Error: Undefined color `fg'.
+./beamerthemeconfposter.sty:214: Package xcolor Error: Undefined color `fg'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.211 ...eamercolor{author in headline}{\color{fg}
+l.214 ...eamercolor{author in headline}{\color{fg}
                                                   \LARGE{\rmfamily\insertaut...
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./beamerthemeconfposter.sty:211: Undefined control sequence.
-l.211 ...olor{author in headline}{\color{fg}\LARGE
+./beamerthemeconfposter.sty:214: Undefined control sequence.
+l.214 ...olor{author in headline}{\color{fg}\LARGE
                                                   {\rmfamily\insertauthor}\\...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1595,8 +1595,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./beamerthemeconfposter.sty:211: Undefined control sequence.
-l.211 ...}{\color{fg}\LARGE{\rmfamily\insertauthor
+./beamerthemeconfposter.sty:214: Undefined control sequence.
+l.214 ...}{\color{fg}\LARGE{\rmfamily\insertauthor
                                                   }\\[1.3ex]}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1605,84 +1605,84 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (28.9096pt too wide) in paragraph at lines 211--211
+Overfull \hbox (28.9096pt too wide) in paragraph at lines 214--214
  []\T1/cmr/m/n/10 author 
  []
 
 
-Overfull \hbox (8.3313pt too wide) in paragraph at lines 211--211
+Overfull \hbox (8.3313pt too wide) in paragraph at lines 214--214
  \T1/cmr/m/n/10 in 
  []
 
 
-Overfull \hbox (23.88306pt too wide) in paragraph at lines 211--211
+Overfull \hbox (23.88306pt too wide) in paragraph at lines 214--214
  \T1/cmr/m/n/10 head- 
  []
 
 
-Overfull \hbox (15.55176pt too wide) in paragraph at lines 211--211
+Overfull \hbox (15.55176pt too wide) in paragraph at lines 214--214
  \T1/cmr/m/n/10 line[] 
  []
 
 
-./beamerthemeconfposter.sty:215: LaTeX Error: \begin{document} ended by \end{column}.
+./beamerthemeconfposter.sty:218: LaTeX Error: \begin{document} ended by \end{column}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.215    \end{column}
+l.218    \end{column}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./beamerthemeconfposter.sty:217: LaTeX Error: \begin{document} ended by \end{columns}.
+./beamerthemeconfposter.sty:220: LaTeX Error: \begin{document} ended by \end{columns}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.217   \end{columns}
+l.220   \end{columns}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./beamerthemeconfposter.sty:219: LaTeX Error: Environment beamercolorbox undefined.
+./beamerthemeconfposter.sty:222: LaTeX Error: Environment beamercolorbox undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.219  \hspace{0.5in}\begin{beamercolorbox}
+l.222  \hspace{0.5in}\begin{beamercolorbox}
                                            [wd=47in,ht=0.02ex,colsep=0.15cm]...
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./beamerthemeconfposter.sty:219: LaTeX Error: \begin{document} ended by \end{beamercolorbox}.
+./beamerthemeconfposter.sty:222: LaTeX Error: \begin{document} ended by \end{beamercolorbox}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.219 ...colsep=0.15cm]{cboxb}\end{beamercolorbox}
+l.222 ...colsep=0.15cm]{cboxb}\end{beamercolorbox}
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (220.86766pt too wide) in paragraph at lines 219--222
+Overfull \hbox (220.86766pt too wide) in paragraph at lines 222--225
  \T1/cmr/m/n/10 [wd=47in,ht=0.02ex,colsep=0.15cm]cboxb
  []
 
-./beamerthemeconfposter.sty:224: Undefined control sequence.
-l.224 \setbeamertemplate
+./beamerthemeconfposter.sty:227: Undefined control sequence.
+l.227 \setbeamertemplate
                         {block begin}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1691,74 +1691,74 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:224: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.224 \setbeamertemplate{b
-                          lock begin}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Overfull \hbox (43.04993pt too wide) in paragraph at lines 224--226
-[]\T1/cmr/m/n/10 block
- []
-
-
-Overfull \hbox (13.60779pt too wide) in paragraph at lines 224--226
-\T1/cmr/m/n/10 be-
- []
-
-
-Overfull \hbox (13.33008pt too wide) in paragraph at lines 224--226
-\T1/cmr/m/n/10 gin
- []
-
-
-./beamerthemeconfposter.sty:227: LaTeX Error: Environment beamercolorbox undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.227   \begin{beamercolorbox}
-                              [colsep*=0ex,dp={2ex},center]{block title}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
 ./beamerthemeconfposter.sty:227: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.227   \begin{beamercolorbox}[
+l.227 \setbeamertemplate{b
+                          lock begin}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (43.04993pt too wide) in paragraph at lines 227--229
+[]\T1/cmr/m/n/10 block
+ []
+
+
+Overfull \hbox (13.60779pt too wide) in paragraph at lines 227--229
+\T1/cmr/m/n/10 be-
+ []
+
+
+Overfull \hbox (13.33008pt too wide) in paragraph at lines 227--229
+\T1/cmr/m/n/10 gin
+ []
+
+
+./beamerthemeconfposter.sty:230: LaTeX Error: Environment beamercolorbox undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.230   \begin{beamercolorbox}
+                              [colsep*=0ex,dp={2ex},center]{block title}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./beamerthemeconfposter.sty:230: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.230   \begin{beamercolorbox}[
                                colsep*=0ex,dp={2ex},center]{block title}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (167.82501pt too wide) in paragraph at lines 227--228
+Overfull \hbox (167.82501pt too wide) in paragraph at lines 230--231
 []\T1/cmr/m/n/10 [colsep*=0ex,dp=2ex,center]block
  []
 
 
-Overfull \hbox (9.99756pt too wide) in paragraph at lines 227--228
+Overfull \hbox (9.99756pt too wide) in paragraph at lines 230--231
 \T1/cmr/m/n/10 ti-
  []
 
 
-Overfull \hbox (11.1084pt too wide) in paragraph at lines 227--228
+Overfull \hbox (11.1084pt too wide) in paragraph at lines 230--231
 \T1/cmr/m/n/10 tle 
  []
 
-./beamerthemeconfposter.sty:229: Undefined control sequence.
-l.229     \usebeamerfont
+./beamerthemeconfposter.sty:232: Undefined control sequence.
+l.232     \usebeamerfont
                         {block title}\Large\insertblocktitle
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1767,19 +1767,19 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:229: LaTeX Error: Missing \begin{document}.
+./beamerthemeconfposter.sty:232: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.229     \usebeamerfont{b
+l.232     \usebeamerfont{b
                           lock title}\Large\insertblocktitle
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./beamerthemeconfposter.sty:229: Undefined control sequence.
-l.229     \usebeamerfont{block title}\Large
+./beamerthemeconfposter.sty:232: Undefined control sequence.
+l.232     \usebeamerfont{block title}\Large
                                            \insertblocktitle
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1787,8 +1787,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./beamerthemeconfposter.sty:229: Undefined control sequence.
-l.229 ...rfont{block title}\Large\insertblocktitle
+./beamerthemeconfposter.sty:232: Undefined control sequence.
+l.232 ...rfont{block title}\Large\insertblocktitle
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1797,169 +1797,36 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (43.04993pt too wide) in paragraph at lines 229--230
+Overfull \hbox (43.04993pt too wide) in paragraph at lines 232--233
 []\T1/cmr/m/n/10 block
  []
 
 
-Overfull \hbox (9.99756pt too wide) in paragraph at lines 229--230
+Overfull \hbox (9.99756pt too wide) in paragraph at lines 232--233
 \T1/cmr/m/n/10 ti-
  []
 
 
-Overfull \hbox (11.1084pt too wide) in paragraph at lines 229--230
+Overfull \hbox (11.1084pt too wide) in paragraph at lines 232--233
 \T1/cmr/m/n/10 tle 
  []
 
 
-./beamerthemeconfposter.sty:231: LaTeX Error: \begin{document} ended by \end{beamercolorbox}.
+./beamerthemeconfposter.sty:234: LaTeX Error: \begin{document} ended by \end{beamercolorbox}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.231   \end{beamercolorbox}
+l.234   \end{beamercolorbox}
                             
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-./beamerthemeconfposter.sty:233: Undefined control sequence.
-l.233   \ifbeamercolorempty
-                           [bg]{block title}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./beamerthemeconfposter.sty:233: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.233   \ifbeamercolorempty[
-                            bg]{block title}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-./beamerthemeconfposter.sty:235: Undefined control sequence.
-l.235   {\ifbeamercolorempty
-                            [bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./beamerthemeconfposter.sty:235: You can't use `\prevdepth' in horizontal mode.
-\nointerlineskip ->\prevdepth 
-                              -\@m \p@ 
-l.235 ...rempty[bg]{block body}{}{\nointerlineskip
-                                                  \vskip-0.5pt}}
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-./beamerthemeconfposter.sty:235: Missing $ inserted.
-<inserted text> 
-                $
-l.235 ...rempty[bg]{block body}{}{\nointerlineskip
-                                                  \vskip-0.5pt}}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 235.
-(/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 235.
- (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 235.
- (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 235.
- (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 235.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 235.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 235.
-LaTeX Font Info:    Try loading font information for U+msa on input line 235.
- (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 235.
- (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-./beamerthemeconfposter.sty:235: Missing number, treated as zero.
-<to be read again> 
-                   \vskip 
-l.235 ...[bg]{block body}{}{\nointerlineskip\vskip
-                                                  -0.5pt}}
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./beamerthemeconfposter.sty:235: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   \vskip 
-l.235 ...[bg]{block body}{}{\nointerlineskip\vskip
-                                                  -0.5pt}}
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-./beamerthemeconfposter.sty:235: Missing $ inserted.
-<inserted text> 
-                $
-l.235 ...[bg]{block body}{}{\nointerlineskip\vskip
-                                                  -0.5pt}}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-Missing character: There is no è in font lmex10!
-
-Overfull \hbox (59.1571pt too wide) in paragraph at lines 233--235
-[]\T1/cmr/m/n/10 [bg]block
- []
-
-
-Overfull \hbox (9.99756pt too wide) in paragraph at lines 233--235
-\T1/cmr/m/n/10 ti-
- []
-
-
-Overfull \hbox (11.1084pt too wide) in paragraph at lines 233--235
-\T1/cmr/m/n/10 tle
- []
-
-
-Overfull \hbox (39.1571pt too wide) in paragraph at lines 233--235
-\T1/cmr/m/n/10 [bg]block
- []
-
-
-Overfull \hbox (25.2716pt too wide) in paragraph at lines 233--235
-\T1/cmr/m/n/10 body-
- []
-
 ./beamerthemeconfposter.sty:236: Undefined control sequence.
-l.236   \usebeamerfont
-                      {block body}
+l.236   \ifbeamercolorempty
+                           [bg]{block title}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1973,48 +1840,181 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.236   \usebeamerfont{b
-                        lock body}
+l.236   \ifbeamercolorempty[
+                            bg]{block title}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+./beamerthemeconfposter.sty:238: Undefined control sequence.
+l.238   {\ifbeamercolorempty
+                            [bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-Overfull \hbox (43.04993pt too wide) in paragraph at lines 236--237
-[]\T1/cmr/m/n/10 block
+./beamerthemeconfposter.sty:238: You can't use `\prevdepth' in horizontal mode.
+\nointerlineskip ->\prevdepth 
+                              -\@m \p@ 
+l.238 ...rempty[bg]{block body}{}{\nointerlineskip
+                                                  \vskip-0.5pt}}
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./beamerthemeconfposter.sty:238: Missing $ inserted.
+<inserted text> 
+                $
+l.238 ...rempty[bg]{block body}{}{\nointerlineskip
+                                                  \vskip-0.5pt}}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 238.
+(/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 238.
+ (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 238.
+ (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 238.
+ (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 238.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 238.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 238.
+LaTeX Font Info:    Try loading font information for U+msa on input line 238.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 238.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+./beamerthemeconfposter.sty:238: Missing number, treated as zero.
+<to be read again> 
+                   \vskip 
+l.238 ...[bg]{block body}{}{\nointerlineskip\vskip
+                                                  -0.5pt}}
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./beamerthemeconfposter.sty:238: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \vskip 
+l.238 ...[bg]{block body}{}{\nointerlineskip\vskip
+                                                  -0.5pt}}
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+./beamerthemeconfposter.sty:238: Missing $ inserted.
+<inserted text> 
+                $
+l.238 ...[bg]{block body}{}{\nointerlineskip\vskip
+                                                  -0.5pt}}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no è in font lmex10!
+
+Overfull \hbox (59.1571pt too wide) in paragraph at lines 236--238
+[]\T1/cmr/m/n/10 [bg]block
  []
 
 
-Overfull \hbox (21.93909pt too wide) in paragraph at lines 236--237
-\T1/cmr/m/n/10 body 
+Overfull \hbox (9.99756pt too wide) in paragraph at lines 236--238
+\T1/cmr/m/n/10 ti-
  []
 
 
-./beamerthemeconfposter.sty:238: LaTeX Error: Environment beamercolorbox undefined.
+Overfull \hbox (11.1084pt too wide) in paragraph at lines 236--238
+\T1/cmr/m/n/10 tle
+ []
+
+
+Overfull \hbox (39.1571pt too wide) in paragraph at lines 236--238
+\T1/cmr/m/n/10 [bg]block
+ []
+
+
+Overfull \hbox (25.2716pt too wide) in paragraph at lines 236--238
+\T1/cmr/m/n/10 body-
+ []
+
+./beamerthemeconfposter.sty:239: Undefined control sequence.
+l.239   \usebeamerfont
+                      {block body}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./beamerthemeconfposter.sty:239: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.238   \begin{beamercolorbox}
+l.239   \usebeamerfont{b
+                        lock body}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (43.04993pt too wide) in paragraph at lines 239--240
+[]\T1/cmr/m/n/10 block
+ []
+
+
+Overfull \hbox (21.93909pt too wide) in paragraph at lines 239--240
+\T1/cmr/m/n/10 body 
+ []
+
+
+./beamerthemeconfposter.sty:241: LaTeX Error: Environment beamercolorbox undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.241   \begin{beamercolorbox}
                               [colsep*=0ex,vmode]{block body}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./beamerthemeconfposter.sty:238: LaTeX Error: Missing \begin{document}.
+./beamerthemeconfposter.sty:241: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.238   \begin{beamercolorbox}[
+l.241   \begin{beamercolorbox}[
                                colsep*=0ex,vmode]{block body}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./beamerthemeconfposter.sty:239: Undefined control sequence.
-l.239   \justifying
+./beamerthemeconfposter.sty:242: Undefined control sequence.
+l.242   \justifying
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2022,8 +2022,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./beamerthemeconfposter.sty:240: Extra }, or forgotten \endgroup.
-l.240 }
+./beamerthemeconfposter.sty:243: Extra }, or forgotten \endgroup.
+l.243 }
        
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2032,17 +2032,17 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 
-Overfull \hbox (133.91663pt too wide) in paragraph at lines 238--241
+Overfull \hbox (133.91663pt too wide) in paragraph at lines 241--244
 []\T1/cmr/m/n/10 [colsep*=0ex,vmode]block
  []
 
 
-Overfull \hbox (21.93909pt too wide) in paragraph at lines 238--241
+Overfull \hbox (21.93909pt too wide) in paragraph at lines 241--244
 \T1/cmr/m/n/10 body
  []
 
-./beamerthemeconfposter.sty:242: Undefined control sequence.
-l.242 \setbeamertemplate
+./beamerthemeconfposter.sty:245: Undefined control sequence.
+l.245 \setbeamertemplate
                         {block end}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2051,34 +2051,34 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:242: LaTeX Error: Missing \begin{document}.
+./beamerthemeconfposter.sty:245: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.242 \setbeamertemplate{b
+l.245 \setbeamertemplate{b
                           lock end}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./beamerthemeconfposter.sty:244: LaTeX Error: \begin{document} ended by \end{beamercolorbox}.
+./beamerthemeconfposter.sty:247: LaTeX Error: \begin{document} ended by \end{beamercolorbox}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.244   \end{beamercolorbox}
+l.247   \end{beamercolorbox}
                             
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-./beamerthemeconfposter.sty:244: Missing } inserted.
+./beamerthemeconfposter.sty:247: Missing } inserted.
 <inserted text> 
                 }
-l.244   \end{beamercolorbox}
+l.247   \end{beamercolorbox}
                             
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2087,17 +2087,17 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Overfull \hbox (43.04993pt too wide) in paragraph at lines 242--245
+Overfull \hbox (43.04993pt too wide) in paragraph at lines 245--248
 []\T1/cmr/m/n/10 block
  []
 
 
-Overfull \hbox (15.55176pt too wide) in paragraph at lines 242--245
+Overfull \hbox (15.55176pt too wide) in paragraph at lines 245--248
 \T1/cmr/m/n/10 end
  []
 
-./beamerthemeconfposter.sty:249: Undefined control sequence.
-l.249 \setbeamertemplate
+./beamerthemeconfposter.sty:252: Undefined control sequence.
+l.252 \setbeamertemplate
                         {block alerted begin}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2106,152 +2106,85 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./beamerthemeconfposter.sty:249: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.249 \setbeamertemplate{b
-                          lock alerted begin}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Overfull \hbox (43.04993pt too wide) in paragraph at lines 249--251
-[]\T1/cmr/m/n/10 block
- []
-
-
-Overfull \hbox (30.02045pt too wide) in paragraph at lines 249--251
-\T1/cmr/m/n/10 alerted
- []
-
-
-Overfull \hbox (13.60779pt too wide) in paragraph at lines 249--251
-\T1/cmr/m/n/10 be-
- []
-
-
-Overfull \hbox (13.33008pt too wide) in paragraph at lines 249--251
-\T1/cmr/m/n/10 gin
- []
-
-
-./beamerthemeconfposter.sty:252: LaTeX Error: Environment beamercolorbox undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.252   \begin{beamercolorbox}
-                              [sep=0ex,rounded=true,center,dp={2ex}]{block a...
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
 ./beamerthemeconfposter.sty:252: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.252   \begin{beamercolorbox}[
-                               sep=0ex,rounded=true,center,dp={2ex}]{block a...
+l.252 \setbeamertemplate{b
+                          lock alerted begin}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (214.53583pt too wide) in paragraph at lines 252--253
-[]\T1/cmr/m/n/10 [sep=0ex,rounded=true,center,dp=2ex]block
+Overfull \hbox (43.04993pt too wide) in paragraph at lines 252--254
+[]\T1/cmr/m/n/10 block
  []
 
 
-Overfull \hbox (30.02045pt too wide) in paragraph at lines 252--253
+Overfull \hbox (30.02045pt too wide) in paragraph at lines 252--254
 \T1/cmr/m/n/10 alerted
  []
 
 
-Overfull \hbox (9.99756pt too wide) in paragraph at lines 252--253
-\T1/cmr/m/n/10 ti-
+Overfull \hbox (13.60779pt too wide) in paragraph at lines 252--254
+\T1/cmr/m/n/10 be-
  []
 
 
-Overfull \hbox (11.1084pt too wide) in paragraph at lines 252--253
-\T1/cmr/m/n/10 tle 
+Overfull \hbox (13.33008pt too wide) in paragraph at lines 252--254
+\T1/cmr/m/n/10 gin
  []
 
-./beamerthemeconfposter.sty:254: Undefined control sequence.
-l.254     \usebeamerfont
-                        {block title}\Large\insertblocktitle
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-
-./beamerthemeconfposter.sty:254: LaTeX Error: Missing \begin{document}.
+./beamerthemeconfposter.sty:255: LaTeX Error: Environment beamercolorbox undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.254     \usebeamerfont{b
-                          lock title}\Large\insertblocktitle
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-./beamerthemeconfposter.sty:254: Undefined control sequence.
-l.254     \usebeamerfont{block title}\Large
-                                           \insertblocktitle
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./beamerthemeconfposter.sty:254: Undefined control sequence.
-l.254 ...rfont{block title}\Large\insertblocktitle
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./beamerthemeconfposter.sty:255: LaTeX Error: \begin{document} ended by \end{beamercolorbox}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.255   \end{beamercolorbox}
-                            
+l.255   \begin{beamercolorbox}
+                              [sep=0ex,rounded=true,center,dp={2ex}]{block a...
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (43.04993pt too wide) in paragraph at lines 254--256
-[]\T1/cmr/m/n/10 block
+./beamerthemeconfposter.sty:255: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.255   \begin{beamercolorbox}[
+                               sep=0ex,rounded=true,center,dp={2ex}]{block a...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (214.53583pt too wide) in paragraph at lines 255--256
+[]\T1/cmr/m/n/10 [sep=0ex,rounded=true,center,dp=2ex]block
  []
 
 
-Overfull \hbox (9.99756pt too wide) in paragraph at lines 254--256
+Overfull \hbox (30.02045pt too wide) in paragraph at lines 255--256
+\T1/cmr/m/n/10 alerted
+ []
+
+
+Overfull \hbox (9.99756pt too wide) in paragraph at lines 255--256
 \T1/cmr/m/n/10 ti-
  []
 
 
-Overfull \hbox (11.1084pt too wide) in paragraph at lines 254--256
+Overfull \hbox (11.1084pt too wide) in paragraph at lines 255--256
 \T1/cmr/m/n/10 tle 
  []
 
 ./beamerthemeconfposter.sty:257: Undefined control sequence.
-l.257   \usebeamerfont
-                      {block body}
+l.257     \usebeamerfont
+                        {block title}\Large\insertblocktitle
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2265,45 +2198,87 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.257   \usebeamerfont{b
-                        lock body}
+l.257     \usebeamerfont{b
+                          lock title}\Large\insertblocktitle
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+./beamerthemeconfposter.sty:257: Undefined control sequence.
+l.257     \usebeamerfont{block title}\Large
+                                           \insertblocktitle
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-Overfull \hbox (43.04993pt too wide) in paragraph at lines 257--258
-[]\T1/cmr/m/n/10 block
- []
+./beamerthemeconfposter.sty:257: Undefined control sequence.
+l.257 ...rfont{block title}\Large\insertblocktitle
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (21.93909pt too wide) in paragraph at lines 257--258
-\T1/cmr/m/n/10 body 
- []
-
-
-./beamerthemeconfposter.sty:259: LaTeX Error: Environment beamercolorbox undefined.
+./beamerthemeconfposter.sty:258: LaTeX Error: \begin{document} ended by \end{beamercolorbox}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.259   \begin{beamercolorbox}
-                              [sep=0.5cm, rounded=true,center]{block alerted...
+l.258   \end{beamercolorbox}
+                            
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./beamerthemeconfposter.sty:259: LaTeX Error: Missing \begin{document}.
+Overfull \hbox (43.04993pt too wide) in paragraph at lines 257--259
+[]\T1/cmr/m/n/10 block
+ []
+
+
+Overfull \hbox (9.99756pt too wide) in paragraph at lines 257--259
+\T1/cmr/m/n/10 ti-
+ []
+
+
+Overfull \hbox (11.1084pt too wide) in paragraph at lines 257--259
+\T1/cmr/m/n/10 tle 
+ []
+
+./beamerthemeconfposter.sty:260: Undefined control sequence.
+l.260   \usebeamerfont
+                      {block body}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./beamerthemeconfposter.sty:260: LaTeX Error: Missing \begin{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.259   \begin{beamercolorbox}[
-                               sep=0.5cm, rounded=true,center]{block alerted...
+l.260   \usebeamerfont{b
+                        lock body}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (43.04993pt too wide) in paragraph at lines 260--261
+[]\T1/cmr/m/n/10 block
+ []
+
+
+Overfull \hbox (21.93909pt too wide) in paragraph at lines 260--261
+\T1/cmr/m/n/10 body 
+ []
 
 
 ./beamerthemeconfposter.sty:262: LaTeX Error: Environment beamercolorbox undefined.
@@ -2313,24 +2288,49 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.262   \begin{beamercolorbox}
+                              [sep=0.5cm, rounded=true,center]{block alerted...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./beamerthemeconfposter.sty:262: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.262   \begin{beamercolorbox}[
+                               sep=0.5cm, rounded=true,center]{block alerted...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./beamerthemeconfposter.sty:265: LaTeX Error: Environment beamercolorbox undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.265   \begin{beamercolorbox}
                               [rounded=true,wd={\inboxwd},center]{block aler...
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-./beamerthemeconfposter.sty:262: Missing number, treated as zero.
+./beamerthemeconfposter.sty:265: Missing number, treated as zero.
 <to be read again> 
                    }
-l.262 ...eamercolorbox}[rounded=true,wd={\inboxwd}
+l.265 ...eamercolorbox}[rounded=true,wd={\inboxwd}
                                                   ,center]{block alerted body}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-./beamerthemeconfposter.sty:262: Illegal unit of measure (pt inserted).
+./beamerthemeconfposter.sty:265: Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.262 ...eamercolorbox}[rounded=true,wd={\inboxwd}
+l.265 ...eamercolorbox}[rounded=true,wd={\inboxwd}
                                                   ,center]{block alerted body}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2340,47 +2340,47 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 
-Overfull \hbox (72.82043pt too wide) in paragraph at lines 259--267
+Overfull \hbox (72.82043pt too wide) in paragraph at lines 262--270
 []\T1/cmr/m/n/10 [sep=0.5cm,
  []
 
 
-Overfull \hbox (116.16608pt too wide) in paragraph at lines 259--267
+Overfull \hbox (116.16608pt too wide) in paragraph at lines 262--270
 \T1/cmr/m/n/10 rounded=true,center]block
  []
 
 
-Overfull \hbox (30.02045pt too wide) in paragraph at lines 259--267
+Overfull \hbox (30.02045pt too wide) in paragraph at lines 262--270
 \T1/cmr/m/n/10 alerted
  []
 
 
-Overfull \hbox (9.99756pt too wide) in paragraph at lines 259--267
+Overfull \hbox (9.99756pt too wide) in paragraph at lines 262--270
 \T1/cmr/m/n/10 ti-
  []
 
 
-Overfull \hbox (11.1084pt too wide) in paragraph at lines 259--267
+Overfull \hbox (11.1084pt too wide) in paragraph at lines 262--270
 \T1/cmr/m/n/10 tle
  []
 
 
-Overfull \hbox (142.27081pt too wide) in paragraph at lines 259--267
+Overfull \hbox (142.27081pt too wide) in paragraph at lines 262--270
 \T1/cmr/m/n/10 [rounded=true,wd=,center]block
  []
 
 
-Overfull \hbox (30.02045pt too wide) in paragraph at lines 259--267
+Overfull \hbox (30.02045pt too wide) in paragraph at lines 262--270
 \T1/cmr/m/n/10 alerted
  []
 
 
-Overfull \hbox (21.93909pt too wide) in paragraph at lines 259--267
+Overfull \hbox (21.93909pt too wide) in paragraph at lines 262--270
 \T1/cmr/m/n/10 body
  []
 
-./beamerthemeconfposter.sty:269: Undefined control sequence.
-l.269   \justifying
+./beamerthemeconfposter.sty:272: Undefined control sequence.
+l.272   \justifying
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2388,8 +2388,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./beamerthemeconfposter.sty:270: Extra }, or forgotten \endgroup.
-l.270 }
+./beamerthemeconfposter.sty:273: Extra }, or forgotten \endgroup.
+l.273 }
        
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2397,8 +2397,8 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-./beamerthemeconfposter.sty:272: Undefined control sequence.
-l.272 \setbeamertemplate
+./beamerthemeconfposter.sty:275: Undefined control sequence.
+l.275 \setbeamertemplate
                         {block alerted end}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2407,29 +2407,29 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (65.72903pt too wide) in paragraph at lines 272--274
+Overfull \hbox (65.72903pt too wide) in paragraph at lines 275--277
 []\T1/cmr/m/n/10 block
  []
 
 
-Overfull \hbox (72.69955pt too wide) in paragraph at lines 272--274
+Overfull \hbox (72.69955pt too wide) in paragraph at lines 275--277
 \T1/cmr/m/n/10 alerted
  []
 
 
-Overfull \hbox (58.23087pt too wide) in paragraph at lines 272--274
+Overfull \hbox (58.23087pt too wide) in paragraph at lines 275--277
 \T1/cmr/m/n/10 end
  []
 
 
-Overfull \hbox (42.67911pt too wide) in paragraph at lines 272--274
+Overfull \hbox (42.67911pt too wide) in paragraph at lines 275--277
 
  []
 
-./beamerthemeconfposter.sty:274: Missing } inserted.
+./beamerthemeconfposter.sty:277: Missing } inserted.
 <inserted text> 
                 }
-l.274   \end{minipage}
+l.277   \end{minipage}
                       
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2438,26 +2438,26 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-./beamerthemeconfposter.sty:276: LaTeX Error: \begin{document} ended by \end{beamercolorbox}.
+./beamerthemeconfposter.sty:279: LaTeX Error: \begin{document} ended by \end{beamercolorbox}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.276   \end{beamercolorbox}
+l.279   \end{beamercolorbox}
                             
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./beamerthemeconfposter.sty:277: LaTeX Error: \begin{document} ended by \end{beamercolorbox}.
+./beamerthemeconfposter.sty:280: LaTeX Error: \begin{document} ended by \end{beamercolorbox}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.277   \end{beamercolorbox}
+l.280   \end{beamercolorbox}
                             
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2471,10 +2471,10 @@ or  <return>  to continue without it.
 
  
 Here is how much of TeX's memory you used:
- 12614 strings out of 492982
- 252643 string characters out of 6138579
- 276126 words of memory out of 5000000
- 15961 multiletter control sequences out of 15000+600000
+ 12617 strings out of 492982
+ 252686 string characters out of 6138579
+ 276315 words of memory out of 5000000
+ 15964 multiletter control sequences out of 15000+600000
  23116 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,5n,54p,437b,148s stack positions out of 5000i,500n,10000p,200000b,80000s

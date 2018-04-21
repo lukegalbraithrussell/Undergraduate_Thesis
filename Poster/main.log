@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.22)  20 APR 2018 14:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.3.22)  20 APR 2018 14:18
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -882,7 +882,7 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * \textheight=2360.44084pt
 * \oddsidemargin=-43.81725pt
 * \evensidemargin=-43.81725pt
-* \topmargin=-108.405pt
+* \topmargin=-72.26999pt
 * \headheight=14.22636pt
 * \headsep=0.0pt
 * \topskip=11.0pt
@@ -1124,13 +1124,13 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  23441 strings out of 492982
  450146 string characters out of 6138579
- 572210 words of memory out of 5000000
+ 572143 words of memory out of 5000000
  26446 multiletter control sequences out of 15000+600000
  66511 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,17n,79p,791b,1589s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on main.pdf (1 page, 1233962 bytes).
+Output written on main.pdf (1 page, 1233956 bytes).
 PDF statistics:
  162 PDF objects out of 1000 (max. 8388607)
  84 compressed objects within 1 object stream

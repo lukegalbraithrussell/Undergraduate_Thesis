@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1524112258 "beamerthemeconfposter.sty" "beamerthemeconfposter.pdf" "beamerthemeconfposter" 1524112258
+["pdflatex"] 1524258658 "beamerthemeconfposter.sty" "beamerthemeconfposter.pdf" "beamerthemeconfposter" 1524258658
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1520157216 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/eccc1000.tfm" 1520157221 3072 0e825b3b77feef5bf88d50fba1209c90 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1520157221 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
@@ -116,7 +116,7 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1522987693 2570953 760b5bb0cbd280885d9f95318df536c1 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1521735494 7738161 730725e981ca3cb7b07271dcdaec60a3 ""
   "beamerthemeconfposter.aux" 1524112126 8 a94a2480d3289e625eea47cd1b285758 ""
-  "beamerthemeconfposter.sty" 1524112258 13317 826c1e35a687f8006d6ce17e47f8cc66 ""
+  "beamerthemeconfposter.sty" 1524258652 13451 44b5bb4e3df13aa8d19243fb529bca8c ""
   (generated)
-  "beamerthemeconfposter.log"
   "beamerthemeconfposter.pdf"
+  "beamerthemeconfposter.log"
