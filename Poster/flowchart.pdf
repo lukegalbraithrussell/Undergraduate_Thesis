@@ -1,25 +1,16 @@
 %PDF-1.3
-%‚„œ”
 3 0 obj
-<<
-/Type /Page
+<</Type /Page
 /Parent 1 0 R
 /Resources 2 0 R
-/MediaBox [ 0 0 362 427 ]
-/Contents [ 24 0 R 4 0 R 23 0 R 25 0 R ]
-/Rotate 0
-/CropBox [ 32 38 330 385 ]
-/BleedBox [ 0 0 362 427 ]
-/TrimBox [ 0 0 362 427 ]
-/ArtBox [ 0 0 362 427 ]
+/MediaBox [0 0 273.00 339.00]
+/Contents 4 0 R
 >>
 endobj
 4 0 obj
-<<
-/Length 5662
->>
+<</Length 8201>>
 stream
-1.000 0.000 0.000 -1.000 0.000 427.000 cm
+1.000 0.000 0.000 -1.000 0.000 339.000 cm
 0.20 w
 0 G
 q
@@ -40,13 +31,13 @@ q
 0 J
 0 j
 10.00 M
-181.125 150.500 m
-181.125 163.625 l
+138.125 105.500 m
+138.125 118.625 l
 S
 Q
 q
 q
-0.000 -0.750 0.750 0.000 181.125 166.845 cm
+0.000 -0.750 0.750 0.000 138.125 121.845 cm
 /Xo1 Do
 Q
 Q
@@ -59,13 +50,13 @@ q
 0 J
 0 j
 10.00 M
-181.125 204.250 m
-181.125 217.375 l
+138.125 159.250 m
+138.125 172.375 l
 S
 Q
 q
 q
-0.000 -0.750 0.750 0.000 181.125 220.595 cm
+0.000 -0.750 0.750 0.000 138.125 175.595 cm
 /Xo1 Do
 Q
 Q
@@ -78,13 +69,13 @@ q
 0 J
 0 j
 10.00 M
-181.125 258.000 m
-181.125 271.125 l
+138.125 213.000 m
+138.125 226.125 l
 S
 Q
 q
 q
-0.000 -0.750 0.750 0.000 181.125 274.345 cm
+0.000 -0.750 0.750 0.000 138.125 229.345 cm
 /Xo1 Do
 Q
 Q
@@ -97,15 +88,15 @@ q
 0 J
 0 j
 10.00 M
-89.125 191.750 m
-89.125 98.313 l
-181.125 98.313 l
-181.125 109.875 l
+46.125 146.750 m
+46.125 53.313 l
+138.125 53.313 l
+138.125 64.875 l
 S
 Q
 q
 q
-0.000 -0.750 0.750 0.000 181.125 113.095 cm
+0.000 -0.750 0.750 0.000 138.125 68.095 cm
 /Xo1 Do
 Q
 Q
@@ -118,13 +109,13 @@ q
 0 J
 0 j
 10.00 M
-181.125 85.875 m
-181.125 109.875 l
+138.125 40.875 m
+138.125 64.875 l
 S
 Q
 q
 q
-0.000 -0.750 0.750 0.000 181.125 113.095 cm
+0.000 -0.750 0.750 0.000 138.125 68.095 cm
 /Xo1 Do
 Q
 Q
@@ -137,13 +128,13 @@ q
 0 J
 0 j
 10.00 M
-181.125 311.750 m
-181.125 336.750 l
+138.125 266.750 m
+138.125 291.750 l
 S
 Q
 q
 q
-0.000 -0.750 0.750 0.000 181.125 339.970 cm
+0.000 -0.750 0.750 0.000 138.125 294.970 cm
 /Xo1 Do
 Q
 Q
@@ -156,15 +147,15 @@ q
 0 J
 0 j
 10.00 M
-181.125 311.750 m
-181.125 323.188 l
-89.125 323.188 l
-89.125 232.375 l
+138.125 266.750 m
+138.125 278.188 l
+46.125 278.188 l
+46.125 187.375 l
 S
 Q
 q
 q
-0.000 0.750 -0.750 0.000 89.125 229.155 cm
+0.000 0.750 -0.750 0.000 46.125 184.155 cm
 /Xo1 Do
 Q
 Q
@@ -177,13 +168,13 @@ q
 0 J
 0 j
 10.00 M
-220.250 240.063 m
-229.250 240.063 l
+177.250 195.063 m
+186.250 195.063 l
 S
 Q
 q
 q
--0.750 0.000 0.000 -0.750 232.470 240.063 cm
+-0.750 0.000 0.000 -0.750 189.470 195.063 cm
 /Xo1 Do
 Q
 Q
@@ -196,13 +187,13 @@ q
 0 J
 0 j
 10.00 M
-273.125 258.000 m
-273.125 271.125 l
+230.125 213.000 m
+230.125 226.125 l
 S
 Q
 q
 q
-0.000 -0.750 0.750 0.000 273.125 274.345 cm
+0.000 -0.750 0.750 0.000 230.125 229.345 cm
 /Xo1 Do
 Q
 Q
@@ -215,13 +206,13 @@ q
 0 J
 0 j
 10.00 M
-234.000 293.813 m
-225.000 293.813 l
+191.000 248.813 m
+182.000 248.813 l
 S
 Q
 q
 q
-0.750 0.000 0.000 0.750 221.780 293.813 cm
+0.750 0.000 0.000 0.750 178.780 248.813 cm
 /Xo1 Do
 Q
 Q
@@ -234,13 +225,13 @@ q
 0 J
 0 j
 10.00 M
-142.000 359.438 m
-133.000 359.438 l
+99.000 314.438 m
+90.000 314.438 l
 S
 Q
 q
 q
-0.750 0.000 0.000 0.750 129.780 359.438 cm
+0.750 0.000 0.000 0.750 86.780 314.438 cm
 /Xo2 Do
 Q
 Q
@@ -248,17 +239,17 @@ Q
 q
 /GS1 gs
 q
-0.82 0.87 0.93 rg
+0.00 0.16 0.47 rg
 1.00 w
-0.00 0.00 0.00 RG
+0.00 0.16 0.47 RG
 0 J
 0 j
 10.00 M
-0.824 0.871 0.933 rg
-142.000 114.625 m
-220.250 114.625 l
-220.250 150.500 l
-142.000 150.500 l
+0.000 0.157 0.471 rg
+99.000 69.625 m
+177.250 69.625 l
+177.250 105.500 l
+99.000 105.500 l
 h
 B
 Q
@@ -266,17 +257,17 @@ Q
 q
 /GS1 gs
 q
-0.82 0.87 0.93 rg
+0.00 0.16 0.47 rg
 1.00 w
-0.00 0.00 0.00 RG
+0.00 0.16 0.47 RG
 0 J
 0 j
 10.00 M
-0.824 0.871 0.933 rg
-142.000 168.375 m
-220.250 168.375 l
-220.250 204.250 l
-142.000 204.250 l
+0.000 0.157 0.471 rg
+99.000 123.375 m
+177.250 123.375 l
+177.250 159.250 l
+99.000 159.250 l
 h
 B
 Q
@@ -284,17 +275,17 @@ Q
 q
 /GS1 gs
 q
-0.82 0.87 0.93 rg
+0.00 0.16 0.47 rg
 1.00 w
-0.00 0.00 0.00 RG
+0.00 0.16 0.47 RG
 0 J
 0 j
 10.00 M
-0.824 0.871 0.933 rg
-142.000 222.125 m
-220.250 222.125 l
-220.250 258.000 l
-142.000 258.000 l
+0.000 0.157 0.471 rg
+99.000 177.125 m
+177.250 177.125 l
+177.250 213.000 l
+99.000 213.000 l
 h
 B
 Q
@@ -302,17 +293,17 @@ Q
 q
 /GS1 gs
 q
-0.82 0.87 0.93 rg
+0.00 0.16 0.47 rg
 1.00 w
-0.00 0.00 0.00 RG
+0.00 0.16 0.47 RG
 0 J
 0 j
 10.00 M
-0.824 0.871 0.933 rg
-142.000 275.875 m
-220.250 275.875 l
-220.250 311.750 l
-142.000 311.750 l
+0.000 0.157 0.471 rg
+99.000 230.875 m
+177.250 230.875 l
+177.250 266.750 l
+99.000 266.750 l
 h
 B
 Q
@@ -320,17 +311,17 @@ Q
 q
 /GS1 gs
 q
-1.00 0.98 0.76 rg
+1.00 0.80 0.00 rg
 1.00 w
-0.00 0.00 0.00 RG
+1.00 0.80 0.00 RG
 0 J
 0 j
 10.00 M
-1.000 0.976 0.761 rg
-50.000 191.750 m
-128.250 191.750 l
-128.250 227.625 l
-50.000 227.625 l
+1.000 0.800 0.000 rg
+7.000 146.750 m
+85.250 146.750 l
+85.250 182.625 l
+7.000 182.625 l
 h
 B
 Q
@@ -338,17 +329,17 @@ Q
 q
 /GS1 gs
 q
-1.00 0.98 0.76 rg
+1.00 0.80 0.00 rg
 1.00 w
-0.00 0.00 0.00 RG
-0 J
+1.00 0.80 0.00 RG
+2 J
 0 j
 10.00 M
-1.000 0.976 0.761 rg
-142.000 50.000 m
-220.250 50.000 l
-220.250 85.875 l
-142.000 85.875 l
+1.000 0.800 0.000 rg
+99.000 5.000 m
+177.250 5.000 l
+177.250 40.875 l
+99.000 40.875 l
 h
 B
 Q
@@ -356,17 +347,17 @@ Q
 q
 /GS1 gs
 q
-1.00 0.98 0.76 rg
+1.00 0.80 0.00 rg
 1.00 w
-0.00 0.00 0.00 RG
+1.00 0.80 0.00 RG
 0 J
 0 j
 10.00 M
-1.000 0.976 0.761 rg
-142.000 341.500 m
-220.250 341.500 l
-220.250 377.375 l
-142.000 377.375 l
+1.000 0.800 0.000 rg
+99.000 296.500 m
+177.250 296.500 l
+177.250 332.375 l
+99.000 332.375 l
 h
 B
 Q
@@ -374,17 +365,17 @@ Q
 q
 /GS1 gs
 q
-1.00 0.98 0.76 rg
+1.00 0.80 0.00 rg
 1.00 w
-0.00 0.00 0.00 RG
+1.00 0.80 0.00 RG
 0 J
 0 j
 10.00 M
-1.000 0.976 0.761 rg
-50.000 341.500 m
-128.250 341.500 l
-128.250 377.375 l
-50.000 377.375 l
+1.000 0.800 0.000 rg
+7.000 296.500 m
+85.250 296.500 l
+85.250 332.375 l
+7.000 332.375 l
 h
 B
 Q
@@ -392,17 +383,17 @@ Q
 q
 /GS1 gs
 q
-0.82 0.87 0.93 rg
+0.00 0.16 0.47 rg
 1.00 w
-0.00 0.00 0.00 RG
+0.00 0.16 0.47 RG
 0 J
 0 j
 10.00 M
-0.824 0.871 0.933 rg
-234.000 222.125 m
-312.250 222.125 l
-312.250 258.000 l
-234.000 258.000 l
+0.000 0.157 0.471 rg
+191.000 177.125 m
+269.250 177.125 l
+269.250 213.000 l
+191.000 213.000 l
 h
 B
 Q
@@ -410,17 +401,17 @@ Q
 q
 /GS1 gs
 q
-0.82 0.87 0.93 rg
+0.00 0.16 0.47 rg
 1.00 w
-0.00 0.00 0.00 RG
+0.00 0.16 0.47 RG
 0 J
 0 j
 10.00 M
-0.824 0.871 0.933 rg
-234.000 275.875 m
-312.250 275.875 l
-312.250 311.750 l
-234.000 311.750 l
+0.000 0.157 0.471 rg
+191.000 230.875 m
+269.250 230.875 l
+269.250 266.750 l
+191.000 266.750 l
 h
 B
 Q
@@ -428,17 +419,40 @@ Q
 q
 /GS1 gs
 q
+/GS2 gs
+1.00 1.00 1.00 rg
+1.00 w
+1.00 1.00 1.00 RG
+0 J
+0 j
+10.00 M
+1.000 1.000 1.000 rg
+1.000 0.000 0.000 1.000 99.000 69.625 cm
+0.000 0.000 m 
+78.250 0.000 l
+78.250 0.000 78.250 0.000 78.250 0.000 c
+78.250 35.875 l
+78.250 35.875 78.250 35.875 78.250 35.875 c
+0.000 35.875 l
+0.000 35.875 0.000 35.875 0.000 35.875 c
+0.000 0.000 l
+0.000 0.000 0.000 0.000 0.000 0.000 c
+h
+B
+Q
+q
+/GS1 gs
 /F1 16 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 /F1 12 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 146.730 135.363 Tm
+1.000 0.000 0.000 -1.000 103.730 90.362 Tm
 (Find Center) Tj
 ET
 Q
@@ -448,25 +462,48 @@ Q
 q
 /GS1 gs
 q
+/GS2 gs
+1.00 1.00 1.00 rg
+1.00 w
+1.00 1.00 1.00 RG
+0 J
+0 j
+10.00 M
+1.000 1.000 1.000 rg
+1.000 0.000 0.000 1.000 99.000 123.375 cm
+0.000 0.000 m 
+78.250 0.000 l
+78.250 0.000 78.250 0.000 78.250 0.000 c
+78.250 35.875 l
+78.250 35.875 78.250 35.875 78.250 35.875 c
+0.000 35.875 l
+0.000 35.875 0.000 35.875 0.000 35.875 c
+0.000 0.000 l
+0.000 0.000 0.000 0.000 0.000 0.000 c
+h
+B
+Q
+q
+/GS1 gs
 /F1 16 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 /F1 12 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 161.581 180.113 Tm
+1.000 0.000 0.000 -1.000 118.581 135.113 Tm
 (Fit 1-D) Tj
 ET
 Q
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 153.598 198.113 Tm
-(Gaussian) Tj
+1.000 0.000 0.000 -1.000 107.472 153.113 Tm
+(Gaussians) Tj
 ET
 Q
 Q
@@ -475,17 +512,40 @@ Q
 q
 /GS1 gs
 q
+/GS2 gs
+1.00 1.00 1.00 rg
+1.00 w
+1.00 1.00 1.00 RG
+0 J
+0 j
+10.00 M
+1.000 1.000 1.000 rg
+1.000 0.000 0.000 1.000 99.000 177.125 cm
+0.000 0.000 m 
+78.250 0.000 l
+78.250 0.000 78.250 0.000 78.250 0.000 c
+78.250 35.875 l
+78.250 35.875 78.250 35.875 78.250 35.875 c
+0.000 35.875 l
+0.000 35.875 0.000 35.875 0.000 35.875 c
+0.000 0.000 l
+0.000 0.000 0.000 0.000 0.000 0.000 c
+h
+B
+Q
+q
+/GS1 gs
 /F1 16 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 /F1 12 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 146.807 242.863 Tm
+1.000 0.000 0.000 -1.000 103.807 197.863 Tm
 (Find Radius) Tj
 ET
 Q
@@ -495,24 +555,47 @@ Q
 q
 /GS1 gs
 q
+/GS2 gs
+1.00 1.00 1.00 rg
+1.00 w
+1.00 1.00 1.00 RG
+0 J
+0 j
+10.00 M
+1.000 1.000 1.000 rg
+1.000 0.000 0.000 1.000 99.000 230.875 cm
+0.000 0.000 m 
+78.250 0.000 l
+78.250 0.000 78.250 0.000 78.250 0.000 c
+78.250 35.875 l
+78.250 35.875 78.250 35.875 78.250 35.875 c
+0.000 35.875 l
+0.000 35.875 0.000 35.875 0.000 35.875 c
+0.000 0.000 l
+0.000 0.000 0.000 0.000 0.000 0.000 c
+h
+B
+Q
+q
+/GS1 gs
 /F1 16 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 /F1 12 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 152.382 287.613 Tm
+1.000 0.000 0.000 -1.000 109.382 242.613 Tm
 (Sum over) Tj
 ET
 Q
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 164.121 305.613 Tm
+1.000 0.000 0.000 -1.000 121.121 260.613 Tm
 (Pixels) Tj
 ET
 Q
@@ -523,16 +606,16 @@ q
 /GS1 gs
 q
 /F1 16 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 /F1 12 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 52.744 212.488 Tm
+1.000 0.000 0.000 -1.000 9.744 167.488 Tm
 (Frame += 1) Tj
 ET
 Q
@@ -543,16 +626,16 @@ q
 /GS1 gs
 q
 /F1 16 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 /F1 12 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 145.588 70.737 Tm
+1.000 0.000 0.000 -1.000 102.588 25.738 Tm
 (Inital Frame) Tj
 ET
 Q
@@ -563,16 +646,16 @@ q
 /GS1 gs
 q
 /F1 16 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 /F1 12 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 150.627 362.238 Tm
+1.000 0.000 0.000 -1.000 107.627 317.238 Tm
 (Event End) Tj
 ET
 Q
@@ -583,16 +666,16 @@ q
 /GS1 gs
 q
 /F1 16 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 /F1 12 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 54.543 362.238 Tm
+1.000 0.000 0.000 -1.000 11.543 317.238 Tm
 (Light Curve) Tj
 ET
 Q
@@ -602,24 +685,47 @@ Q
 q
 /GS1 gs
 q
+/GS2 gs
+1.00 1.00 1.00 rg
+1.00 w
+1.00 1.00 1.00 RG
+0 J
+0 j
+10.00 M
+1.000 1.000 1.000 rg
+1.000 0.000 0.000 1.000 191.000 177.125 cm
+0.000 0.000 m 
+78.250 0.000 l
+78.250 0.000 78.250 0.000 78.250 0.000 c
+78.250 35.875 l
+78.250 35.875 78.250 35.875 78.250 35.875 c
+0.000 35.875 l
+0.000 35.875 0.000 35.875 0.000 35.875 c
+0.000 0.000 l
+0.000 0.000 0.000 0.000 0.000 0.000 c
+h
+B
+Q
+q
+/GS1 gs
 /F1 16 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 /F1 12 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 256.777 233.863 Tm
+1.000 0.000 0.000 -1.000 213.777 188.863 Tm
 (Mean) Tj
 ET
 Q
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 237.330 251.863 Tm
+1.000 0.000 0.000 -1.000 194.330 206.863 Tm
 (Background) Tj
 ET
 Q
@@ -629,24 +735,47 @@ Q
 q
 /GS1 gs
 q
+/GS2 gs
+1.00 1.00 1.00 rg
+1.00 w
+1.00 1.00 1.00 RG
+0 J
+0 j
+10.00 M
+1.000 1.000 1.000 rg
+1.000 0.000 0.000 1.000 191.000 230.875 cm
+0.000 0.000 m 
+78.250 0.000 l
+78.250 0.000 78.250 0.000 78.250 0.000 c
+78.250 35.875 l
+78.250 35.875 78.250 35.875 78.250 35.875 c
+0.000 35.875 l
+0.000 35.875 0.000 35.875 0.000 35.875 c
+0.000 0.000 l
+0.000 0.000 0.000 0.000 0.000 0.000 c
+h
+B
+Q
+q
+/GS1 gs
 /F1 16 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 /F1 12 Tf
-0.000 g
+1.000 1.000 1.000 rg
 /F1 12 Tf
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 247.558 287.613 Tm
+1.000 0.000 0.000 -1.000 204.558 242.613 Tm
 (Subtract) Tj
 ET
 Q
 q
 BT
 13.799999999999999 TL
-1.000 0.000 0.000 -1.000 237.330 305.613 Tm
+1.000 0.000 0.000 -1.000 194.330 260.613 Tm
 (Background) Tj
 ET
 Q
@@ -659,127 +788,92 @@ Q
 endstream
 endobj
 1 0 obj
-<<
-/Type /Pages
-/Kids [ 3 0 R ]
+<</Type /Pages
+/Kids [3 0 R ]
 /Count 1
 >>
 endobj
 5 0 obj
-<<
-/BaseFont /Helvetica
-/Type /Font
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
->>
+<</BaseFont/Helvetica/Type/Font
+/Encoding/WinAnsiEncoding
+/Subtype/Type1>>
 endobj
 6 0 obj
-<<
-/BaseFont /Helvetica-Bold
-/Type /Font
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
->>
+<</BaseFont/Helvetica-Bold/Type/Font
+/Encoding/WinAnsiEncoding
+/Subtype/Type1>>
 endobj
 7 0 obj
-<<
-/BaseFont /Helvetica-Oblique
-/Type /Font
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
->>
+<</BaseFont/Helvetica-Oblique/Type/Font
+/Encoding/WinAnsiEncoding
+/Subtype/Type1>>
 endobj
 8 0 obj
-<<
-/BaseFont /Helvetica-BoldOblique
-/Type /Font
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
->>
+<</BaseFont/Helvetica-BoldOblique/Type/Font
+/Encoding/WinAnsiEncoding
+/Subtype/Type1>>
 endobj
 9 0 obj
-<<
-/BaseFont /Courier
-/Type /Font
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
->>
+<</BaseFont/Courier/Type/Font
+/Encoding/WinAnsiEncoding
+/Subtype/Type1>>
 endobj
 10 0 obj
-<<
-/BaseFont /Courier-Bold
-/Type /Font
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
->>
+<</BaseFont/Courier-Bold/Type/Font
+/Encoding/WinAnsiEncoding
+/Subtype/Type1>>
 endobj
 11 0 obj
-<<
-/BaseFont /Courier-Oblique
-/Type /Font
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
->>
+<</BaseFont/Courier-Oblique/Type/Font
+/Encoding/WinAnsiEncoding
+/Subtype/Type1>>
 endobj
 12 0 obj
-<<
-/BaseFont /Courier-BoldOblique
-/Type /Font
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
->>
+<</BaseFont/Courier-BoldOblique/Type/Font
+/Encoding/WinAnsiEncoding
+/Subtype/Type1>>
 endobj
 13 0 obj
-<<
-/BaseFont /Times-Roman
-/Type /Font
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
->>
+<</BaseFont/Times-Roman/Type/Font
+/Encoding/WinAnsiEncoding
+/Subtype/Type1>>
 endobj
 14 0 obj
-<<
-/BaseFont /Times-Bold
-/Type /Font
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
->>
+<</BaseFont/Times-Bold/Type/Font
+/Encoding/WinAnsiEncoding
+/Subtype/Type1>>
 endobj
 15 0 obj
-<<
-/BaseFont /Times-Italic
-/Type /Font
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
->>
+<</BaseFont/Times-Italic/Type/Font
+/Encoding/WinAnsiEncoding
+/Subtype/Type1>>
 endobj
 16 0 obj
-<<
-/BaseFont /Times-BoldItalic
-/Type /Font
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
->>
+<</BaseFont/Times-BoldItalic/Type/Font
+/Encoding/WinAnsiEncoding
+/Subtype/Type1>>
 endobj
 17 0 obj
-<<
-/BaseFont /ZapfDingbats
-/Type /Font
-/Encoding /StandardEncoding
-/Subtype /Type1
->>
+<</BaseFont/ZapfDingbats/Type/Font
+/Encoding/StandardEncoding
+/Subtype/Type1>>
 endobj
 18 0 obj
 <<
-/ca 1
+/ca 1.00
 >>
 endobj
 19 0 obj
 <<
+/ca 0.00
+>>
+endobj
+20 0 obj
+<<
 /Type /XObject
 /Subtype /Form
-/BBox [ -1.93 -6.93 6.93 6.93 ]
-/Matrix [ 1 0 0 1 0 0 ]
+/BBox [-1.93 -6.93 6.93 6.93]
+/Matrix [1.000 0.000 0.000 1.000 0.000 0.000]
 /Length 134
 >>
 stream
@@ -798,12 +892,12 @@ h
 B
 endstream
 endobj
-20 0 obj
+21 0 obj
 <<
 /Type /XObject
 /Subtype /Form
-/BBox [ -1.93 -6.93 6.93 6.93 ]
-/Matrix [ 1 0 0 1 0 0 ]
+/BBox [-1.93 -6.93 6.93 6.93]
+/Matrix [1.000 0.000 0.000 1.000 0.000 0.000]
 /Length 126
 >>
 stream
@@ -823,7 +917,7 @@ endstream
 endobj
 2 0 obj
 <<
-/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
 /Font <<
 /F1 5 0 R
 /F2 6 0 R
@@ -845,134 +939,60 @@ endobj
 >>
 /ExtGState <<
 /GS1 18 0 R
+/GS2 19 0 R
 >>
 /XObject <<
-/Xo1 19 0 R
-/Xo2 20 0 R
+/Xo1 20 0 R
+/Xo2 21 0 R
 >>
->>
-endobj
-21 0 obj
-<<
-/Producer (PDF Candy)
-/CreationDate (D:20180420100137-07'00')
-/ModDate (D:20180420165942+07'00')
 >>
 endobj
 22 0 obj
 <<
-/Type /Catalog
-/Pages 1 0 R
-/OpenAction [ 3 0 R /FitH null ]
-/PageLayout /OneColumn
-/Metadata 26 0 R
+/Producer (jsPDF 1.2.70 2017-09-21T13:01:15.925Z:f102811-2hollaender)
+/CreationDate (D:20180421141045-07'00')
 >>
 endobj
 23 0 obj
 <<
-/Length 0
-/LC /iSQP
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
 >>
-stream
-
-endstream
-endobj
-24 0 obj
-<<
-/Length 17
-/LC /iSQP
->>
-stream
-q 1 0 0 1 0 0 cm 
-endstream
-endobj
-25 0 obj
-<<
-/Length 3
-/LC /iSQP
->>
-stream
- Q 
-endstream
-endobj
-26 0 obj
-<<
-/Length 1992
-/Type /Metadata
-/Subtype /XML
->>
-stream
-<?xpacket begin="Ôªø" id="W5M0MpCehiHzreSzNTczkc9d"?>
-<x:xmpmeta xmlns:x="adobe:ns:meta/">
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-		<rdf:Description xmlns:dc="http://purl.org/dc/elements/1.1/">
-			<dc:format>application/pdf</dc:format>
-			<dc:creator>
-				<rdf:Seq>
-					<rdf:li/>
-				</rdf:Seq>
-			</dc:creator>
-			<dc:description>
-				<rdf:Alt>
-					<rdf:li xml:lang="x-default"/>
-				</rdf:Alt>
-			</dc:description>
-			<dc:title>
-				<rdf:Alt>
-					<rdf:li xml:lang="x-default"/>
-				</rdf:Alt>
-			</dc:title>
-		</rdf:Description>
-		<rdf:Description xmlns:xmp="http://ns.adobe.com/xap/1.0/">
-			<xmp:CreatorTool/>
-			<xmp:CreateDate/>
-			<xmp:ModifyDate>2018-04-20T16:59:42+07:00</xmp:ModifyDate>
-		</rdf:Description>
-		<rdf:Description xmlns:pdf="http://ns.adobe.com/pdf/1.3/">
-			<pdf:Keywords/>
-			<pdf:Producer>PDF Candy</pdf:Producer>
-		</rdf:Description>
-	</rdf:RDF>
-</x:xmpmeta>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-<?xpacket end="w"?>
-endstream
 endobj
 xref
-0 27
+0 24
 0000000000 65535 f 
-0000005972 00000 n 
-0000007923 00000 n 
-0000000015 00000 n 
-0000000258 00000 n 
-0000006031 00000 n 
-0000006128 00000 n 
-0000006230 00000 n 
-0000006335 00000 n 
-0000006444 00000 n 
-0000006539 00000 n 
-0000006640 00000 n 
-0000006744 00000 n 
-0000006852 00000 n 
-0000006952 00000 n 
-0000007051 00000 n 
-0000007152 00000 n 
-0000007257 00000 n 
-0000007359 00000 n 
-0000007387 00000 n 
-0000007659 00000 n 
-0000008244 00000 n 
-0000008363 00000 n 
-0000008486 00000 n 
-0000008546 00000 n 
-0000008624 00000 n 
-0000008687 00000 n 
+0000008369 00000 n 
+0000010301 00000 n 
+0000000009 00000 n 
+0000000118 00000 n 
+0000008426 00000 n 
+0000008516 00000 n 
+0000008611 00000 n 
+0000008709 00000 n 
+0000008811 00000 n 
+0000008899 00000 n 
+0000008993 00000 n 
+0000009090 00000 n 
+0000009191 00000 n 
+0000009284 00000 n 
+0000009376 00000 n 
+0000009470 00000 n 
+0000009568 00000 n 
+0000009663 00000 n 
+0000009694 00000 n 
+0000009725 00000 n 
+0000010017 00000 n 
+0000010632 00000 n 
+0000010764 00000 n 
 trailer
 <<
-/Size 27
-/Root 22 0 R
-/Info 21 0 R
+/Size 24
+/Root 23 0 R
+/Info 22 0 R
 >>
 startxref
-10762
+10868
 %%EOF
