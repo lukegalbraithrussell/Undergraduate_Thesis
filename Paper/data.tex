@@ -120,6 +120,15 @@ One aspect of the data that does not seem to fit well is the beginning of the ev
 	\label{fig:residuals1}
 \end{figure}
 
+The error can also be displayed with the use of a violin plot, shown in Figure~\ref{fig:violinplot}. This allows us to see whether it is overestimating or underestimating the magnitude by looking at the tails of the plot. By focusing the plot's tails, that information is not masked underneath a consistent offset some data may have.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{testviolinplot.png}
+	\caption{Testviolinplot}
+	\label{fig:violinplot}
+\end{figure}
+
 This discrepancy may be because the program does not take into account parameters such as atmospheric extinction. These parameters are more influential if the object moves radially across the night sky in the camera's frame. If NASA did take into account this affect, then that would explain the difference.
 
 \section{Fireballs detected with D6.}

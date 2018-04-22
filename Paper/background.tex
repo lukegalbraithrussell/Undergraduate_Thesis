@@ -137,7 +137,7 @@ An all-sky camera can result in the acquisition of many pieces of useful informa
 
 Not only does the velocity help determine mass in this situation, it also can be used to work backwards to find an estimate of the velocity before the affects of drag began slowing it down. This means that all-sky cameras can be used to gather data on the potential velocities of meteor showers in open space. The SPanish Meteor Network (SPMN) used velocity data to extrapolate such pre-atmosphere velocities with their five station setup in 2006 \cite{Trigo-Rodriguez2007}. 
 
-Ultimately, all-sky cameras are most useful for measuring the photometric qualities of objects in the sky. They can detect fireballs and then provide the needed data to determine the fireballs' magnitudes, which is how bright they appear to the camera. This can be done with just a single all-sky camera. All-sky cameras assign a value of light to each pixel of their frames, and thus those values of light can be used to find the luminosity of the fireball. This process will be covered in much more detail in the Methods section.
+Ultimately, all-sky cameras are most useful for measuring the photometric qualities of objects in the sky. They can detect fireballs and then provide the needed data to determine the fireballs' magnitudes, which is how bright they appear to the camera. This can be done with just a single all-sky camera. All-sky cameras assign a value of light to each pixel of their frames, and thus those values of light can be used to find the intensity of the fireball.
 
 It should be noted that there are differing techniques when performing photometry. Different cameras are most sensitive in different spectra of light, and that can make comparing results from different cameras challenging. One solution to this is to apply a filter. A filter isolates light along a specific length of the electromagnetic spectrum, as shown in Figure \ref{fig:bands}. For example, a visual filter is one that focuses on visible light, being centered on the wavelength for green light. The most commonly used values for star magnitudes are values determined after applying a visual spectrum filter. If a camera is more sensitive towards the infrared spectrum, an R filter would more likely fit its data, and can be applied instead \cite{Suggs2014}. It is possible to compare magnitude values with two different filters, by converting one to another through a somewhat linear relationship, but it is not exact.
 
@@ -151,5 +151,38 @@ It should be noted that there are differing techniques when performing photometr
 
 In some cases, it is useful to not apply a filter at all. While this can make it difficult to calibrate the camera to other known values, this guarantees that all light is being detected. This is crucial in highly sensitive detection situations where it would be ill-advised to sacrifice any of the small amount of potential data \cite{Rembold2015}. Even if no filter is applied, knowing the different bands allows the comparison of data to similar observations. For example, if the unfiltered camera sensitivity closely approximates the R band, R filter values are comparable.
 
-The luminosity can be used to find the mass, but only by using approximations for other values such as density, which can be estimated due to the structural analysis of meteorite collections. As luminosity is the only needed data point, a single all-sky camera is just as viable for measuring the population distribution. This process is described in detail in the methods section of this paper. 
+The luminosity can be used to find the mass, but only by using approximations for other values such as density, which can be estimated due to the structural analysis of meteorite collections. As luminosity is the only needed data point, a single all-sky camera is just as viable for measuring the population distribution.
 
+But how does one get from intensity to luminosity? The relationship between the two is
+
+\begin{equation}
+	L = I * SA,
+	\label{eq:luminosity}
+\end{equation}
+
+where $L$ is luminosity, $I$ is intensity, and $SA$ is the surface area of the object. In order to find the luminosity from intensity, we need to assume that the object is roughly a sphere. This assumption is not too far off from the actual shape of most meteors. Making this assumption, Equation~\ref{eq:luminosity} becomes 
+
+\begin{equation}
+	L = 4 \pi I r^3.
+\end{equation}
+
+Now that the intensity is converted to luminosity, that luminosity can then be used to find it's total kinetic energy. The relationship between the two is,
+
+\begin{equation}
+	L = \tau KE,
+	\label{eq:kinetic}
+\end{equation}
+
+where $L$ is again luminosity, $KE$ is kinetic energy, and $\tau$ is the luminous efficiency. Again, the luminous efficiency is simply the proportion of a fireball's energy that is dissipated as light. Once the kinetic energy is known, we can relate that to mass, as
+
+\begin{equation}
+	KE = \frac{v^2}{2}\frac{dm}{dt},
+\end{equation}
+
+where $v$ is velocity, $m$ is mass, and $t$ is time. Again, with only one all-sky camera assumptions about the velocity have to be made, but as most velocities of meteors are within one order of magnitude, this assumption does not create problems along the log-log graph of Figure~\ref{fig:population}. Again, this is easily resolved by having multiple all-sky cameras detect the event. Notice that while the mass of an object is usually treated as constant when calculating kinetic energy, since the entirety of the object's mass is burning up, we can integrate over the entire event to find that original mass. This integral can be written as,
+
+\begin{equation}
+m =\int \frac{2L}{\tau v^2}\,dt
+\end{equation}.
+
+This integration is why the entire light curve of a meteor event needs to be collected. The methods for doing so is described in the next section.
