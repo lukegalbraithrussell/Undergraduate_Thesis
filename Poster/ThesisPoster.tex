@@ -163,7 +163,7 @@ This magnitude is uncalibrated however, and measurements from different systems 
 \begin{column}{\sepwid}\end{column} % Empty spacer column
 
 \begin{column}{1.2\twocolwid} % Begin a column which is two columns wide (column 2)
-\setbeamercolor{block alerted title}{fg=black,bg=msyellow} % Change the alert block title colors
+\setbeamercolor{block alerted title}{fg=white,bg=msblue} % Change the alert block title colors
 \setbeamercolor{block alerted body}{fg=black,bg=five38} % Change the alert block body colors
 
 \begin{alertblock}{Analysis Procedure}
@@ -172,16 +172,16 @@ This magnitude is uncalibrated however, and measurements from different systems 
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{flowchart.pdf}
+  \includegraphics[width=\linewidth]{flowchart1.pdf}
   \label{fig:flowchart}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{testplot2.pdf}
+  \includegraphics[width=\linewidth]{testplot1.pdf}
   \label{fig:gaussians}
 \end{subfigure}
 \end{figure}
-\vspace{-1cm}
+\vspace{-2cm}
 \end{alertblock}
 
 %\begin{block}{Computational Methods}
@@ -198,43 +198,14 @@ This magnitude is uncalibrated however, and measurements from different systems 
 \end{alertblock}
 %\end{block}
 
-%----------------------------------------------------------------------------------------
-
-
-%\end{columns} % End of the split of column 2 - any content after this will now take up 2 columns width
-
-%----------------------------------------------------------------------------------------
-%	IMPORTANT RESULT
-%----------------------------------------------------------------------------------------
-
-\setbeamercolor{block alerted title}{fg=black,bg=msyellow} % Change the alert block title colors
-\setbeamercolor{block alerted body}{fg=black,bg=five38} % Change the alert block body colors
-
-%\begin{alertblock}{Important Result}
-
-%Lorem ipsum dolor \textbf{sit amet}, consectetur adipiscing elit. Sed commodo molestie porta. Sed ultrices scelerisque sapien ac commodo. Donec ut volutpat elit.
-
-%\end{alertblock} 
-
-%----------------------------------------------------------------------------------------
-
-%\begin{columns}[t,totalwidth=\twocolwid] % Split up the two columns wide column again
-
 
 %----------------------------------------------------------------------------------------
 %	RESULTS
 %----------------------------------------------------------------------------------------
 
-%The first object to test the program on was an iridium flare. They're good psuedo-meteors as their times are easily predictable and they have known magnitudes to compare to.
+\setbeamercolor{block alerted title}{fg=msblue,bg=msyellow} % Change the alert block title colors
+\setbeamercolor{block alerted body}{fg=black,bg=five38} % Change the alert block body colors
 
-%\begin{alertblock}{Iridium Flare}
-
-%\begin{figure}
-%\includegraphics[width=0.3\linewidth]{IridiumCurve.pdf}
-%\caption{The iridium flare data matches quantitatively with the event, but a reference star couldn't be identified during the event, so calibration was not possible}
-%\end{figure}
-
-%\end{alertblock}
 
 \begin{block}{Results}
 As a test, the program was run on meteor events collected by NASA's ASGARD all-sky network. Lightcurves are also available for this data, and serve as a useful comparison and analysis check. On all comparisons thus far the program has compared favorably. 
@@ -244,25 +215,27 @@ As a test, the program was run on meteor events collected by NASA's ASGARD all-s
 
 \begin{figure}
 \centering
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.52\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{LightComparison0.pdf}
-  \caption{NASA's detected meteor}
+  \includegraphics[width=\linewidth]{PosterGraph.pdf}
   \label{fig:sub1}
 \end{subfigure}%
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.48\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{D6Curve.pdf}
-  \caption{Our own detected meteor}
+  \includegraphics[width=\linewidth]{PosterViolinPlotBlue.pdf}
   \label{fig:sub2}
 \end{subfigure}
 \label{fig:test}
 \end{figure}
-
+\vspace{-1.5cm}
 \end{alertblock}
 
 \vspace{-1cm}
 %\vspace{-1.5cm}
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSION
+%----------------------------------------------------------------------------------------
 
 
 \begin{block}{Conclusion}
@@ -270,13 +243,6 @@ As a test, the program was run on meteor events collected by NASA's ASGARD all-s
 The photometric program we wrote appears to be successful at finding the calibrated magnitudes of events. There is some fine tweaking and optimization to be done, but after that, it is onto collecting enough data to statistically analyse and create our own population distribution of meteoroids. 
 
 \end{block}
-%----------------------------------------------------------------------------------------
-
-
-
-%----------------------------------------------------------------------------------------
-%	CONCLUSION
-%----------------------------------------------------------------------------------------
 
 
 %----------------------------------------------------------------------------------------
