@@ -20,7 +20,7 @@ The event was analyzed by the script, producing an accurate-looking light curve.
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{/home/luke/Data/IridiumFlare/IridiumMag.pdf}
-	\caption{Name}
+	\caption{While light curves are usually displayed in terms of magnitude, it's important to remember the source of those magnitude values: pixel values.}
 	\label{fig:iridiummag}
 \end{figure}
 
@@ -38,7 +38,7 @@ Some issues did emerge from this event, however. Ideally, we would like to be ab
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{ObjectPlot055.png}
-	\caption{ObjectPlot055}
+	\caption{The peak of the event flattens out, strong evidence that the event was too bright for our camera.}
 	\label{fig:ObjectPlot055}
 \end{figure}
 
@@ -63,7 +63,7 @@ The first event that we acquired from NASA's database was one that occurred on M
 
 While the light curve is crucial to compare our results to, the infographic also contains crucial information for star calibration such as the video's location, the event's direction, and the time of the event. This allows us to make use of planetarium software to view how the stars were positioned at that time and orientation, so we can identify a correct reference star. For our purposes, we used stellarium. Stellarium is a free, open-source\footnote{Open-source projects are one the best catalysts of intelligent thought in a society. If possible, they should be used at all costs} planetarium available on all three major operating systems\footnote{Available on most, but perhaps not all, Linux distributions}.
 
-With the planetarium software, we were able to obtain a view of the position of celestial objects at that time, as seen in Figure~\ref{stellarium}.
+With the planetarium software, we were able to obtain a view of the position of celestial objects at that time, as seen in Figure~\ref{fig:stellarium}.
 
 \begin{figure}[ht!]
 	\centering
@@ -72,7 +72,7 @@ With the planetarium software, we were able to obtain a view of the position of 
 	\label{fig:stellarium}
 \end{figure}
 
-Figure~\ref{stellarium} was then compared to the thresholded video frames of the event in order to try to identify one of the brighter objects. Assuming the stellarium was positioned correctly, celestial objects should appear to be in the same place in both images. Figure~\ref{ThresholdFrame} was the frame that was compared. 
+Figure~\ref{fig:stellarium} was then compared to the thresholded video frames of the event in order to try to identify one of the brighter objects. Assuming the stellarium was positioned correctly, celestial objects should appear to be in the same place in both images. Figure~\ref{fig:ThresholdFrame} was the frame that was compared. 
 
 \begin{figure}[ht!]
 	\centering
@@ -81,7 +81,7 @@ Figure~\ref{stellarium} was then compared to the thresholded video frames of the
 	\label{fig:ThresholdFrame}
 \end{figure}
 
-Looking at Figure~\ref{ThresholdFrame} alongside Figure~\ref{stellarium} one can pick out which objects are which. A few pieces of data can be extracted from the two images. The only piece of data that we need is the magnitude of a single object, which can be obtained by clicking on that object in stellarium. For this calibration, Jupiter was used with its magnitude of -2.35 at the time. While only one object is needed, Jupiter and other notable stars are labeled in the identified version of the thresholded frame in Figure~\ref{FrameLabel}.
+Looking at Figure~\ref{fig:ThresholdFrame} alongside Figure~\ref{fig:stellarium} one can pick out which objects are which. A few pieces of data can be extracted from the two images. The only piece of data that we need is the magnitude of a single object, which can be obtained by clicking on that object in stellarium. For this calibration, Jupiter was used with its magnitude of -2.35 at the time. While only one object is needed, Jupiter and other notable stars are labeled in the identified version of the thresholded frame in Figure~\ref{fig:FrameLabel}.
 
 \begin{figure}[ht!]
 	\centering
@@ -96,7 +96,7 @@ Now that we had a celestial object with a magnitude to calibrate to, the program
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.6\linewidth]{/home/luke/Data/NASA/2018-03-21-0814/MeteorCurve.pdf}}
+	\includegraphics[width=0.6\linewidth]{LightCurve1.pdf}}
 	\caption{A lightcurve the program calculated off one of NASA's detected meteor events.}
 	\label{fig:lightcurve}
 \end{figure}
@@ -106,7 +106,7 @@ The general trend shows that program's methodology in calculating the magnitude 
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{/home/luke/Data/NASA/2018-03-21-0814/201803210814.pdf}
+	\includegraphics[width=0.6\linewidth]{LightCurveComparison.pdf}
 	\caption{The event in question is the light curve on the top.}
 	\label{fig:nasa}
 \end{figure}
@@ -124,12 +124,50 @@ The error can also be displayed with the use of a violin plot, shown in Figure~\
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{testviolinplot.png}
+	\includegraphics[width=0.6\linewidth]{ViolinPlot1.pdf}
 	\caption{Testviolinplot}
 	\label{fig:violinplot}
 \end{figure}
 
-This discrepancy may be because the program does not take into account parameters such as atmospheric extinction. These parameters are more influential if the object moves radially across the night sky in the camera's frame. If NASA did take into account this affect, then that would explain the difference.
+Light curve comparisons and the responding violin plots were then made for other events pulled from NASA's all-sky camera network. The light curves are shown in Figure ~\ref{fig:lightcurves}.
+
+\begin{figure}
+\centering
+\begin{subfigure}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{LightCurveComparison2.pdf}
+  \label{fig:nothresholdd6}
+\end{subfigure}%
+\begin{subfigure}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{LightCurveComparison3.pdf}
+  \label{fig:thresholdd6}
+\end{subfigure}
+\begin{subfigure}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{LightCurveComparison4.pdf}
+  \label{fig:thresholdd6}
+\end{subfigure}
+\begin{subfigure}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{LightCurveComparison5.pdf}
+  \label{fig:thresholdd6}
+\end{subfigure}
+\caption{Light curves collected over multiple events.}
+\label{fig:lightcurves}
+\end{figure}
+
+
+The results were generally in agreement with each other. This is seen in Figure~\ref{fig:AllViolins}.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{AllViolins.pdf}
+	\caption{The violin plot for all these events have a few outliers.}
+	\label{fig:AllViolins}
+\end{figure}
+
+This discrepancy may be because the program does not take into account parameters such as atmospheric extinction. These parameters are more influential if the object moves radially across the night sky in the camera's frame. If NASA did take into account this affect, then that would explain the difference. 
 
 \section{Fireballs detected with D6.}
 
