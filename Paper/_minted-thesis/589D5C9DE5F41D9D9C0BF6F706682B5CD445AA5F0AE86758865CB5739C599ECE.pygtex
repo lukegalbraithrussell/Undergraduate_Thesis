@@ -1,0 +1,279 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{tkinter} \PYG{k+kn}{as} \PYG{n+nn}{tk}
+\PYG{k+kn}{from} \PYG{n+nn}{tkinter.filedialog} \PYG{k+kn}{import} \PYG{n}{askopenfilename}
+\PYG{k+kn}{import} \PYG{n+nn}{tkinter.ttk} \PYG{k+kn}{as} \PYG{n+nn}{ttk}
+\PYG{k+kn}{from} \PYG{n+nn}{tkinter.constants} \PYG{k+kn}{import} \PYG{o}{*}
+\PYG{k+kn}{from} \PYG{n+nn}{PIL} \PYG{k+kn}{import} \PYG{n}{Image}\PYG{p}{,} \PYG{n}{ImageTk}
+\PYG{k+kn}{import} \PYG{n+nn}{glob}
+\PYG{k+kn}{import} \PYG{n+nn}{Photometry} 
+\PYG{k+kn}{import} \PYG{n+nn}{os}
+\PYG{k+kn}{import} \PYG{n+nn}{sys}
+\PYG{k+kn}{import} \PYG{n+nn}{shutil}
+\PYG{k+kn}{import} \PYG{n+nn}{time}
+\PYG{k+kn}{import} \PYG{n+nn}{datetime}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{cv2}
+
+
+\PYG{k}{class} \PYG{n+nc}{GUI}\PYG{p}{(}\PYG{n}{tk}\PYG{o}{.}\PYG{n}{Frame}\PYG{p}{):}
+    
+    \PYG{n+nd}{@classmethod}
+    \PYG{k}{def} \PYG{n+nf}{main}\PYG{p}{(}\PYG{n+nb+bp}{cls}\PYG{p}{):}
+        \PYG{n}{root} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Tk}\PYG{p}{()}
+        \PYG{n}{app} \PYG{o}{=} \PYG{n+nb+bp}{cls}\PYG{p}{(}\PYG{n}{root}\PYG{p}{)}
+        \PYG{n}{app}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{n}{sticky}\PYG{o}{=}\PYG{n}{NSEW}\PYG{p}{)}
+        \PYG{n}{root}\PYG{o}{.}\PYG{n}{geometry}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}800x500+50+50\PYGZsq{}}\PYG{p}{)}
+        \PYG{n}{root}\PYG{o}{.}\PYG{n}{grid\PYGZus{}columnconfigure}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{weight}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+        \PYG{n}{root}\PYG{o}{.}\PYG{n}{grid\PYGZus{}rowconfigure}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{weight}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+        \PYG{n}{root}\PYG{o}{.}\PYG{n}{mainloop}\PYG{p}{()}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{root}\PYG{p}{):}
+        \PYG{n+nb}{super}\PYG{p}{()}\PYG{o}{.}\PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n}{root}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{master} \PYG{o}{=} \PYG{n}{root}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{fill}\PYG{o}{=}\PYG{n}{BOTH}\PYG{p}{,} \PYG{n}{expand}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{)}
+
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tk\PYGZus{}setPalette}\PYG{p}{(} \PYG{n}{background} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}black\PYGZsq{}}\PYG{p}{,}
+                            \PYG{n}{foreground} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}gray80\PYGZsq{}}\PYG{p}{,}
+                            \PYG{n}{activeBackground} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}gray30\PYGZsq{}}\PYG{p}{,}
+                            \PYG{n}{selectColor} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}firebrick4\PYGZsq{}}\PYG{p}{,}
+                            \PYG{n}{selectBackground} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}firebrick4\PYGZsq{}} \PYG{p}{)}
+
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{createwidgets}\PYG{p}{()}
+
+    \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+    \PYG{c+c1}{\PYGZsh{} Organizing/Placing Widgets}
+    \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+    \PYG{k}{def} \PYG{n+nf}{createwidgets}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Plotted} \PYG{o}{=} \PYG{n+nb+bp}{False}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ObjectClick} \PYG{o}{=} \PYG{n+nb+bp}{False}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ReferenceClick} \PYG{o}{=} \PYG{n+nb+bp}{False}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdToggle} \PYG{o}{=} \PYG{n+nb+bp}{False}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FrameNo} \PYG{o}{=} \PYG{l+m+mi}{1}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdCompleted} \PYG{o}{=} \PYG{n+nb+bp}{False}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ChoiceToggle} \PYG{o}{=} \PYG{n+nb+bp}{False}
+
+        \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{} }
+        \PYG{n}{Frame1} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Frame}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}
+        \PYG{n}{Frame1}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{fill}\PYG{o}{=}\PYG{n}{X}\PYG{p}{)}
+        \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FolderName} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Entry}\PYG{p}{(}\PYG{n}{Frame1}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FolderName}\PYG{o}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}
+                \PYG{n}{f}\PYG{l+s+s1}{\PYGZsq{}\PYGZob{}datetime.datetime.now().strftime(\PYGZdq{}\PYGZpc{}Y\PYGZpc{}m}\PYG{l+s+si}{\PYGZpc{}d}\PYG{l+s+s1}{\PYGZus{}\PYGZpc{}H\PYGZpc{}M\PYGZdq{})\PYGZcb{}\PYGZsq{}}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FolderName}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{,} \PYG{n}{fill}\PYG{o}{=}\PYG{n}{Y}\PYG{p}{)}
+
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{runButton} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Button}\PYG{p}{(}\PYG{n}{Frame1}\PYG{p}{,} \PYG{n}{text}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}RUN\PYGZsq{}}\PYG{p}{,} \PYG{n}{width}\PYG{o}{=}\PYG{l+m+mi}{7}\PYG{p}{,} 
+                \PYG{n}{height}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{command}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{run}\PYG{p}{,} \PYG{n}{bg}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}black\PYGZsq{}}\PYG{p}{,}\PYG{n}{state}\PYG{o}{=}\PYG{n}{DISABLED}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{runButton}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{)}
+
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{openButton} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Button}\PYG{p}{(}\PYG{n}{Frame1}\PYG{p}{,} \PYG{n}{text}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}OPEN\PYGZsq{}}\PYG{p}{,} \PYG{n}{width}\PYG{o}{=}\PYG{l+m+mi}{7}\PYG{p}{,} 
+                \PYG{n}{height}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{command}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{open}\PYG{p}{,} \PYG{n}{bg}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}black\PYGZsq{}}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{openButton}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{)}
+
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{restartButton} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Button}\PYG{p}{(}\PYG{n}{Frame1}\PYG{p}{,} \PYG{n}{text}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}RESET\PYGZsq{}}\PYG{p}{,} \PYG{n}{width}\PYG{o}{=}\PYG{l+m+mi}{7}\PYG{p}{,} 
+                \PYG{n}{height}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{command}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{restart}\PYG{p}{,} \PYG{n}{bg}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}black\PYGZsq{}}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{restartButton}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{)}
+
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{QuitButton} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Button}\PYG{p}{(}\PYG{n}{Frame1}\PYG{p}{,} \PYG{n}{text}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}QUIT\PYGZdq{}}\PYG{p}{,} 
+                \PYG{n}{command}\PYG{o}{=}\PYG{n}{Frame1}\PYG{o}{.}\PYG{n}{quit}\PYG{p}{,} \PYG{n}{width}\PYG{o}{=}\PYG{l+m+mi}{7}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{QuitButton}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+        \PYG{n}{Frame2} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Frame}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}
+        \PYG{n}{Frame2}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{fill}\PYG{o}{=}\PYG{n}{X}\PYG{p}{)}
+        \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{NameButton} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Button}\PYG{p}{(}\PYG{n}{Frame2}\PYG{p}{,} \PYG{n}{text}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}POSITION\PYGZdq{}}\PYG{p}{,} \PYG{n}{width}\PYG{o}{=}\PYG{l+m+mi}{7}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{NameButton}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{)}
+
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Choice}\PYG{o}{=}\PYG{n}{tk}\PYG{o}{.}\PYG{n}{IntVar}\PYG{p}{()}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ObjectLabel} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Radiobutton}\PYG{p}{(}\PYG{n}{Frame2}\PYG{p}{,} \PYG{n}{text}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Object: ( X , Y )\PYGZdq{}}\PYG{p}{,} 
+                \PYG{n}{variable}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Choice}\PYG{p}{,} \PYG{n}{value}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{indicatoron}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}
+                \PYG{n}{command}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ObjectChoice}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ReferenceLabel} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Radiobutton}\PYG{p}{(}\PYG{n}{Frame2}\PYG{p}{,} 
+                \PYG{n}{text}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Reference Star: ( X, Y )\PYGZdq{}}\PYG{p}{,} \PYG{n}{variable}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Choice}\PYG{p}{,} \PYG{n}{value}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} 
+                \PYG{n}{indicatoron}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{command}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ObjectChoice}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ObjectLabel}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{,}\PYG{n}{fill}\PYG{o}{=}\PYG{n}{Y}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ReferenceLabel}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{,}\PYG{n}{fill}\PYG{o}{=}\PYG{n}{Y}\PYG{p}{)}
+
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CatalogValue} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Entry}\PYG{p}{(}\PYG{n}{Frame2}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CatalogValue}\PYG{o}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CatalogValue}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{,} \PYG{n}{fill}\PYG{o}{=}\PYG{n}{Y}\PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+        \PYG{n}{Frame2\PYGZus{}1} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Frame}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}
+        \PYG{n}{Frame2\PYGZus{}1}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{fill}\PYG{o}{=}\PYG{n}{X}\PYG{p}{)} 
+        \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdButton} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Button}\PYG{p}{(}\PYG{n}{Frame2\PYGZus{}1}\PYG{p}{,} \PYG{n}{text}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}THRESHOLD\PYGZdq{}}\PYG{p}{,} \PYG{n}{width}\PYG{o}{=}\PYG{l+m+mi}{7}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdButton}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{)}
+
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdVariable}\PYG{o}{=}\PYG{n}{tk}\PYG{o}{.}\PYG{n}{IntVar}\PYG{p}{()}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdOn} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Radiobutton}\PYG{p}{(}\PYG{n}{Frame2\PYGZus{}1}\PYG{p}{,} \PYG{n}{text}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}ON\PYGZdq{}}\PYG{p}{,} 
+                \PYG{n}{variable}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdVariable}\PYG{p}{,} \PYG{n}{value}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{indicatoron}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} 
+                \PYG{n}{command}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdRadio}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdOff} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Radiobutton}\PYG{p}{(}\PYG{n}{Frame2\PYGZus{}1}\PYG{p}{,} 
+                \PYG{n}{text}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}OFF\PYGZdq{}}\PYG{p}{,} \PYG{n}{variable}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdVariable}\PYG{p}{,} \PYG{n}{value}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} 
+                \PYG{n}{indicatoron}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{command}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdRadio}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdOn}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{,}\PYG{n}{fill}\PYG{o}{=}\PYG{n}{Y}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdOff}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{,}\PYG{n}{fill}\PYG{o}{=}\PYG{n}{Y}\PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+        \PYG{n}{Frame3} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Frame}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}
+        \PYG{n}{Frame3}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{fill}\PYG{o}{=}\PYG{n}{X}\PYG{p}{)} 
+        \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView} \PYG{o}{=} \PYG{p}{[]}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{canvas} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Canvas}\PYG{p}{(}\PYG{n}{Frame3}\PYG{p}{,} \PYG{n}{width} \PYG{o}{=} \PYG{l+m+mi}{720}\PYG{p}{,} \PYG{n}{height}\PYG{o}{=}\PYG{l+m+mi}{480}\PYG{p}{,} \PYG{n}{bg}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}black\PYGZsq{}}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{canvas}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ImageCanvas}\PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{canvas}\PYG{o}{.}\PYG{n}{create\PYGZus{}image}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{anchor}\PYG{o}{=}\PYG{n}{NW}\PYG{p}{,} 
+                \PYG{n}{image}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{canvas}\PYG{o}{.}\PYG{n}{bind}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}\PYGZlt{}Button\PYGZhy{}1\PYGZgt{}\PYGZdq{}}\PYG{p}{,}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ReferenceCoordinates}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{canvas}\PYG{o}{.}\PYG{n}{bind}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}\PYGZlt{}Button\PYGZhy{}3\PYGZgt{}\PYGZdq{}}\PYG{p}{,}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ObjectCoordinates}\PYG{p}{)}
+
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{LightCurve} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Label}\PYG{p}{(}\PYG{n}{Frame3}\PYG{p}{,} \PYG{n}{image}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{LightCurve}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{)}
+
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{display} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Label}\PYG{p}{(}\PYG{n}{Frame3}\PYG{p}{,} \PYG{n}{image}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{display}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+        \PYG{n}{Frame4} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Frame}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}
+        \PYG{n}{Frame4}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{fill}\PYG{o}{=}\PYG{n}{X}\PYG{p}{)}
+        \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{slidervar} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{IntVar}\PYG{p}{()}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{InitialSlider} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Scale}\PYG{p}{(}\PYG{n}{Frame4}\PYG{p}{,} \PYG{n}{from\PYGZus{}}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{to}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{,} 
+                \PYG{n}{orient}\PYG{o}{=}\PYG{n}{HORIZONTAL}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Initial Frame\PYGZsq{}}\PYG{p}{,} 
+                \PYG{n}{command}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{VideoLength}\PYG{p}{,} \PYG{n}{variable}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{slidervar}\PYG{p}{,}\PYG{n}{length}\PYG{o}{=}\PYG{l+m+mi}{360}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{InitialSlider}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{)}
+        
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{thresholdvar} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{IntVar}\PYG{p}{()}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdSlider} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Scale}\PYG{p}{(}\PYG{n}{Frame4}\PYG{p}{,} \PYG{n}{from\PYGZus{}}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{to}\PYG{o}{=}\PYG{l+m+mi}{255}\PYG{p}{,} 
+                \PYG{n}{orient}\PYG{o}{=}\PYG{n}{HORIZONTAL}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Threshold\PYGZsq{}}\PYG{p}{,}
+                \PYG{n}{command}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Threshold}\PYG{p}{,}\PYG{n}{variable}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{thresholdvar}\PYG{p}{,}\PYG{n}{length}\PYG{o}{=}\PYG{l+m+mi}{360}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdSlider}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{)} 
+
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{var} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{IntVar}\PYG{p}{()}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FrameSlider} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{Scale}\PYG{p}{(}\PYG{n}{Frame4}\PYG{p}{,} \PYG{n}{from\PYGZus{}}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{to}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{,} 
+                \PYG{n}{orient}\PYG{o}{=}\PYG{n}{HORIZONTAL}\PYG{p}{,} \PYG{n}{length} \PYG{o}{=} \PYG{l+m+mi}{360}\PYG{p}{,} \PYG{n}{command}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotFrame}\PYG{p}{,} 
+                \PYG{n}{variable}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{var}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Plot Frame\PYGZsq{}} \PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FrameSlider}\PYG{o}{.}\PYG{n}{pack}\PYG{p}{(}\PYG{n}{side}\PYG{o}{=}\PYG{n}{LEFT}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+    \PYG{c+c1}{\PYGZsh{} Functions for Widgets}
+    \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+    \PYG{k}{def} \PYG{n+nf}{PlotFrame}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{event}\PYG{p}{):}
+        \PYG{n}{FrameNumber} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{var}\PYG{o}{.}\PYG{n}{get}\PYG{p}{()}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ChoiceToggle} \PYG{o}{==} \PYG{n+nb+bp}{False}\PYG{p}{:}
+            \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}False\PYGZsq{}}\PYG{p}{)}
+            \PYG{n}{PlotPath}\PYG{o}{=} \PYG{n}{f}\PYG{l+s+s1}{\PYGZsq{}\PYGZob{}self.FolderPath\PYGZcb{}/ObjectPlot\PYGZob{}FrameNumber:03\PYGZcb{}.png\PYGZsq{}}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage} \PYG{o}{=} \PYG{n}{Image}\PYG{o}{.}\PYG{n}{open}\PYG{p}{(}\PYG{n}{PlotPath}\PYG{p}{)}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage}\PYG{o}{.}\PYG{n}{resize}\PYG{p}{((}\PYG{l+m+mi}{360}\PYG{p}{,}\PYG{l+m+mi}{360}\PYG{p}{),}\PYG{n}{Image}\PYG{o}{.}\PYG{n}{ANTIALIAS}\PYG{p}{)}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage} \PYG{o}{=} \PYG{n}{ImageTk}\PYG{o}{.}\PYG{n}{PhotoImage}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage}\PYG{p}{)}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{display}\PYG{o}{.}\PYG{n}{config}\PYG{p}{(}\PYG{n}{image}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ChoiceToggle} \PYG{o}{==} \PYG{n+nb+bp}{True}\PYG{p}{:}
+            \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}True\PYGZsq{}}\PYG{p}{)}
+            \PYG{n}{PlotPath}\PYG{o}{=} \PYG{n}{f}\PYG{l+s+s1}{\PYGZsq{}\PYGZob{}self.FolderPath\PYGZcb{}/ReferencePlot\PYGZob{}FrameNumber:03\PYGZcb{}.png\PYGZsq{}}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage} \PYG{o}{=} \PYG{n}{Image}\PYG{o}{.}\PYG{n}{open}\PYG{p}{(}\PYG{n}{PlotPath}\PYG{p}{)}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage}\PYG{o}{.}\PYG{n}{resize}\PYG{p}{((}\PYG{l+m+mi}{360}\PYG{p}{,}\PYG{l+m+mi}{360}\PYG{p}{),}\PYG{n}{Image}\PYG{o}{.}\PYG{n}{ANTIALIAS}\PYG{p}{)}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage} \PYG{o}{=} \PYG{n}{ImageTk}\PYG{o}{.}\PYG{n}{PhotoImage}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage}\PYG{p}{)}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{display}\PYG{o}{.}\PYG{n}{config}\PYG{p}{(}\PYG{n}{image}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{ReferenceCoordinates}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{event}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ReferenceLabel}\PYG{o}{.}\PYG{n}{configure}\PYG{p}{(}\PYG{n}{text}\PYG{o}{=}\PYG{n}{f}\PYG{l+s+s2}{\PYGZdq{}Reference: (\PYGZob{}event.x\PYGZcb{},\PYGZob{}event.y\PYGZcb{})\PYGZdq{}}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{REFERENCESTARLOC} \PYG{o}{=} \PYG{p}{(}\PYG{n}{event}\PYG{o}{.}\PYG{n}{x}\PYG{p}{,}\PYG{n}{event}\PYG{o}{.}\PYG{n}{y}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ReferenceLabel}\PYG{o}{.}\PYG{n}{configure}\PYG{p}{(}\PYG{n}{bg} \PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}white\PYGZsq{}}\PYG{p}{,}\PYG{n}{fg} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}black\PYGZsq{}}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ReferenceClick} \PYG{o}{=} \PYG{n+nb+bp}{True}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ObjectClick} \PYG{o}{==} \PYG{n+nb+bp}{True} \PYG{o+ow}{and} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdCompleted} \PYG{o}{==} \PYG{n+nb+bp}{True}\PYG{p}{:}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{runButton}\PYG{o}{.}\PYG{n}{config}\PYG{p}{(}\PYG{n}{state}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}normal\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{ObjectCoordinates}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{event}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ObjectLabel}\PYG{o}{.}\PYG{n}{configure}\PYG{p}{(}\PYG{n}{text}\PYG{o}{=}\PYG{n}{f}\PYG{l+s+s2}{\PYGZdq{}Object: (\PYGZob{}event.x\PYGZcb{},\PYGZob{}event.y\PYGZcb{})\PYGZdq{}}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{OBJECTLOC} \PYG{o}{=} \PYG{p}{(}\PYG{n}{event}\PYG{o}{.}\PYG{n}{x}\PYG{p}{,}\PYG{n}{event}\PYG{o}{.}\PYG{n}{y}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ObjectLabel}\PYG{o}{.}\PYG{n}{configure}\PYG{p}{(}\PYG{n}{bg} \PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}white\PYGZsq{}}\PYG{p}{,}\PYG{n}{fg} \PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}black\PYGZsq{}}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ObjectClick} \PYG{o}{=} \PYG{n+nb+bp}{True}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ReferenceClick} \PYG{o}{==} \PYG{n+nb+bp}{True} \PYG{o+ow}{and} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdCompleted} \PYG{o}{==} \PYG{n+nb+bp}{True}\PYG{p}{:}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{runButton}\PYG{o}{.}\PYG{n}{config}\PYG{p}{(}\PYG{n}{state}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}normal\PYGZsq{}}\PYG{p}{)}
+            
+    \PYG{k}{def} \PYG{n+nf}{ObjectChoice}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Choice}\PYG{o}{.}\PYG{n}{get}\PYG{p}{()} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+            \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{)}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ChoiceToggle} \PYG{o}{=} \PYG{n+nb+bp}{False}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Choice}\PYG{o}{.}\PYG{n}{get}\PYG{p}{()} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}
+            \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{)}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ChoiceToggle} \PYG{o}{=} \PYG{n+nb+bp}{True}
+
+    \PYG{k}{def} \PYG{n+nf}{ThresholdRadio}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdSelection} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdVariable}\PYG{o}{.}\PYG{n}{get}\PYG{p}{()}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdSelection} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdToggle} \PYG{o}{=} \PYG{n+nb+bp}{False}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdSelection} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdToggle} \PYG{o}{=} \PYG{n+nb+bp}{True}
+
+    \PYG{k}{def} \PYG{n+nf}{VideoLength}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{event}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FrameNo} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{slidervar}\PYG{o}{.}\PYG{n}{get}\PYG{p}{()}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdToggle} \PYG{o}{==} \PYG{n+nb+bp}{False}\PYG{p}{:}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView} \PYG{o}{=} \PYG{n}{Image}\PYG{o}{.}\PYG{n}{fromarray}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ImageStack}\PYG{p}{[:,:,}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FrameNo}\PYG{p}{])}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView} \PYG{o}{=} \PYG{n}{ImageTk}\PYG{o}{.}\PYG{n}{PhotoImage}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView}\PYG{p}{)}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{canvas}\PYG{o}{.}\PYG{n}{itemconfig}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ImageCanvas}\PYG{p}{,}\PYG{n}{image}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdToggle} \PYG{o}{==} \PYG{n+nb+bp}{True}\PYG{p}{:}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdCompleted} \PYG{o}{=} \PYG{n+nb+bp}{True}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdNumber} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{thresholdvar}\PYG{o}{.}\PYG{n}{get}\PYG{p}{()}
+            \PYG{n}{ThresholdView} \PYG{o}{=} \PYG{n}{Photometry}\PYG{o}{.}\PYG{n}{Threshold}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ImageStack}\PYG{p}{[:,:,}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FrameNo}\PYG{p}{],} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdNumber}\PYG{p}{)}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView} \PYG{o}{=} \PYG{n}{Image}\PYG{o}{.}\PYG{n}{fromarray}\PYG{p}{(}\PYG{n}{ThresholdView}\PYG{p}{)}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView} \PYG{o}{=} \PYG{n}{ImageTk}\PYG{o}{.}\PYG{n}{PhotoImage}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView}\PYG{p}{)}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{canvas}\PYG{o}{.}\PYG{n}{itemconfig}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ImageCanvas}\PYG{p}{,}\PYG{n}{image}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView}\PYG{p}{)}
+    
+    \PYG{k}{def} \PYG{n+nf}{Threshold}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{event}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdToggle} \PYG{o}{=} \PYG{n+nb+bp}{True}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdNumber} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{thresholdvar}\PYG{o}{.}\PYG{n}{get}\PYG{p}{()}
+        \PYG{n}{ThresholdView} \PYG{o}{=} \PYG{n}{Photometry}\PYG{o}{.}\PYG{n}{Threshold}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ImageStack}\PYG{p}{[:,:,}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FrameNo}\PYG{p}{],} 
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdNumber}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView} \PYG{o}{=} \PYG{n}{Image}\PYG{o}{.}\PYG{n}{fromarray}\PYG{p}{(}\PYG{n}{ThresholdView}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView} \PYG{o}{=} \PYG{n}{ImageTk}\PYG{o}{.}\PYG{n}{PhotoImage}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{canvas}\PYG{o}{.}\PYG{n}{itemconfig}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ImageCanvas}\PYG{p}{,}\PYG{n}{image}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdCompleted} \PYG{o}{=} \PYG{n+nb+bp}{True}
+
+    \PYG{k}{def} \PYG{n+nf}{open}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{VideoName} \PYG{o}{=} \PYG{n}{tk}\PYG{o}{.}\PYG{n}{filedialog}\PYG{o}{.}\PYG{n}{askopenfilename}\PYG{p}{(}\PYG{n}{initialdir} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}Data\PYGZsq{}}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{VideoPath} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}/\PYGZsq{}}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{VideoName}\PYG{o}{.}\PYG{n}{split}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}/\PYGZsq{}}\PYG{p}{)[:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{])}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FolderDirectory} \PYG{o}{=} \PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FolderName}\PYG{o}{.}\PYG{n}{get}\PYG{p}{())}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FolderPath} \PYG{o}{=} \PYG{n}{f}\PYG{l+s+s1}{\PYGZsq{}\PYGZob{}self.VideoPath\PYGZcb{}/\PYGZob{}self.FolderDirectory\PYGZcb{}\PYGZsq{}}
+        \PYG{k}{if} \PYG{n}{os}\PYG{o}{.}\PYG{n}{path}\PYG{o}{.}\PYG{n}{exists}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FolderPath}\PYG{p}{):}
+            \PYG{n}{shutil}\PYG{o}{.}\PYG{n}{rmtree}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FolderPath}\PYG{p}{)}
+        \PYG{n}{os}\PYG{o}{.}\PYG{n}{makedirs}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FolderPath}\PYG{p}{)}
+
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ImageStack} \PYG{o}{=} \PYG{n}{Photometry}\PYG{o}{.}\PYG{n}{InitialRead}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{VideoName}\PYG{p}{)}
+        \PYG{n}{VideoSize} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ImageStack}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{InitialSlider}\PYG{o}{.}\PYG{n}{config}\PYG{p}{(}\PYG{n}{to}\PYG{o}{=}\PYG{n}{VideoSize}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView} \PYG{o}{=} \PYG{n}{Image}\PYG{o}{.}\PYG{n}{fromarray}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ImageStack}\PYG{p}{[:,:,}\PYG{l+m+mi}{0}\PYG{p}{])}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView} \PYG{o}{=} \PYG{n}{ImageTk}\PYG{o}{.}\PYG{n}{PhotoImage}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{canvas}\PYG{o}{.}\PYG{n}{itemconfig}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ImageCanvas}\PYG{p}{,}\PYG{n}{image}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CamView}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{openButton}\PYG{o}{.}\PYG{n}{configure}\PYG{p}{(}\PYG{n}{bg}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}white\PYGZsq{}}\PYG{p}{,} \PYG{n}{fg}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}black\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{run}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Catalog} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{CatalogValue}\PYG{o}{.}\PYG{n}{get}\PYG{p}{()}
+        \PYG{n}{Photometry}\PYG{o}{.}\PYG{n}{main}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{VideoName}\PYG{p}{,}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FolderPath}\PYG{p}{,}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FrameNo}\PYG{p}{,}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{OBJECTLOC}\PYG{p}{,}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{REFERENCESTARLOC}\PYG{p}{,}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ThresholdNumber}\PYG{p}{,}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Catalog}\PYG{p}{)}
+        \PYG{n}{lightcurvepath}\PYG{o}{=} \PYG{n}{f}\PYG{l+s+s1}{\PYGZsq{}\PYGZob{}self.FolderPath\PYGZcb{}/LightCurve.png\PYGZsq{}}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{OG} \PYG{o}{=} \PYG{n}{Image}\PYG{o}{.}\PYG{n}{open}\PYG{p}{(}\PYG{n}{lightcurvepath}\PYG{p}{)}
+        \PYG{n}{ResizedOG} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{OG}\PYG{o}{.}\PYG{n}{resize}\PYG{p}{((}\PYG{l+m+mi}{360}\PYG{p}{,}\PYG{l+m+mi}{240}\PYG{p}{),}\PYG{n}{Image}\PYG{o}{.}\PYG{n}{ANTIALIAS}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{IMG} \PYG{o}{=} \PYG{n}{ImageTk}\PYG{o}{.}\PYG{n}{PhotoImage}\PYG{p}{(}\PYG{n}{ResizedOG}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{LightCurve}\PYG{o}{.}\PYG{n}{config}\PYG{p}{(}\PYG{n}{image}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{IMG}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{runButton}\PYG{o}{.}\PYG{n}{configure}\PYG{p}{(}\PYG{n}{bg} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}white\PYGZsq{}}\PYG{p}{,} \PYG{n}{fg}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}black\PYGZsq{}}\PYG{p}{)}
+        \PYG{n}{MaxFrameNumber}\PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{glob}\PYG{o}{.}\PYG{n}{glob}\PYG{p}{(}\PYG{n}{f}\PYG{l+s+s2}{\PYGZdq{}\PYGZob{}self.FolderPath\PYGZcb{}/ObjectPlot*.png\PYGZdq{}}\PYG{p}{))}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{FrameSlider}\PYG{o}{.}\PYG{n}{config}\PYG{p}{(}\PYG{n}{to}\PYG{o}{=}\PYG{n}{MaxFrameNumber}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{restartButton}\PYG{o}{.}\PYG{n}{configure}\PYG{p}{(}\PYG{n}{bg} \PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}firebrick4\PYGZsq{}}\PYG{p}{)}
+
+        \PYG{n}{FrameNumber} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{var}\PYG{o}{.}\PYG{n}{get}\PYG{p}{()}
+        \PYG{n}{PlotPath}\PYG{o}{=} \PYG{n}{f}\PYG{l+s+s1}{\PYGZsq{}\PYGZob{}self.FolderPath\PYGZcb{}/ObjectPlot\PYGZob{}FrameNumber:03\PYGZcb{}.png\PYGZsq{}}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage} \PYG{o}{=} \PYG{n}{Image}\PYG{o}{.}\PYG{n}{open}\PYG{p}{(}\PYG{n}{PlotPath}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage}\PYG{o}{.}\PYG{n}{resize}\PYG{p}{((}\PYG{l+m+mi}{360}\PYG{p}{,}\PYG{l+m+mi}{360}\PYG{p}{),}\PYG{n}{Image}\PYG{o}{.}\PYG{n}{ANTIALIAS}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage} \PYG{o}{=} \PYG{n}{ImageTk}\PYG{o}{.}\PYG{n}{PhotoImage}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{display}\PYG{o}{.}\PYG{n}{config}\PYG{p}{(}\PYG{n}{image}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{PlotImage}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{restart}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{n}{python} \PYG{o}{=} \PYG{n}{sys}\PYG{o}{.}\PYG{n}{executable}
+        \PYG{n}{os}\PYG{o}{.}\PYG{n}{execl}\PYG{p}{(}\PYG{n}{python}\PYG{p}{,} \PYG{n}{python}\PYG{p}{,} \PYG{o}{*} \PYG{n}{sys}\PYG{o}{.}\PYG{n}{argv}\PYG{p}{)}
+
+\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZsq{}}\PYG{p}{:}
+    \PYG{n}{GUI}\PYG{o}{.}\PYG{n}{main}\PYG{p}{()}
+\end{Verbatim}
