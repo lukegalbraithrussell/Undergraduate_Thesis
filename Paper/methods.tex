@@ -1,6 +1,6 @@
 \chapter{Methods}
 
-The sizes of meteors are determined through a long chain of physical relations that begin with its apparent magnitude. So, the first thing to do is find the magnitude of the fireball when D6 detects it. We have written a script where we can find the magnitude of the fireball as long as we know the apparent magnitude of another celestial object in the sky. This is done by automatically finding the center of the meteor the user selected on the image, and then automatically detecting the edges of the  object through the creation of a fitting centroid. A Gaussian curve is then fitted to its light curve to provide an estimate of the fireball's radius. All the pixels within that radius is then summed over. This summation of pixels gives us the raw magnitude for our specific camera. The general outline can be seen in Figure~\ref{fig:flowchart}. Each of the steps are explained in more detail in the following section.
+The sizes of meteors are determined through a long chain of physical relations that begin with its apparent magnitude. So, the first thing to do is find the magnitude of the fireball when D6 detects it. We have written a script where we can find the magnitude of the fireball as long as we know the apparent magnitude of another celestial object in the sky. This is done by automatically finding the center of the meteor the user selected on the image, and then automatically detecting the edges of the  object through the creation of a fitting centroid. A Gaussian curve is then fitted to its light curve to provide an estimate of the fireball's radius. All the pixels within that radius is then summed over. This summation of pixels gives us the raw magnitude for our specific camera. The general outline can be seen in Figure~\ref{fig:flowchart}. Each of the steps are explained in more detail in the following sections.
 
 \begin{figure}[htpb]
 	\centering
@@ -47,7 +47,7 @@ Upon running the script, the user will first see the first frame of the video. A
 
 \section{Recognizing a User's Click}
 
-Why does the user need to click on the objects? The program needs a general idea of where the object is in question on the frame. It can follow the moving object after that, as long as it has a starting point. This is outlined in Figure~\ref{fig:clickfinder}
+Why does the user need to click on the objects? The program needs a general idea of where the object is in question on the frame. It can follow the moving object after that, as long as it has a starting point. This is outlined in Figure~\ref{fig:clickfinder}.
 
 \begin{figure}[h!]
 	\centering
@@ -70,28 +70,26 @@ The location of the object is now set as the exact pixel the user clicked on. Th
 	\label{fig:contourfinder}
 \end{figure}
 
-The script takes the X and Y coordinates of where the user thinks the object is and isolates that part of the frame. The image is then blurred using an \texttt{OpenCV} command that blurs the edges of the pixels using a Gaussian equation to fade their light. This is done as an array of pixel values is discrete, and not ideal to model a continuous equation, such as a Gaussian, off of. The image is then thresholded at a certain percentage. Thresholding essentially divides all pixels into a group lighter than that certain percentage and a group darker than that percentage. The darker pixels are all turned black, and the lighter pixels are all turned white. This, combined with the blurring, turns the object into a white round object. An example of this process can be seen in Figure~\ref{fig:ThresholdComparison}.
+The script takes the X and Y coordinates of where the user thinks the object is and isolates that part of the frame. The image is then blurred using an \texttt{OpenCV} command that blurs the edges of the pixels using a Gaussian equation to fade their light. This is done as an array of pixel values is discrete, and not ideal to model a continuous equation, such as a Gaussian, off of. The image is then thresholded at a certain percentage. Thresholding essentially divides all pixels into a group lighter than a certain percentage and a group darker than that percentage. The darker pixels are all turned black, and the lighter pixels are all turned white. This, combined with the blurring, turns the object into a white round object. An example of this process can be seen in Figure~\ref{fig:ThresholdComparison}. This process also has the benefit of making it easier for the user to locate the object. It is especially useful for finding the reference star, which is often much dimmer than the meteor. 
 \begin{figure}
 \centering
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.4\textwidth}
   \centering
-  \includegraphics[width=.75\linewidth]{thresholdd6zoom.png}
+  \includegraphics[width=\linewidth]{thresholdd6zoom.png}
   \label{fig:nothresholdd6}
   \subcaption{The image before being thresholded.}
 \end{subfigure}%
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.4\textwidth}
   \centering
-  \includegraphics[width=.75\linewidth]{nothresholdd6zoom.png}
+  \includegraphics[width=\linewidth]{nothresholdd6zoom.png}
   \label{fig:thresholdd6}
   \subcaption{The image after being thresholded.}
 \end{subfigure}
 \caption{A thresholded image, when adjusted properly, allows the program to locate an object easier.}
 \label{fig:ThresholdComparison}
 \end{figure}
-This process also has the benefit of making it easier for the user to locate the object. It is especially useful for finding the reference star, which is often much dimmer than the meteor. 
 
 Another OpenCV command called \texttt{findContours} is implemented to find the center of that ellipse. Its algorithm is exactly like how one would find the center of mass of an object, but with the intensity of the pixel being the ``mass'' in the calculations. At this point, the program now has a much more precise idea of where the center is. With the object's coordinates updated, the thresholded frame is discarded, and the following analysis is continued with the undoctored data. 
-
 
 \section{Fitting a Gaussian to the Contour}
 Now that there is an accurate object location, we can fit a Gaussian curve to the data in both the X and Y dimensions. We want to do this because having a Gaussian curve gives us a known standard deviation, and we can then calculate the radius of the event using that standard deviation. This process is outlined in Figure~\ref{fig:gaussianfinder}.
@@ -120,14 +118,14 @@ where a is the amplitude, $x$ is the point along the curve, $x_0$ is the center 
 	\label{fig:testplot}
 \end{figure}
 
-Occasionally, an anomaly or poor data will make the Gaussian function unable to actually fit the data to a Gaussian curve. In this case, an exception is called in the code to just use the estimates provided as the true outputs of the Gaussian function instead of the error message. By using the estimates, the sequence of functions can continue as-is without any additional manipulation. The frame is skipped in the creation of the final light curve. This is done to ensure the program can finish to completion, and not end in the middle. If this was not implemented, the program would be break before processing the command to create the light curve. Later on, it is possible to view the data to ensure the Gaussian curves aligned well with the pixel values, as shown in Figure~\ref{fig:gui}.
+Occasionally, an anomaly or poor data will make the Gaussian function unable to actually fit the data to a Gaussian curve. In this case, an exception is called in the code to just use the estimates provided as the true outputs of the Gaussian function instead of the error message. By using the estimates, the sequence of functions can continue as-is without any additional manipulation. The frame is skipped in the creation of the final light curve. This is done to ensure the program can finish to completion, and not end in the middle. If this was not implemented, the program would break before processing the command to create the light curve. Later on, it is possible to view the data to ensure the Gaussian curves aligned well with the pixel values, as shown in Figure~\ref{fig:gui}.
 
-A Gaussian curve is to be expected from something such as a point light source as it dims out radially. An object will not have a definite edge: it will fade away into the background, as seen in Figure~\ref{fig:NoCircles}, a zoomed in version of the top left quadrant of Figure~\ref{fig:testplot}. The Gaussian function has the benefit that its standard deviations are directly proportional to certain percentages of the data fitted to the function. This is commonly known as the 68-95-99.7 rule: one standard deviation covers 68\% of the data, three standard deviations covers 95\% of the data, and three standard deviations covers 99.7\% of the data. After that, the diminishing returns are not enough to overcome the extra noise in our data.
+A Gaussian curve is to be expected from something such as a point light source as it dims out radially. An object will not have a definite edge: it will fade away into the background, as seen in Figure~\ref{fig:NoCircles}, a zoomed in version of the top left quadrant of Figure~\ref{fig:testplot}. The Gaussian function has the benefit that its standard deviations are directly proportional to certain percentages of the data fitted to the function. This is commonly known as the 68-95-99.7 rule: one standard deviation covers 68\% of the data, two standard deviations covers 95\% of the data, and three standard deviations covers 99.7\% of the data. After that, the diminishing returns are not enough to overcome the extra noise in our data.
 
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=.5\linewidth]{NoCircles.png}
-	\caption{The object is located in the center of this slice, and its light fades radially out from that center.}
+	\caption{The object is located in the center of this slice, and its light fades radially out unevenly from that center.}
 	\label{fig:NoCircles}
 \end{figure}
 
@@ -148,7 +146,7 @@ Now all of the needed information is gathered to find the magnitude of the objec
 	\label{fig:magfinder}
 \end{figure}
 
-The radius can give us the lengths along the axis, but not the pixels of the entire circle we are searching over. The program takes a 10 x 10 search area around the center point, and checks all the points to see if they lie inside the given radius using the distance formula. If a point is within the radius, it is appended to a list to be used later. This can be seen in Figure~\ref{fig:radius}.
+The radius can give us the lengths along the axis, but not the pixels of the entire circle we are searching over. The program takes a 10 x 10 search area around the center point, and checks all the points to see if they lie inside the given radius using the distance formula. If a point is within the radius, it is appended to a list to be used later. An example of this can be seen in Figure~\ref{fig:radius}.
 
 \begin{figure}[ht!]
 	\centering
@@ -157,7 +155,7 @@ The radius can give us the lengths along the axis, but not the pixels of the ent
 	\label{fig:radius}
 \end{figure}
 
-We need to remove the background light from the calculation so we can sum over the pixel values attributed to only the object's light, not from any other source. If the background light is not subtracted the values of the pixels would be artificially elevated due to the existence of that inherent background light. To do this, we need to create a second radius around the circle that can be used to determine the average value of the background light. The background light can be somewhat noisy, so that is why we take an average of a group of background pixels. The pixels in question are chosen by finding pixels within a radius of the object's radius + 10 pixels, excluding the pixels inside the object's radius. This creates a ring around the object's radius, as shown in Figure~\ref{fig:background}. In theory, if the Gaussian-based radius is too large, the background light subtraction will mitigate that overestimate.
+We need to remove the background light from the calculation so we can sum over the pixel values attributed to only the object's light, and not from any other source. If the background light is not subtracted the values of the pixels would be artificially elevated due to the existence of that inherent background light. To do this, we need to create a second radius around the circle that can be used to determine the average value of the background light. The background light can be somewhat noisy, so that is why we take an average of a group of background pixels. The pixels in question are chosen by finding pixels within a radius of the object's radius + 10 pixels, excluding the pixels inside the object's radius. This creates a ring around the object's radius, as shown in Figure~\ref{fig:background}. In theory, if the Gaussian-based radius is too large, the background light subtraction will mitigate that overestimation.
 
 \begin{figure}[ht!]
 	\centering
@@ -193,7 +191,8 @@ where $M_I$ and $M_C$ are the instrumental magnitudes and catalog magnitudes of 
 
 This is why a reference star is needed. The object in question, the fireball, does not have a catalog magnitude, but the reference star does. This calculates the offset for the camera, which then can be applied to Equation~\ref{equation:instrument} for the fireball. This offset is calculated as an average over the entire event. The average is calculated due to the small amount of fluctuation each frame may have in their offsets due to variables such as atmospheric distortion or haze.
 
-The program runs the previously mentioned functions for every frame in the video, and loops through this process until the video is completed. This is summarized in Figure~\ref{fig:moreflow}.
+The program runs the previously mentioned functions for every frame in the video, and loops through this process until the video is completed. This is summarized in Figure~\ref{fig:moreflow}.In order to successfully loop through the frames, there needs to be a way for the program to jump from the center of the object in one frame to the center in the following frame. The process of calculating a more precise center through each function allows the program to adjust the previous frame's center to the next frame's center without any difficulty, as the amount of pixels the center of the object appears to travel in each frame is usually no farther a distance than the average user's click is from the actual event for the first frame. This process is shown in Figure~\ref{fig:updatingxy}.
+
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=\linewidth]{largeorange.pdf}
@@ -201,7 +200,6 @@ The program runs the previously mentioned functions for every frame in the video
 	\label{fig:moreflow}
 \end{figure}
 
-In order to successfully loop through the frames, there needs to be a way for the program to jump from the center of the object in one frame to the center in the following frame. The process of calculating a more precise center through each function allows the program to adjust the previous frame's center to the next frame's center without any difficulty, as the amount of pixels the center of the object appears to travel in each frame is usually no farther a distance than the average user's click is from the actual event for the first frame. This process is shown in Figure~\ref{fig:updatingxy}
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.5\linewidth]{flowlast.png}
@@ -209,8 +207,4 @@ In order to successfully loop through the frames, there needs to be a way for th
 	\label{fig:updatingxy}
 \end{figure}
 
-PNGs of each frame's Gaussian fits along with the visualization of the radii are optional through the loop. If enabled, the result is exactly like Figure~\ref{fig:testplot}. If this is enabled, the program may take up to 30 seconds to run, as it is memory intensive to save hundreds of PNGs. If it is disabled, the program finishes within a second.
-
-
-
-
+PNGs of each frame's Gaussian fits along with the visualization of the radii are optional through the loop. If enabled, the result is exactly like Figure~\ref{fig:testplot}. If this is enabled, the program may take up to 30 seconds to run, as it is memory intensive to save hundreds of PNGs. If it is disabled, the program finishes within a second. When finished, the program displays the light curve inside the GUI, and saves it to the selected folder along with the data as CSV files.

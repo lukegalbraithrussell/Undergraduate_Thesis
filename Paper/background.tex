@@ -2,10 +2,9 @@
 With respect to the Sun, our planet is moving through space at 30 kilometers per second. Many other objects orbit the sun, and those orbits can overlap or nearly overlap Earth's. The vast majority of these objects are small and are difficult to detect. These objects are known as near-Earth objects. Near-Earth objects consist of many similar rocks, but they have important differences between them. Regardless, they are hazards of the solar system, so we use systems such as all-sky cameras to detect them and gather data about their population distribution.
 
 \section{Asteroids and Meteoroids}
-There are five terms that are often incorrectly used interchangeably to describe rocks from space. They are the following: asteroid, meteoroid, meteor, meteorite and fireball. They are visually represented in Figure~\ref{fig:neos}. It should be noted that a comet does not belong with these terms as only a small percentage of a comet's composition is rock: it is a mass of ice and dust. Compositionally, asteroids and meteoroids are the same. They are composed of rock or metal and travel through space outside Earth's atmosphere. They are delineated by their size.  In order to be defined as a meteoroid, the piece of rock should be at least \mbox{100 $\mu$m}\footnote{Anything smaller than this is nothing more than dust, which makes up the interplanetary dust cloud.}\cite{Steel1996}. The accepted upper boundary on what constitutes a meteoroid but not an asteroid is around 10 meters. 
-Asteroids are much larger, such as the asteroid that caused the Chicxulub crater in the Yucatan peninsula \cite{Bottke2007}.
+There are five terms that are often incorrectly used interchangeably to describe rocks from space. They are the following: asteroid, meteoroid, meteor, meteorite and fireball. They are visually represented in Figure~\ref{fig:neos}. Compositionally, asteroids and meteoroids are the same. They are composed of rock or metal and travel through space outside Earth's atmosphere. They are delineated by their size.  In order to be defined as a meteoroid, the piece of rock should be at least \mbox{100 $\mu$m}\footnote{Anything smaller than this is nothing more than dust, which makes up the interplanetary dust cloud.}\cite{Steel1996}. The accepted upper boundary on what constitutes a meteoroid but not an asteroid is around 10 meters. Asteroids are much larger, such as the asteroid that caused the Chicxulub crater in the Yucatan peninsula \cite{Bottke2007}. It should be noted that a comet does not belong with these terms as only a small percentage of a comet's composition is rock: it is a mass of ice and dust. 
 
-In terms of their origins, meteoroids are often fragments of asteroids that are separated by some sort of collision in space, or are small pieces of rock and dust that are left behind by comets. Near-Earth asteroids are most likely objects expelled from the main asteroid belt between Mars and Jupiter due to Yarkovsky thermal forces or secular resonances \cite{Bottke2007}. The Yarkovsky thermal force is a net force that occurs from the heating up of one side of an asteroid or meteoroid from the sun. The hotter side dissipates more energy while cooling than the already cold side, and thus that departing energy results in a recoil force moving the asteroid in the direction opposite the hotter side \cite{Bottke2006}. Secular resonance is when an asteroid syncs its precession to a nearby planet. This disturbs the orbit of the asteroid, and causes it to slowly change its orbital eccentricity as a result \cite{Moons1995}.
+In terms of their origins, meteoroids are often fragments of asteroids that are separated by some sort of collision in space, or are small pieces of rock and dust that are left behind by comets. Near-Earth asteroids are most likely objects expelled from the main asteroid belt between Mars and Jupiter due to Yarkovsky thermal forces or secular resonances \cite{Bottke2007}. The Yarkovsky thermal force is a net force that occurs from the heating up of one side of an asteroid or meteoroid from the sun. The hotter side dissipates more energy while it cools than the already cold side, and thus that departing energy results in a recoil force moving the asteroid in the direction opposite the hotter side \cite{Bottke2006}. Secular resonance is when an asteroid syncs its precession to a nearby planet. This disturbs the orbit of the asteroid, and causes it to slowly change its orbital eccentricity as a result \cite{Moons1995}.
 
 \begin{figure}[ht!]
   \centering
@@ -31,7 +30,7 @@ Observational data from many different studies has resulted in a model for the p
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=.5]{population.png}
-  \caption{The population distribution of near-Earth objects is straightforward: small objects are often much more likely than large objects. \protect\cite{Rembold2015}}
+  \caption{The population distribution of near-Earth objects is straightforward: small objects are often much more likely than large objects \protect\cite{Rembold2015}.}
   \label{fig:population}
 \end{figure}
 
@@ -40,9 +39,7 @@ Initially this model seems reassuring. The larger objects, which would have the 
 	\textrm{Kinetic Energy} = \frac{mv^2}{2}
 	\label{eq:ke}
 \end{equation}
-where $m$ is equal to the mass and $v$ is equal to the velocity of the object.
-
-However, these small objects still pose a large threat to structures due to their extremely fast velocities. A one-millimeter meteoroid has similar strength to a 22-caliber bullet, while a one centimeter meteoroid can be as powerful as a cannonball. This is because velocity is the dominant term in equation \ref{eq:ke} and meteoroid speeds can range from 11 to 70 kilometers per second \cite{Harbaugh2008}. Figure \ref{fig:damage} shows the damage that a pebble-sized object can do to a thick slab of metal, and satellites without armor are much more fragile than that.
+where $m$ is equal to the mass and $v$ is equal to the velocity of the object. However, these small objects still pose a large threat to structures due to their extremely fast velocities. A one-millimeter meteoroid has similar strength to a 22-caliber bullet, while a one centimeter meteoroid can be as powerful as a cannonball. This is because velocity is the dominant term in equation \ref{eq:ke} and meteoroid speeds can range from 11 to 70 kilometers per second \cite{Harbaugh2008}. Figure \ref{fig:damage} shows the damage that a pebble-sized object can do to a thick slab of metal, and satellites without armor are much more fragile than that.
 
 \begin{figure}[ht!]
   \centering
@@ -149,7 +146,6 @@ It should be noted that there are differing techniques when performing photometr
 	\label{fig:bands}
 \end{figure}
 
-
 In some cases, it is useful to not apply a filter at all. While this can make it difficult to calibrate the camera to other known values, this guarantees that all light is being detected. This is crucial in highly sensitive detection situations where it would be ill-advised to sacrifice any of the small amount of potential data \cite{Rembold2015}. Even if no filter is applied, knowing the different bands allows the comparison of data to similar observations. For example, if the unfiltered camera sensitivity closely approximates the R band, R filter magnitudes are comparable.
 
 The luminosity can be used to find the mass, but only by using approximations for other values such as density, which can be estimated due to the structural analysis of meteorite collections. As luminosity is the only needed data point, a single all-sky camera is viable for measuring the population distribution.
@@ -165,7 +161,7 @@ where $L$ is luminosity, $I$ is intensity, and $SA$ is the surface area over whi
 \begin{equation}
 	L_{obs} = 4 \pi r^3 I.
 \end{equation}
-Now that the intensity is converted to luminosity, that luminosity can then be used to find its total kinetic energy. The relationship between the two is,
+Now that the intensity is converted to luminosity, that luminosity can then be used to find its total kinetic energy. The relationship between the two is
 
 \begin{equation}
 	L = \tau T,
@@ -176,7 +172,7 @@ where $L$ is again luminosity, $T$ is kinetic energy, and $\tau$ is the luminous
 \begin{equation}
 	T = \frac{v^2}{2}\frac{dm}{dt},
 \end{equation}
-where $v$ is velocity, $m$ is mass, and $t$ is time. Again, with only one all-sky camera assumptions about the velocity have to be made, but as velocities of meteors vary at most by a factor of 2, this assumption does not create problems along the log-log graph of Figure~\ref{fig:population}. Again, this could be easily resolved by having multiple all-sky cameras detect the event. Notice that while the mass of an object is usually treated as constant when calculating kinetic energy, since the entirety of the object's mass is burning up, we can integrate over the entire event to find that original mass. This integral can be written as
+where $v$ is velocity, $m$ is mass, and $t$ is time. Again, with only one all-sky camera assumptions about the velocity have to be made but as velocities of meteors vary at most by a factor of 2, this assumption does not create problems along the log-log graph of Figure~\ref{fig:population}. Again, this could be easily resolved by having multiple all-sky cameras detect the event. Notice that while the mass of an object is usually treated as constant when calculating kinetic energy, since the entirety of the object's mass is burning up, we can integrate over the entire event to find that original mass. This integral can be written as
 
 \begin{equation}
 m =\int \frac{2L}{\tau v^2}\,dt.
