@@ -2,6 +2,40 @@
 
 \chapter{Code}
 
+\section{Data Analysis}
+\begin{minted}[
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+linenos
+]
+{python}
+#Packages
+%matplotlib inline
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import pandas as pd
+
+#Function
+def Plotting(NasaCSV, OursCSV, TimeOffset,Date):
+    Nasa = pd.read_csv(NasaCSV)
+    Nasa = Nasa.set_index('Time') 
+
+    Ours = pd.read_csv(OursCSV)
+    Ours.Time += TimeOffset   
+    Ours = Ours.set_index('Time')
+
+    FireballData = Nasa.join(Ours, rsuffix='O',how='outer').interpolate()
+    FireballData['dM'] =FireballData.Mag - FireballData.MagO
+	FireballData['YOffset'] = FireballData.dM.mean()
+    FireballData['Magnitude Difference']=(FireballData.dM.dropna()-FireballData.dM.mean())
+    FireballData['AdjustedMag']=(FireballData.MagO + FireballData.YOffset)
+    FireballData['Fireball Event'] = Date
+    return(FireballData)
+
+\end{minted}
+
 \section{Photometry Script}
 \inputminted[
 framesep=2mm,

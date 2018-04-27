@@ -35,10 +35,13 @@ Observational data from many different studies has resulted in a model for the p
   \label{fig:population}
 \end{figure}
 
-Initially this model seems reassuring. The larger objects, which would have the most  potential to cause damage, are much less common than the smaller, less energetic objects. This can be seen in Equation \ref{eq:ke}, where $m$ is equal to the mass and $v$ is equal to the velocity of the object.
-\begin{equation} \label{eq:ke}
+Initially this model seems reassuring. The larger objects, which would have the most  potential to cause damage, are much less common than the smaller, less energetic objects. The smaller objects would have less energy as 
+\begin{equation}
 	\textrm{Kinetic Energy} = \frac{mv^2}{2}
+	\label{eq:ke}
 \end{equation}
+where $m$ is equal to the mass and $v$ is equal to the velocity of the object.
+
 However, these small objects still pose a large threat to structures due to their extremely fast velocities. A one-millimeter meteoroid has similar strength to a 22-caliber bullet, while a one centimeter meteoroid can be as powerful as a cannonball. This is because velocity is the dominant term in equation \ref{eq:ke} and meteoroid speeds can range from 11 to 70 kilometers per second \cite{Harbaugh2008}. Figure \ref{fig:damage} shows the damage that a pebble-sized object can do to a thick slab of metal, and satellites without armor are much more fragile than that.
 
 \begin{figure}[ht!]
@@ -60,7 +63,7 @@ There are many current projects aimed at collecting optical data about meteors \
   \label{fig:skypic}
 \end{figure}
 
-In reality, this view is not quite 180$^{\circ}$, but more often around 140$^{\circ}$ due to the fact that lenses wide enough to take in 180$^{\circ}$ end up just taking in the edges of the all-sky cameras chassis instead. Our own camera is only able to see 140$^{\circ}$ into the sky. Figure \ref{fig:atmosphere} shows how much of the sky is covered. The amount of Earth being covered is defined by taking the edges of the all-sky camera view and treating those as zeniths. A zenith is the point in the sky that is directly above a certain point on Earth. Those points on Earth are the edges of how much of the Earth it covers. Knowing how much of the Earth is covered is useful because those zeniths provide the points where another camera can be placed to overlap one half of the original camera's view of the sky. Overlapping is useful because multiple camera angles allow the triangulation of the object's position and velocity. The amount of sky coverage can be found through trigonometry, resulting in equation \ref{eq:coverage}, where $\Omega$ is the steradian, $h+r$ is the distance from the center of the Earth to the edge of the area of sky coverage, and sr is the unit steradian.
+In reality, this view is not quite 180$^{\circ}$, but more often around 140$^{\circ}$ due to the fact that lenses wide enough to take in 180$^{\circ}$ end up just taking in the edges of the all-sky cameras chassis instead. Our own camera is only able to see 140$^{\circ}$ into the sky. Figure \ref{fig:atmosphere} shows how much of the sky is covered.
 \begin{figure}[ht!]
 	\centering
 	\begin{tikzpicture}
@@ -81,11 +84,11 @@ In reality, this view is not quite 180$^{\circ}$, but more often around 140$^{\c
 	\caption{The all-sky camera can see distance $z$. The area of the Earth it covers are between the points that have the endpoints of $z$ as their zeniths along height $h$. Note that the height of the atmosphere where ablation occurs is often less than 100 kilometers, while the radius of the Earth is 6,371 kilometers, so the radii are not to scale.}
 	\label{fig:atmosphere}
 \end{figure}
-
-
+The amount of Earth being covered is defined by taking the edges of the all-sky camera view and treating those as zeniths. A zenith is the point in the sky that is directly above a certain point on Earth. Those points on Earth are the edges of how much of the Earth it covers. Knowing how much of the Earth is covered is useful because those zeniths provide the points where another camera can be placed to overlap one half of the original camera's view of the sky. Overlapping is useful because multiple camera angles allow the triangulation of the object's position and velocity. The amount of sky coverage can be written, using trigonometry, as
 \begin{equation} \label{eq:coverage}
 	\textrm{Sky Coverage} = \Omega(h+r)^2
 \end{equation}
+where $\Omega$ is the steradian, $h+r$ is the distance from the center of the Earth to the edge of the area of sky coverage.
 
 Using an average height $h$ of 75 kilometers, the area of the sky that is covered by an all-sky camera such as ours is around 119,000 square kilometers. This is equal to 118,000 square kilometers of land coverage. This is only 0.023 percent of the Earth that is covered, so there is a need for more all-sky cameras to ensure better coverage. Our all-sky camera has been in two locations, Salem and Baker City, Oregon. These two spots provide examples of how much land can be covered in Figure \ref{fig:coverage}. Even for two locations in the same state, there is no overlap.
 
@@ -125,11 +128,13 @@ Software accompanies all-sky camera systems to perform meteor detections. This s
 
 \section{Analyzing Fireballs}
 
-An all-sky camera can result in the acquisition of many pieces of useful information about a meteor. That being said, there are parameters a single all-sky camera cannot extract that a full network can, such as velocity and height. If there is a system of multiple cameras detecting the same meteor the orbit can be extrapolated as well \cite{Trigo-Rodriguez2009}. The Canadian fireball network detected 259 fireballs in 1996, and was able to get values for height, velocity, magnitude and mass for every fireball \cite{Halliday1996}. A single all-sky camera would only be able to get magnitude, and would have to extract mass from that. For a full fireball network, having velocity means it can find the mass using equation \ref{eq:mass}, where $m_d$ is the mass at a certain point in the flight, $A$ is the cross sectional area at that same point in flight, $\rho_a$ is the atmospheric density, and $v$ is velocity \cite{Halliday1996}.
-
-\begin{equation} \label{eq:mass}
+An all-sky camera can result in the acquisition of many pieces of useful information about a meteor. That being said, there are parameters a single all-sky camera cannot extract that a full network can, such as velocity and height. If there is a system of multiple cameras detecting the same meteor the orbit can be extrapolated as well \cite{Trigo-Rodriguez2009}. The Canadian fireball network detected 259 fireballs in 1996, and was able to get values for height, velocity, magnitude and mass for every fireball \cite{Halliday1996}. A single all-sky camera would only be able to get magnitude, and would have to extract mass from that. For a full fireball network, having velocity means it can find the mass with the relationship
+\begin{equation} 
+	\label{eq:mass}
 	\frac{m_d}{A} = -\frac{\rho_a v^2}{2 \dot v}
 \end{equation}
+where $m_d$ is the mass at a certain point in the flight, $A$ is the cross sectional area at that same point in flight, $\rho_a$ is the atmospheric density, and $v$ is velocity \cite{Halliday1996}.
+
 
 Not only does the velocity help determine mass in this situation, it also can be used to work backwards to find an estimate of the velocity before the affects of drag began slowing it down. This means that all-sky cameras can be used to gather data on the potential velocities of meteor showers in open space. The SPanish Meteor Network (SPMN) used velocity data to extrapolate such pre-atmosphere velocities with their five station setup in 2006 \cite{Trigo-Rodriguez2007}. 
 
@@ -171,11 +176,9 @@ where $L$ is again luminosity, $T$ is kinetic energy, and $\tau$ is the luminous
 \begin{equation}
 	T = \frac{v^2}{2}\frac{dm}{dt},
 \end{equation}
-
 where $v$ is velocity, $m$ is mass, and $t$ is time. Again, with only one all-sky camera assumptions about the velocity have to be made, but as velocities of meteors vary at most by a factor of 2, this assumption does not create problems along the log-log graph of Figure~\ref{fig:population}. Again, this could be easily resolved by having multiple all-sky cameras detect the event. Notice that while the mass of an object is usually treated as constant when calculating kinetic energy, since the entirety of the object's mass is burning up, we can integrate over the entire event to find that original mass. This integral can be written as
 
 \begin{equation}
 m =\int \frac{2L}{\tau v^2}\,dt.
 \end{equation}
-
 This integration is why the entire light curve of a meteor event needs to be collected. The methods for doing so is described in the next section.

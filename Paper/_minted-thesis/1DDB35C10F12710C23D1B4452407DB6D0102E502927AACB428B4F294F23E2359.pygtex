@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}Packages}
+\PYG{o}{\PYGZpc{}}\PYG{n}{matplotlib} \PYG{n}{inline}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k+kn}{as} \PYG{n+nn}{plt}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{seaborn} \PYG{k+kn}{as} \PYG{n+nn}{sns}
+\PYG{k+kn}{import} \PYG{n+nn}{pandas} \PYG{k+kn}{as} \PYG{n+nn}{pd}
+
+\PYG{c+c1}{\PYGZsh{}Function}
+\PYG{k}{def} \PYG{n+nf}{Plotting}\PYG{p}{(}\PYG{n}{NasaCSV}\PYG{p}{,} \PYG{n}{OursCSV}\PYG{p}{,} \PYG{n}{TimeOffset}\PYG{p}{,}\PYG{n}{Date}\PYG{p}{):}
+    \PYG{n}{Nasa} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{n}{NasaCSV}\PYG{p}{)}
+    \PYG{n}{Nasa} \PYG{o}{=} \PYG{n}{Nasa}\PYG{o}{.}\PYG{n}{set\PYGZus{}index}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Time\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{n}{Ours} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{n}{OursCSV}\PYG{p}{)}
+    \PYG{n}{Ours}\PYG{o}{.}\PYG{n}{Time} \PYG{o}{+=} \PYG{n}{TimeOffset}
+    \PYG{n}{Ours} \PYG{o}{=} \PYG{n}{Ours}\PYG{o}{.}\PYG{n}{set\PYGZus{}index}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Time\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{n}{FireballData} \PYG{o}{=} \PYG{n}{Nasa}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{n}{Ours}\PYG{p}{,} \PYG{n}{rsuffix}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}O\PYGZsq{}}\PYG{p}{,}\PYG{n}{how}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}outer\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{interpolate}\PYG{p}{()}
+    \PYG{n}{FireballData}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}dM\PYGZsq{}}\PYG{p}{]} \PYG{o}{=}\PYG{n}{FireballData}\PYG{o}{.}\PYG{n}{Mag} \PYG{o}{\PYGZhy{}} \PYG{n}{FireballData}\PYG{o}{.}\PYG{n}{MagO}
+	\PYG{n}{FireballData}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}YOffset\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{FireballData}\PYG{o}{.}\PYG{n}{dM}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{()}
+    \PYG{n}{FireballData}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Magnitude Difference\PYGZsq{}}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{n}{FireballData}\PYG{o}{.}\PYG{n}{dM}\PYG{o}{.}\PYG{n}{dropna}\PYG{p}{()}\PYG{o}{\PYGZhy{}}\PYG{n}{FireballData}\PYG{o}{.}\PYG{n}{dM}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{())}
+    \PYG{n}{FireballData}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}AdjustedMag\PYGZsq{}}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{n}{FireballData}\PYG{o}{.}\PYG{n}{MagO} \PYG{o}{+} \PYG{n}{FireballData}\PYG{o}{.}\PYG{n}{YOffset}\PYG{p}{)}
+    \PYG{n}{FireballData}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Fireball Event\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{Date}
+    \PYG{k}{return}\PYG{p}{(}\PYG{n}{FireballData}\PYG{p}{)}
+\end{Verbatim}
