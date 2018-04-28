@@ -27,11 +27,11 @@ In late November of 2017, D6 was able to capture an Iridium flare going over Col
 	\includegraphics[width=\linewidth]{/home/luke/Data/IridiumFlare/IridiumCurve.pdf}
 	\label{fig:Iridiumcurve}
 	\end{subfigure}
-\caption{While light curves are usually displayed in terms of magnitude, it's important to remember the source of those magnitude values: pixel values.}
+\caption{While light curves are usually displayed in terms of magnitude, it is important to remember the source of those magnitude values: pixel values.}
 \label{fig:IridiumCurves}
 \end{figure}
 
-Some issues did emerge from this event, however. Ideally, we would like to be able to compare the maximum magnitude from the light curve our program created to the recorded maximum magnitude of the event. Unfortunately, the Iridium flare was so bright that it oversaturated our camera. This can be seen in Figure~\ref{fig:ObjectPlot055}. Figure~\ref{fig:ObjectPlot055} allows us to see that the center of event is too bright for our camera's sensors. As a result, we are unable to find the current maximum magnitude of that Iridium flare event. This saturation also explains why the peaks in Figure~\ref{fig:IridiumCurves} last for a substantial portion of the event; the true peak brightness isn't visible on those graphs. As a result, this light curve would be underestimating the true peak brightness of the flare.
+Some issues did emerge from this event, however. Ideally, we would like to be able to compare the maximum magnitude from the light curve our program created to the recorded maximum magnitude of the event. Unfortunately, the Iridium flare was so bright that it oversaturated our camera. This can be seen in Figure~\ref{fig:ObjectPlot055}. Figure~\ref{fig:ObjectPlot055} allows us to see that the center of event is too bright for our camera's sensors. As a result, we are unable to find the current maximum magnitude of that Iridium flare event. This saturation also explains why the peaks in Figure~\ref{fig:IridiumCurves} last for a substantial portion of the event; the true peak brightness is not visible on those graphs. As a result, this light curve would be underestimating the true peak brightness of the flare.
 
 \begin{figure}[ht!]
 	\centering
@@ -57,7 +57,7 @@ The first event we acquired from NASA's database was one that occurred on March 
 	\label{fig:infographic}
 \end{figure}
 
-While the light curve is crucial to compare our results to, the infographic also contains other crucial information for star calibration such as the video's location, the event's direction, and the time of the event. This allows us to make use of planetarium software to view how the stars were positioned and oriented so we can identify a valid reference star. For our purposes, we used Stellarium. Stellarium is a free, open-source\footnote{Open-source projects are one the best catalysts of intelligent thought in a society. If possible, they should be used at all costs} planetarium software available on all major operating systems\footnote{Available on most, but perhaps not all, Linux distributions}.
+While the light curve is crucial to compare our results to, the infographic also contains other crucial information for star calibration such as the video's location, the event's direction, and the time of the event. This allows us to make use of planetarium software to view how the stars were positioned and oriented so we can identify a valid reference star. For our purposes, we used Stellarium. Stellarium is a free, open-source\footnote{Open-source projects are one the best catalysts of intelligent thought in a society. If possible, they should be used at all costs.} planetarium software available on all major operating systems\footnote{Available on most, but perhaps not all, Linux distributions.}.
 
 With Stellarium, we were able to obtain a view of the position of celestial objects at that time, as seen in Figure~\ref{fig:Starposition}. The Stellarium image in Figure~\ref{fig:Starposition} was then compared to the thresholded video frames of the event in order to try to identify one of the brighter objects. Assuming the Stellarium view was positioned correctly, celestial objects should appear to be in the same place in both images. A few pieces of data can be extracted from the two images. The only piece of data that we need is the magnitude of a single object, which can be obtained by clicking on that object in Stellarium. For this calibration, Jupiter was used with its magnitude of -2.35 at the time. Another piece of data that can be extracted is that the event in question was most likely from the $\theta$-Virginids or $\pi$-Virginids, as the event is in the same area as those two meteor showers were on that day. This is another piece of strong evidence that the sky is oriented correctly in the images.
 
@@ -79,7 +79,7 @@ Now that we had a celestial object with a magnitude to calibrate to, the program
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{LightCurveComparison.pdf}
+	\includegraphics[width=0.5\linewidth]{LightCurveComparison.pdf}
 	\caption{The light curves from the program and from NASA. The NASA light curves are not calibrated, so they are shifted up for easier comparison purposes.}
 	\label{fig:nasa}
 \end{figure}
@@ -88,21 +88,21 @@ One aspect of the data that does not seem to fit well is the beginning of the ev
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{/home/luke/Data/NASA/2018-03-21-0814/201803210814Residuals.pdf}}
+	\includegraphics[width=0.5\linewidth]{/home/luke/Data/NASA/2018-03-21-0814/201803210814Residuals.pdf}}
 	\caption{The residuals are randomly distributed except at the very beginning of the event. Ideally, they would be completely randomly distributed.}
 	\label{fig:residuals1}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.6\linewidth]{ViolinPlot1.pdf}
+	\includegraphics[width=.5\linewidth]{ViolinPlot1.pdf}
 	\caption{A violin plot can show the residuals in a histogram-like form. Here, we can see the majority of the residuals are close to zero as that is where the bulk of the violin is.}
 	\label{fig:violinplot}
 \end{figure}
 
 Light curve comparisons and the responding violin plots were then made for other events pulled from NASA's all-sky camera network. The light curves are shown in Figure~\ref{fig:lightcurves}. Again, it should be stated that the Y-axes of these graphs are shifted magnitudes, as the NASA light curves were shifted up for comparison purposes once again. 
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
 \centering
 \begin{subfigure}{.45\textwidth}
   \centering
@@ -128,9 +128,9 @@ Light curve comparisons and the responding violin plots were then made for other
 \label{fig:lightcurves}
 \end{figure}
 
-The choppiness of some of the curves, specifically the one for the April 11 event, makes it somewhat difficult to see how much the two light curves agree with other. As a result, violin plots were made for the datasets again. This is seen in Figure~\ref{fig:twoviolin}. The results were generally in agreement with each other, with a few points being outliers once again, specifically for the events on March 21 and April 10. In order to get a general idea on the accuracy in the aggregate, Figure~\ref{fig:twoviolin} also shows the combined violin plot. Again, there a few outliers, but in general the data agree with each other, with the majority of the points being within 0.5 magnitude in either direction of the mean.
+The choppiness of some of the curves, specifically the one for the April 11 event, makes it somewhat difficult to see how much the two light curves agree with other. As a result, violin plots were made for the datasets again. Those violin plots can be seen in Figure~\ref{fig:twoviolin}. The results were generally in agreement with each other, with a few points being outliers once again, specifically for the events on March 21 and April 10. In order to get a general idea on the accuracy for the data in the aggregate, Figure~\ref{fig:twoviolin} also shows the combined violin plot of all the events. Once again, there a few outliers, but in general the data agree with each other, with the majority of the points being within 0.5 magnitude in either direction of the mean.
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
 \centering
 \begin{subfigure}{.5\textwidth}
 	\centering
@@ -146,7 +146,8 @@ The choppiness of some of the curves, specifically the one for the April 11 even
 \label{fig:twoviolin}
 \end{figure}
 
-Most of the plots show a few data points do not agree with NASA's light curve. This discrepancy may be because the program does not take into account parameters such as atmospheric extinction\footnote{This is discussed as a problem to address in the Conclusion chapter}. These parameters are more influential if the object moves radially across the night sky in the camera's frame. If NASA did take into account this affect, then that would explain the difference. 
+Most of the plots show a few data points do not agree with NASA's light curve. This discrepancy may be because the program does not take into account parameters such as atmospheric extinction\footnote{This is discussed as a problem to address in the Chapter 5.}. These parameters are more influential if the object moves radially across the night sky in the camera's frame. If NASA did take into account this affect, then that would explain the difference. 
+
 
 \section{Fireballs Detected with D6}
 

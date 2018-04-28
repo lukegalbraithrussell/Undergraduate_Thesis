@@ -52,7 +52,7 @@ Why does the user need to click on the objects? The program needs a general idea
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\linewidth]{orange3.pdf}
-	\caption{Each click gives crucial information for latter functions: The initial coordinates of the meteor and reference star.}
+	\caption{Each click gives crucial information for later functions: The initial coordinates of the meteor and reference star.}
 	\label{fig:clickfinder}
 \end{figure}
 
@@ -73,15 +73,15 @@ The location of the object is now set as the exact pixel the user clicked on. Th
 The script takes the X and Y coordinates of where the user thinks the object is and isolates that part of the frame. The image is then blurred using an \texttt{OpenCV} command that blurs the edges of the pixels using a Gaussian equation to fade their light. This is done as an array of pixel values is discrete, and not ideal to model a continuous equation, such as a Gaussian, off of. The image is then thresholded at a certain percentage. Thresholding essentially divides all pixels into a group lighter than a certain percentage and a group darker than that percentage. The darker pixels are all turned black, and the lighter pixels are all turned white. This, combined with the blurring, turns the object into a white round object. An example of this process can be seen in Figure~\ref{fig:ThresholdComparison}. This process also has the benefit of making it easier for the user to locate the object. It is especially useful for finding the reference star, which is often much dimmer than the meteor. 
 \begin{figure}
 \centering
-\begin{subfigure}{.4\textwidth}
+\begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{thresholdd6zoom.png}
+  \includegraphics[width=.6\linewidth]{thresholdd6zoom.png}
   \label{fig:nothresholdd6}
   \subcaption{The image before being thresholded.}
 \end{subfigure}%
-\begin{subfigure}{.4\textwidth}
+\begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{nothresholdd6zoom.png}
+  \includegraphics[width=.6\linewidth]{nothresholdd6zoom.png}
   \label{fig:thresholdd6}
   \subcaption{The image after being thresholded.}
 \end{subfigure}
@@ -105,7 +105,7 @@ The formula for a Gaussian curve is
 \begin{equation}
 	ae^{-(x-x_0)^2/(2\sigma^2)}
 \end{equation}
-where a is the amplitude, $x$ is the point along the curve, $x_0$ is the center of the curve, and $\sigma$ is the standard deviation. A package is used from the Python library called \texttt{SciPy}\footnote{The author prefers the package to be pronounced ``skip-ee'' when discussing any matter involving this paper}. A Gaussian fitting will output a mean and standard deviation, but first the \texttt{SciPy} function needs a strong estimate of the mean to attempt to fit the data. This is why the center of the object was calculated using the contour method previously discussed. In our program, we calculate two one-dimensional Gaussian curves across that center. The function fits the Gaussian curves to 20-pixel slices centered at the point in the X and Y directions. The Gaussian curve also returns its mean, and the mean of the X slice and Y slice is updated to represent the objects location once again, which is used to fine-tune the location of the event. The clicking, contouring, and Gaussian fitting functions can be thought of as a sequence of steps to acquire the most accurate center, along with the acquisition of the standard deviation data mentioned. The curves can be plotted and saved as PNGs. The Gaussian curves of one such frame can be seen in Figure~\ref{fig:testplot}.
+where a is the amplitude, $x$ is the point along the curve, $x_0$ is the center of the curve, and $\sigma$ is the standard deviation. A package is used from the Python library called \texttt{SciPy}\footnote{The author prefers the package to be pronounced ``skip-ee'' when discussing any matter involving this paper.}. A Gaussian fitting will output a mean and standard deviation, but first the \texttt{SciPy} function needs a strong estimate of the mean to attempt to fit the data. This is why the center of the object was calculated using the contour method previously discussed. In our program, we calculate two one-dimensional Gaussian curves across that center. The function fits the Gaussian curves to 20-pixel slices centered at the point in the X and Y directions. The Gaussian curve also returns its mean, and the mean of the X slice and Y slice is updated to represent the objects location once again, which is used to fine-tune the location of the event. The clicking, contouring, and Gaussian fitting functions can be thought of as a sequence of steps to acquire the most accurate center, along with the acquisition of the standard deviation data mentioned. The curves can be plotted and saved as PNGs. The Gaussian curves of one such frame can be seen in Figure~\ref{fig:testplot}.
 
 \begin{figure}[h!]
 	\centering
@@ -124,14 +124,14 @@ A Gaussian curve is to be expected from something such as a point light source a
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=.5\linewidth]{NoCircles.png}
+	\includegraphics[width=.4\linewidth]{NoCircles.png}
 	\caption{The object is located in the center of this slice, and its light fades radially out unevenly from that center.}
 	\label{fig:NoCircles}
 \end{figure}
 
 There are few more details in the calculation of the radius from the standard deviations, however. The X and Y radii are defined by multiplying their respective Gaussian curve standard deviations by three, and then rounding up to the nearest integer. While the standard deviations themselves may be decimals, the image consists of only integer values, so any other number would not be compatible. In other words, one can not sum over a fraction of a pixel; either the entire pixel must be used or none of it is. The radius of the circle is then defined to be whichever of these two radii happen to be the largest. They should be the same in theory, but may vary by a pixel due to the rounding process mentioned. The pixels within this radius will be summed over in the next section. 
 
-Why do we sum over all the pixel values inside the radius instead of just integrating over the Gaussian fit? Figure~\ref{fig:NoCircles} also provides a strong piece of visual evidence why someone wanting to just integrate over a two-dimensional Gaussian using the X and Y Gaussian slices would be oversimplifying the nuances in the data. First off, a Gaussian function is by definition a continuous function; that is one of the reasons it is so nice for finding the radius, as all of its values are usable. However, the data itself consists of pixels, a discrete form of data. This is why the program runs the radius up to the nearest integer; one cannot sum over a fraction of a pixel. This discreteness in the data is inherently different than a continuous model, and if the sum was found off that, it would be making too many assumptions about what the data \textit{could} be instead of what it actually \textit{is}\footnote{And while some assumptions have to be made in this photometry analysis, for that reason we cannot really afford to make any superfluous assumptions}.
+Why do we sum over all the pixel values inside the radius instead of just integrating over the Gaussian fit? Figure~\ref{fig:NoCircles} also provides a strong piece of visual evidence why someone wanting to just integrate over a two-dimensional Gaussian using the X and Y Gaussian slices would be oversimplifying the nuances in the data. First off, a Gaussian function is by definition a continuous function; that is one of the reasons it is so nice for finding the radius, as all of its values are usable. However, the data itself consists of pixels, a discrete form of data. This is why the program runs the radius up to the nearest integer; one cannot sum over a fraction of a pixel. This discreteness in the data is inherently different than a continuous model, and if the sum was found off that, it would be making too many assumptions about what the data \textit{could} be instead of what it actually \textit{is}\footnote{And while some assumptions have to be made in this photometry analysis, for that reason we cannot really afford to make any superfluous assumptions.}.
 
 All of this reasoning is still making one critical assumption of the data: that it is perfectly radially symmetrical. With the actual photometric data, we can clearly see there are some fluctuations in how wide the radius is at different points. In Figure~\ref{fig:NoCircles}, the object's appearance is stretched in the upper-left direction and in the upper half in general. This is why it is critical to remember that the Gaussian is merely an approximation used to automate the calculation of the radius. It is \textit{not} perfect, and does not represent the data particularly well as a whole. What it does do well, however, is give a solid representation of where the majority of the pixels are.
 
@@ -150,27 +150,27 @@ The radius can give us the lengths along the axis, but not the pixels of the ent
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=0.5\linewidth]{Radius.png}
+	\includegraphics[width=0.4\linewidth]{Radius.png}
 	\caption{The pixels in red are within the calculated radius for this fireball.}
 	\label{fig:radius}
 \end{figure}
 
-We need to remove the background light from the calculation so we can sum over the pixel values attributed to only the object's light, and not from any other source. If the background light is not subtracted the values of the pixels would be artificially elevated due to the existence of that inherent background light. To do this, we need to create a second radius around the circle that can be used to determine the average value of the background light. The background light can be somewhat noisy, so that is why we take an average of a group of background pixels. The pixels in question are chosen by finding pixels within a radius of the object's radius + 10 pixels, excluding the pixels inside the object's radius. This creates a ring around the object's radius, as shown in Figure~\ref{fig:background}. In theory, if the Gaussian-based radius is too large, the background light subtraction will mitigate that overestimation.
+We need to remove the background light from the calculation so we can sum over the pixel values attributed to only the object's light, and not from any other source. If the background light is not subtracted the values of the pixels would be artificially elevated due to the existence of that inherent background light. To do this, we need to create a second radius around the circle that can be used to determine the average value of the background light. The background light can be somewhat noisy, so that is why we take an average of a group of background pixels. The pixels in question are chosen by finding pixels within a radius of the object's radius plus 10 pixels, excluding the pixels inside the object's radius. This creates a ring around the object's radius, as shown in Figure~\ref{fig:background}. In theory, if the Gaussian-based radius is too large, the background light subtraction will mitigate that overestimation.
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=0.5\linewidth]{BackgroundRing.png}
+	\includegraphics[width=0.4\linewidth]{BackgroundRing.png}
 	\caption{The pixels in yellow are the values being used to find the average background value. The object can be seen inside the yellow ring.}
 	\label{fig:background}
 \end{figure}
 
 One problem that occasionally happens is the background search radius will go beyond the actual size of the image. This problem occurs when an object gets close to the sides of the image. In order to prevent this and crashing the program, a loop goes through the pixel indices in the background list and checks to make sure they are not greater than the dimensions of the image. If any are, they are ignored. 
 
-There is also a one pixel buffer between the two areas for extra wiggle room. This is important due to the conversion to integers when finding the two radii. The radii are not perfect circles, and the distance may also be in the middle of a pixel, you can not just split it. Both of the radii calculations round up, and take that whole pixel, which could create a pixel on the edge of the background radius and the object radius being used in both summations if there was not a buffer zone. This is easily seen when both the object's radius and the background ring is displayed on the same picture, such as in Figure~\ref{fig:BothCircles}.
+There is also a one pixel buffer between the two areas for extra wiggle room. This is important due to the conversion to integers when finding the two radii. The radii are not perfect circles, and as the distance may also be in the middle of a pixel, you can not just split it. Both of the radii calculations round up, and take that whole pixel, which could create a pixel on the edge of the background radius and the object radius being used in both summations if there was not a buffer zone. This is easily seen when both the object's radius and the background ring is displayed on the same picture, such as in Figure~\ref{fig:BothCircles}.
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=0.5\linewidth]{BothCircles.png}
+	\includegraphics[width=0.4\linewidth]{BothCircles.png}
 	\caption{The pixels in orange are within the object's radius. The yellow pixels are the background ring. The gray area in-between is the buffer.}
 	\label{fig:BothCircles}
 \end{figure}
@@ -191,7 +191,7 @@ where $M_I$ and $M_C$ are the instrumental magnitudes and catalog magnitudes of 
 
 This is why a reference star is needed. The object in question, the fireball, does not have a catalog magnitude, but the reference star does. This calculates the offset for the camera, which then can be applied to Equation~\ref{equation:instrument} for the fireball. This offset is calculated as an average over the entire event. The average is calculated due to the small amount of fluctuation each frame may have in their offsets due to variables such as atmospheric distortion or haze.
 
-The program runs the previously mentioned functions for every frame in the video, and loops through this process until the video is completed. This is summarized in Figure~\ref{fig:moreflow}.In order to successfully loop through the frames, there needs to be a way for the program to jump from the center of the object in one frame to the center in the following frame. The process of calculating a more precise center through each function allows the program to adjust the previous frame's center to the next frame's center without any difficulty, as the amount of pixels the center of the object appears to travel in each frame is usually no farther a distance than the average user's click is from the actual event for the first frame. This process is shown in Figure~\ref{fig:updatingxy}.
+The program runs the previously mentioned functions for every frame in the video, and loops through this process until the video is completed. This is summarized in Figure~\ref{fig:moreflow}. In order to successfully loop through the frames, there needs to be a way for the program to jump from the center of the object in one frame to the center in the following frame. The process of calculating a more precise center through each function allows the program to adjust the previous frame's center to the next frame's center without any difficulty, as the amount of pixels the center of the object appears to travel in each frame is usually no farther a distance than the average user's click is from the actual event for the first frame. This process is shown in Figure~\ref{fig:updatingxy}.
 
 \begin{figure}[ht!]
 	\centering

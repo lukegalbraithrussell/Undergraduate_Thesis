@@ -1,4 +1,28 @@
 \appendix
+\chapter{Python Packages}
+The code used in the process of performing this research was done in Python. The actual code can be found in Appendix B. It contains the script used to analyze the data after it was collected, the script used to acquire the photometric data, and the script used to create the graphic user interface. An integral part of all three scripts were the use of Python packages in their implementation. A description of those packages are described, while the rest of the code should hopefully be self-explanatory.
+
+\subsection*{Pandas}
+
+\texttt{Pandas} is a software library that can create table-like data structures for basically any type of data. It is really great for consolidating all one's data in one \texttt{Pandas DataFrame}, and makes it extremely simple to pull certain parts of that data for analysis. For this project, all of the time and magnitude data for both NASA and our own light curves for all events were thrown into a \texttt{DataFrame} and then pieces of the data were used for the plots found in the Chapter 4.
+
+
+\subsection*{NumPy}
+
+\texttt{NumPY} is a softare library that makes manipulating lists substantially easier. The majority of the lists used in the process of the photometric analysis script were NumPy arrays. 
+
+\subsection*{SciPy}
+
+\texttt{SciPy} is an incredibly powerful library that can solve and deal with many parts of mathematical equations. The photometric analysis script used this power for fitting Gaussian curves to the data.
+
+\subsection*{OpenCV}
+\texttt{OpenCV} is a computer vision library available in multiple languages. Without \texttt{OpenCV}, it would not be possible to analyze the data from the videos and their frames, as it pulls in that data.
+
+\subsection*{Matplotlib and Seaborn}
+\texttt{Matplotlib} is a library for plotting data, and \texttt{Seaborn} improves upon that library. The majoriy of the plots in Chapter 4, along with the frame visuals in the Chapter 3, were plotted with \texttt{Matplotlib}. Seaborn's styles and themes were applied to those plots as \texttt{Matplotlib}'s ability in that regard is limited, and its default colors are a poor choice, especially for readers with partial or full color-blindness.
+
+\subsection*{Tkinter}
+\texttt{Tkinter} is one of the most popular GUI toolkits for Python. It was used to create and organize the graphic user interface that allows the user to run the photometry script. Its functions make up the bulk of the GUI script in Appendix B.
 
 \chapter{Code}
 
