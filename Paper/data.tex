@@ -6,7 +6,7 @@ There are three types of data we can use to test the accuracy and reliability of
 
 The first step in testing out the script is to run it in conjunction with video collected directly from D6. A simple way to do this is to run it against a video clip of an Iridium flare that D6 captured. There are two benefits of testing against an Iridium flare. First, Iridium flares are predicted online and their maximum magnitudes are recorded. We can find the maximum value from our light curve and compare it to the known maximum magnitude. Second, the light curves from Iridium flares are very smooth, and the flare moves a minimal amount, reducing risk of errors due to tracking. This makes it easy to notice any discrepancies in individual frames. We have collected two Iridium flare events using D6. 
 
-In late November of 2017, D6 was able to capture an Iridium flare going over Collins Hall at Willamette University in Salem, Oregon. The first frame of this event is shown as Figure~\ref{fig:Iridium}. The program was then ran using this event. Its created light curve can be seen in Figure~\ref{fig:IridiumCurves}. The first thing to check is if it qualitatively agrees with visual inspection of the event's video. The light curves shown in Figure~\ref{fig:IridiumCurves} agree with that. So in a qualitative sense, the photometry program is capable of tracking the event and measuring its light. 
+In late November of 2017, D6 was able to capture an Iridium flare going over Collins Hall at Willamette University in Salem, Oregon. The first frame of this event is shown as Figure~\ref{fig:Iridium}. The program was then run on this event's footage. Its created light curve can be seen in Figure~\ref{fig:IridiumCurves}. The first thing to check is if it qualitatively agrees with visual inspection of the event's video. The light curves shown in Figure~\ref{fig:IridiumCurves} agree with that. So in a qualitative sense, the photometry program is capable of tracking the event and measuring its light. 
 
 \begin{figure}[h!]
 	\centering
@@ -59,7 +59,7 @@ The first event we acquired from NASA's database was one that occurred on March 
 
 While the light curve is crucial to compare our results to, the infographic also contains other crucial information for star calibration such as the video's location, the event's direction, and the time of the event. This allows us to make use of planetarium software to view how the stars were positioned and oriented so we can identify a valid reference star. For our purposes, we used Stellarium. Stellarium is a free, open-source\footnote{Open-source projects are one the best catalysts of intelligent thought in a society. If possible, they should be used at all costs.} planetarium software available on all major operating systems\footnote{Available on most, but perhaps not all, Linux distributions.}.
 
-With Stellarium, we were able to obtain a view of the position of celestial objects at that time, as seen in Figure~\ref{fig:Starposition}. The Stellarium image in Figure~\ref{fig:Starposition} was then compared to the thresholded video frames of the event in order to try to identify one of the brighter objects. Assuming the Stellarium view was positioned correctly, celestial objects should appear to be in the same place in both images. A few pieces of data can be extracted from the two images. The only piece of data that we need is the magnitude of a single object, which can be obtained by clicking on that object in Stellarium. For this calibration, Jupiter was used with its magnitude of -2.35 at the time. Another piece of data that can be extracted is that the event in question was most likely from the $\theta$-Virginids or $\pi$-Virginids, as the event is in the same area as those two meteor showers were on that day. This is another piece of strong evidence that the sky is oriented correctly in the images.
+With Stellarium, we were able to obtain a view of the position of celestial objects at that time, as seen in Figure~\ref{fig:Starposition}. The Stellarium image in Figure~\ref{fig:Starposition} was then compared to the thresholded video frames of the event in order to try to identify one of the brighter objects. Assuming the Stellarium view was positioned correctly, celestial objects should appear to be in the same place in both images. A few pieces of data can be extracted from the two images. The only piece of data that we need is the magnitude of a single object, which can be obtained by clicking on that object in Stellarium. For this calibration, Jupiter was used with its magnitude of -2.35 at the time. Another piece of data that can be extracted is that the event in question was most likely from the $\theta$-Virginids or $\pi$-Virginids, as the event is in the same area as those two meteor showers were happening on that day. This is another piece of strong evidence that the sky is oriented correctly in the images.
 
 \begin{figure}
 \centering
@@ -75,11 +75,11 @@ With Stellarium, we were able to obtain a view of the position of celestial obje
 \label{fig:Starposition}
 \end{figure}
 
-Now that we had a celestial object with a magnitude to calibrate to, the program was ran on the event. When it finished, the end result is the magnitude of each frame plotted over the time of the event, showing the light curve of the event. The light curve of this event from the program is shown in navy in Figure~\ref{fig:nasa}. The general trend shows that program's methodology in calculating the magnitude is sound. We would expect the brightness to gradually grow before diminishing again, and the graph agrees with that. This event in question was detected off from one of NASA's cameras. As a result, we can compare our light curve to NASA's to double check. NASA's light curve can also be seen in Figure~\ref{fig:nasa}. They are pretty similar.
+Now that we had a celestial object with a magnitude to calibrate to, the program was run on the event. When it finished, the end result is the magnitude of each frame plotted over the time of the event, showing the light curve of the event. The light curve of this event from the program is shown in Figure~\ref{fig:nasa}. The general trend shows that program's methodology in calculating the magnitude is sound. We would expect the brightness to gradually grow before diminishing again, and the graph agrees with that. As previously mentioned, this event was detected off of one of NASA's cameras so we can compare our light curve to NASA's to double check. NASA's light curve can also be seen in Figure~\ref{fig:nasa}. The light curves' general shapes align well.
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=0.5\linewidth]{LightCurveComparison.pdf}
+	\includegraphics[width=0.55\linewidth]{LightCurveComparison.pdf}
 	\caption{The light curves from the program and from NASA. The NASA light curves are not calibrated, so they are shifted up for easier comparison purposes.}
 	\label{fig:nasa}
 \end{figure}
@@ -128,7 +128,7 @@ Light curve comparisons and the responding violin plots were then made for other
 \label{fig:lightcurves}
 \end{figure}
 
-The choppiness of some of the curves, specifically the one for the April 11 event, makes it somewhat difficult to see how much the two light curves agree with other. As a result, violin plots were made for the datasets again. Those violin plots can be seen in Figure~\ref{fig:twoviolin}. The results were generally in agreement with each other, with a few points being outliers once again, specifically for the events on March 21 and April 10. In order to get a general idea on the accuracy for the data in the aggregate, Figure~\ref{fig:twoviolin} also shows the combined violin plot of all the events. Once again, there a few outliers, but in general the data agree with each other, with the majority of the points being within 0.5 magnitude in either direction of the mean.
+The choppiness of some of the curves, specifically the one for the April 11 event, makes it somewhat difficult to see how much the two light curves agree with each other. As a result, violin plots were made for the datasets again. Those violin plots can be seen in Figure~\ref{fig:twoviolin}. The results were generally in agreement with each other, with a few points being outliers once again, specifically for the events on March 21 and April 10. In order to get a general idea on the accuracy for the data in the aggregate, Figure~\ref{fig:twoviolin} also shows the combined violin plot of all the events. Once again, there a few outliers, but in general the data agree with each other, with the majority of the points being within 0.5 magnitude in either direction of the mean.
 
 \begin{figure}[h!]
 \centering
@@ -146,12 +146,12 @@ The choppiness of some of the curves, specifically the one for the April 11 even
 \label{fig:twoviolin}
 \end{figure}
 
-Most of the plots show a few data points do not agree with NASA's light curve. This discrepancy may be because the program does not take into account parameters such as atmospheric extinction\footnote{This is discussed as a problem to address in the Chapter 5.}. These parameters are more influential if the object moves radially across the night sky in the camera's frame. If NASA did take into account this affect, then that would explain the difference. 
+Most of the plots show a few data points do not agree with NASA's light curve. This discrepancy may be because the program does not take into account parameters such as atmospheric extinction\footnote{This is discussed as a problem to address in the Chapter 5.}. These parameters are more influential if the object moves radially across the night sky in the camera's frame. If NASA did take into account this affect, then that would explain some of the difference. 
 
 
 \section{Fireballs Detected with D6}
 
-Ultimately, however, the goal of our research is to show our all-sky camera is a viable alternative to previously established systems. Therefore, the final test of the photometry script is the ability for it to detect new data collected from our own all-sky camera. With self-collected data, however, there are often problems that requires troubleshooting. One problem that emerged is a result of the interlacing of the video signal. Essentially, every other column or row is process and merged together. This occasionally results in frames that are visually confusing, as seen in Figure~\ref{fig:D6Glitch}. This, while visually unappealing, does not actually affect the pixel summation.
+Ultimately, however, the goal of our research is to show our all-sky camera is a viable alternative to previously established systems. Therefore, the final test of the photometry script is the ability for it to analyze new data collected from our own all-sky camera. With self-collected data, however, there are often problems that requires troubleshooting. One problem that emerged is a result of the interlacing of the video signal. Essentially, every other column or row is processed and merged together. This occasionally results in frames that are visually confusing, as seen in Figure~\ref{fig:D6Glitch}. This, while visually unappealing, does not actually affect the pixel summation.
 
 \begin{figure}[ht!]
 	\centering
@@ -160,7 +160,7 @@ Ultimately, however, the goal of our research is to show our all-sky camera is a
 	\label{fig:D6Glitch}
 \end{figure}
 
-The resulting light curve is still far from perfect, however, as shown in Figure~\ref{fig:D6LightCurve}. This is another possible example of what happens often when we are analyzing a dim event: there is a very low signal to noise ratio. This event just happened to be on the very dim side of the fireball spectrum, which is not a great starting point for troubleshooting problems. For this reason, along with the previously mentioned ones, this fireball event is not a strong test sample.
+The resulting light curve is still far from being exactly correct, however, as shown in Figure~\ref{fig:D6LightCurve}. This is another possible example of what happens often when we are analyzing a dim event: there is a very low signal to noise ratio. This event just happened to be a particularly dim one, which is not a great starting point for troubleshooting problems. For this reason, along with the previously mentioned ones, this fireball event is not a strong test sample.
 
 \begin{figure}[ht!]
 	\centering
